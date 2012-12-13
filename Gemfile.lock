@@ -173,10 +173,10 @@ DEPENDENCIES
   jquery-rails
   libnotify (= 0.5.9)
   mysql2 (~> 0.3.11)
-  rails (= 3.2.3)
+  rails (~> 3.2.0.rc2)
   rb-inotify (= 0.8.8)
   rspec-rails (= 2.9.0)
-  sass-rails (= 3.2.5)
+  sass-rails (~> 3.2.3)
   spork (= 0.9.0)
   sqlite3 (= 1.3.6)
   therubyracer
