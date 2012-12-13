@@ -23,3 +23,9 @@ production:
   database: db/production.sqlite3
   pool: 5
   timeout: 5000
+
+#adapter: mysql2
+#database: kollerdb
+#username: rkoller13
+#password: Koller4964
+#host: mysql.koller.special-topics.net
