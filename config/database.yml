@@ -19,10 +19,12 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  adapter: pg
+  database: d7kiql7h2o7e38
+  username: scgvvjbnjonjxl
+  password: Pv45wXQ57NY7f5zQ6RB0FIHCzH
   pool: 5
-  timeout: 5000
+  host: ec2-54-243-223-183.compute-1.amazonaws.com
 
 #adapter: mysql2
 #database: kollerdb
