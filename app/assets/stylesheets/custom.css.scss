@@ -15,22 +15,25 @@ body {
 		a {
 			text-decoration:none;
 		}
-		#logo {
-			float:left;
-		}
-		nav {
-			width:50%;
-			float:right;
-			ul.nav-pull-right {
-				list-style:none;
-				margin:0;
-				padding:0;
-				text-align:center;
-				li {
-					width:10%;
-					float:right;
-					a {
-						display:inline-block;
+		.container {
+			margin-top:0;
+			#logo {
+				float:left;
+			}
+			nav {
+				width:50%;
+				float:right;
+				ul.nav-pull-right {
+					list-style:none;
+					margin:0;
+					padding:0;
+					text-align:center;
+					li {
+						width:10%;
+						float:right;
+						a {
+							display:inline-block;
+						}
 					}
 				}
 			}
