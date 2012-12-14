@@ -9,10 +9,17 @@ body {
 	.navbar-inner {
 		margin-left:10px;
 		margin-right:10px;
+		#logo {
+			float:left;
+		}
 		.nav-pull-right {
 			display:inline;
-			li {
-				float:left;
+			ul {
+				list-style-type:none;
+				li {
+					width:10%;
+					float:left;
+				}
 			}
 		}
 	}
