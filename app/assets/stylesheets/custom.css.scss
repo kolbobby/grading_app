@@ -6,18 +6,25 @@ body {
 	background:rgb(112,132,145);
 	border-bottom-right-radius:15px;
 	border-bottom-left-radius:15px;
+	a {
+		text-decoration:none;
+	}
 	.navbar-inner {
 		margin-left:10px;
 		margin-right:10px;
 		#logo {
 			float:left;
 		}
-		ul.nav-pull-right {
-			display:inline;
-			list-style-type:none;
-			li {
-				width:10%;
-				float:left;
+		nav {
+			float:right;
+			text-align:center;
+			ul.nav-pull-right {
+				display:inline;
+				list-style-type:none;
+				li {
+					width:6%;
+					float:left;
+				}
 			}
 		}
 	}
