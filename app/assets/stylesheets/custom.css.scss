@@ -60,3 +60,19 @@ body {
 		background:rgb(156,145,145);
 	}
 }
+
+footer {
+	margin-top:35px;
+	padding-top:5px;
+	border-top:1px solid #eaeaea;
+	color:#999;
+	a {
+		color:#555;
+		&:hover {
+			color:#222;
+		}
+	}
+	small {
+		float:left;
+	}
+}
