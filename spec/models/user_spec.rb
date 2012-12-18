@@ -21,7 +21,15 @@ describe User do
 			student_with_same_name.name = @user.name.upcase
 			student_with_same_name.save
 		end
-
 		it { should_not be_valid }
+	end
+	describe "name with mixed case" do
+		let(:mixed_case_name) { "TeStIngAMIXedCasEName" }
+
+		it "should be saved all lower-case" do
+			@user.name = mixed_case_name
+			@user.save
+			@user.reload.name.should == mixed_case_name.downcase
+		end
 	end
 end

@@ -1,4 +1,6 @@
 GradingApp::Application.routes.draw do
+  resources :users
+
   root :to => "static_pages#index"
 
   match '/help', :to => 'static_pages#help'
