@@ -1,10 +1,7 @@
 GradingApp::Application.routes.draw do
   root :to => "static_pages#index"
-<<<<<<< HEAD
 
   match '/help', :to => 'static_pages#help'
-=======
->>>>>>> filling-in-layout
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
