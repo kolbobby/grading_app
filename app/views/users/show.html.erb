@@ -1,5 +1,25 @@
 <% provide(:title, @user.name) %>
-<h1><%= @user.name %></h1>
-<%= @user.grade_level %>
-<%= @user.period %>
-<%= @user.sign_in_teacher %>
+<div class="row pull-left">
+	<table>
+		<thead>
+			<tr>
+				<td></td>
+				<td><h3><%= @user.name %></h3></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="left-side"><span class="det">Grade:</span></td>
+				<td><%= @user.grade_level %></td>
+			</tr>
+			<tr>
+				<td class="left-side"><span class="det">Period:</span></td>
+				<td><%= @user.period %></td>
+			</tr>
+			<tr>
+				<td class="left-side"><span class="det">Teacher:</span></td>
+				<td><%= @user.sign_in_teacher %></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
