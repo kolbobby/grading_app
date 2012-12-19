@@ -15,14 +15,6 @@ describe User do
 		before { @user.name = "a" * 151 }
 		it { should_not be_valid }
 	end
-	describe "when name is already in database" do
-		before do
-			student_with_same_name = @user.dup
-			student_with_same_name.name = @user.name.upcase
-			student_with_same_name.save
-		end
-		it { should_not be_valid }
-	end
 	describe "name with mixed case" do
 		let(:mixed_case_name) { "TeStIngAMIXedCasEName" }
 
