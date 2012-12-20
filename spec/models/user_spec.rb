@@ -36,21 +36,4 @@ describe User do
 			end
 		end
 	end
-	describe "when uname format is valid" do
-		it "should be valid" do
-			unames = %w[rkoller fgerald rkinsey]
-			unames.each do |valid_uname|
-				@user.uname = valid_uname
-				@user.should be_valid
-			end
-		end
-	end
-	describe "when uname is already taken" do
-		before do
-			user_with_same_uname = @user.dup
-			user_with_same_uname.uname = @user.uname.upcase
-			user_with_same_uname.save
-		end
-		it { should_not be_valid }
-	end
 end
