@@ -5,6 +5,8 @@ describe User do
 	subject { @user }
 
 	it { should respond_to(:name) }
+	it { should respond_to(:uname) }
+	it { should respond_to(:password_digest) }
 	it { should be_valid }
 
 	describe "when name is not present" do
@@ -23,5 +25,32 @@ describe User do
 			@user.save
 			@user.reload.name.should == mixed_case_name.downcase
 		end
+	end
+
+	describe "when uname format is invalid" do
+		it "should be invalid" do
+			unames = %w[rkoller13 13rkoller rkoll3r rk0ller rk0ll3r]
+			unames.each do |invalid_uname|
+				@user.uname = invalid_uname
+				@user.should_not be_valid
+			end
+		end
+	end
+	describe "when uname format is valid" do
+		it "should be valid" do
+			unames = %w[rkoller fgerald rkinsey]
+			unames.each do |valid_uname|
+				@user.uname = valid_uname
+				@user.should be_valid
+			end
+		end
+	end
+	describe "when uname is already taken" do
+		before do
+			user_with_same_uname = @user.dup
+			user_with_same_uname.uname = @user.uname.upcase
+			user_with_same_uname.save
+		end
+		it { should_not be_valid }
 	end
 end

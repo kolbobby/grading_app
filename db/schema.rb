@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121219163207) do
+ActiveRecord::Schema.define(:version => 20121220180215) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(:version => 20121219163207) do
     t.integer  "grade_level"
     t.integer  "period"
     t.string   "sign_in_teacher"
+    t.string   "uname"
+    t.string   "password_digest"
   end
 
-  add_index "users", ["name"], :name => "index_users_on_name", :unique => true
+  add_index "users", ["uname"], :name => "index_users_on_uname", :unique => true
 
 end
