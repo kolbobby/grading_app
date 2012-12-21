@@ -22,16 +22,16 @@ describe User do
 		before { @user.name = "a" * 151 }
 		it { should_not be_valid }
 	end
-	describe "name with mixed case" do
-		let(:mixed_case_name) { "TeStIngAMIXedCasEName" }
+
+	describe "uname with mixed case" do
+		let(:mixed_case_uname) { "TeStIngAMIXedCasEuName" }
 
 		it "should be saved all lower-case" do
-			@user.name = mixed_case_name
+			@user.uname = mixed_case_uname
 			@user.save
-			@user.reload.name.should == mixed_case_name.downcase
+			@user.reload.uname.should == mixed_case_uname.downcase
 		end
 	end
-
 	describe "when uname is already taken" do
 		before do
 			user_with_same_uname = @user.dup
