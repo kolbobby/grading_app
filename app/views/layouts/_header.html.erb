@@ -4,6 +4,9 @@
 			<%= link_to "Phys. Ed.", root_path, :id => 'logo' %>
 			<nav>
 				<ul class="nav-pull-right">
+					<% if signed_in? %>
+						<li><%= link_to "Users", '#' %></li>
+					<% end %>
 					<li><%= link_to "Help", help_path %></li>
 					<li><%= link_to "Home", root_path %></li>
 				</ul>

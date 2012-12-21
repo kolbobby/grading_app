@@ -4,12 +4,12 @@
 <div class="row">
 	<div>
 		<%= form_for(:session, :url => sessions_path) do |f| %>
-			<%= f.label :uname %>
+			<%= f.label :uname, "Username" %><br />
 			<%= f.text_field :uname %>
-
-			<%= f.label :password %>
+			<br />
+			<%= f.label :password %><br />
 			<%= f.text_field :password %>
-
+			<br />
 			<%= f.submit "Sign in", :class => "btn btn-primary" %>
 		<% end %>
 	</div>
