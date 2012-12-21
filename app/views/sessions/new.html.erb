@@ -4,7 +4,7 @@
 <div class="row">
 	<div>
 		<%= form_for(:session, :url => sessions_path) do |f| %>
-			<%= f.label "Username", :uname %>
+			<%= f.label :uname, "Username" %>
 			<%= f.text_field :uname %>
 
 			<%= f.label :password %>
