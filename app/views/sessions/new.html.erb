@@ -1,16 +1,29 @@
 <% provide(:title, "Sign in") %>
-<h3>Sign in</h3>
-
 <div class="row">
 	<div>
 		<%= form_for(:session, :url => sessions_path) do |f| %>
-			<%= f.label :uname, "Username" %><br />
-			<%= f.text_field :uname %>
-			<br />
-			<%= f.label :password %><br />
-			<%= f.text_field :password %>
-			<br />
-			<%= f.submit "Sign in", :class => "btn btn-primary" %>
+			<table>
+				<thead>
+					<tr>
+						<td></td>
+						<td><h3>Sign in</h3></td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="left-side"><span class="det"><%= f.label :uname, "Username:" %></span></td>
+						<td><input type="text" /><%= f.text_field :uname %></td>
+					</tr>
+					<tr>
+						<td class="left-side"><span class="det"><%= f.label :password, "Password:" %></span></td>
+						<td><input type="password" /><%= f.text_field :password %></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><%= f.submit "Sign in", :class => "btn btn-primary" %></td>
+					</tr>
+				</tbody>
+			</table>
 		<% end %>
 	</div>
 </div>
