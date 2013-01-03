@@ -85,6 +85,7 @@ body {
 			width:100%;
 			padding-left:1%;
 			padding-right:1%;
+			border:1px solid #000;
 		}
 		.pull-left {
 			position:left;
@@ -93,8 +94,10 @@ body {
 
 		#sign-in-form table {
 			width:100%;
+			border:1px solid #222;
 			td {
 				width:50%;
+				border:1px solid #555;
 			}
 		}
 	}
