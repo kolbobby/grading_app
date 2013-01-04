@@ -77,9 +77,6 @@ body {
 			width:23%;
 			padding-left:1%;
 			padding-right:1%;
-			border-radius:10px;
-			border-left:1px solid #222;
-			border-right:1px solid #222;
 		}
 		.row {
 			width:100%;
@@ -90,11 +87,21 @@ body {
 			position:left;
 			left:0
 		}
+		.tabular {
+			border-radius:10px;
+			border-left:1px solid #222;
+			border-right:1px solid #222;
+		}
 
-		#sign-in-form table {
-			width:100%;
-			tr td {
-				width:1%;
+		#sign-in-form {
+			width:50%;
+			margin-left:23.5%;
+			margin-right:23.5%;
+			table {
+				width:100%;
+				tr td {
+					width:1%;
+				}
 			}
 		}
 	}
