@@ -61,6 +61,7 @@ body {
 		padding-top:1%;
 		padding-left:2%;
 		padding-right:2%;
+		padding-bottom:.5%;
 		border-radius:15px;
 		background:rgb(156,145,145);
 		h3 {
@@ -73,15 +74,15 @@ body {
 				color:#555;
 			}
 		}
-		.col {
-			width:23%;
+		.col, .row {
 			padding-left:1%;
 			padding-right:1%;
 		}
+		.col {
+			width:23%;
+		}
 		.row {
 			width:100%;
-			padding-left:1%;
-			padding-right:1%;
 		}
 		.pull-left {
 			position:left;
