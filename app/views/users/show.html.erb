@@ -16,10 +16,12 @@
 				<td class="left-side"><span class="det">Period:</span></td>
 				<td><%= @user.period %></td>
 			</tr>
+			<% if @user.u_type = 1 %>
 			<tr>
 				<td class="left-side"><span class="det">Teacher:</span></td>
 				<td><%= @user.sign_in_teacher %></td>
 			</tr>
+			<% end %>
 		</tbody>
 	</table>
 </div>
