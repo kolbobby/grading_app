@@ -9,9 +9,9 @@
 		</thead>
 		<tbody>
 			<% if @user.u_type = 1 %>
-				<%= render 'student_side' %>
-			<% else %>
-				<%= render 'teacher_side' %>
+				
+			<% elsif @user.u_type = 0 %>
+				
 			<% end %>
 		</tbody>
 	</table>
