@@ -6,8 +6,8 @@ class UsersController < ApplicationController
 	end
 
 	def view_students
+		@users = User.all
 		respond_to do |format|
-			format.html { @users = User.all }
 			format.js { render :layout => false }
 		end
 	end
