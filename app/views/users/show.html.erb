@@ -11,9 +11,7 @@
 			<% if @user.u_type = 1 %>
 				<%= render 'student_side' %>
 			<% else %>
-			<tr>
-				<td>asdf</td>
-			</tr>
+				<%= render 'teacher_side' %>
 			<% end %>
 		</tbody>
 	</table>
