@@ -8,9 +8,9 @@
 			</tr>
 		</thead>
 		<tbody>
-			<% if @user.u_type = 0 %>
+			<% if @user.u_type == 0 %>
 				
-			<% elsif @user.u_type = 1 %>
+			<% elsif @user.u_type == 1 %>
 				<%= render 'student_side' %>
 			<% end %>
 		</tbody>
