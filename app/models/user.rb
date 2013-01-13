@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :uname, :password, :password_confirmation
+  attr_accessible :name, :uname, :password, :password_confirmation, :u_type
   has_secure_password
 
   before_save { self.uname.downcase! }
