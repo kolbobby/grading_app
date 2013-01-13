@@ -1,1 +1,4 @@
-<span><%= user.name %></span><br />
+<span><%= user.name %></span> --
+<% if user.u_type == 1 %>
+	<%= user.grade_level %>
+<% end %>
