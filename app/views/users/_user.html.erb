@@ -1,3 +1,3 @@
-<% if user.u_type == 1 %>
+<% if teacher?(user) %>
 <%= render 'user_layout' %>
 <% end %>

@@ -20,6 +20,10 @@ module SessionsHelper
 		user == current_user
 	end
 
+	def teacher?(user)
+		user.u_type == 0
+	end
+
 	def sign_out
 		self.current_user = nil
 		cookies.delete(:remember_token)
