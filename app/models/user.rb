@@ -15,6 +15,6 @@ class User < ActiveRecord::Base
   		self.remember_token = SecureRandom.hex
   	end
     def set_defaults
-      self.u_type = 1 unless self.u_type
+      !self.teacher? unless self.teacher?
     end
 end

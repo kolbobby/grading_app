@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130110172046) do
+ActiveRecord::Schema.define(:version => 20130114004145) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20130110172046) do
     t.string   "uname"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.integer  "u_type"
+    t.boolean  "teacher"
   end
 
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
