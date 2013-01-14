@@ -14,4 +14,10 @@
 		<% end %>
 	</table>
 </div>
-<div id="main-user-content">This is the home portion of the profile page.</div>
+<div id="main-user-content">
+	<% if @user.teacher? %>
+		This is the home portion of the teacher profile page.
+	<% else %>
+		This is the home portion of the student profile page.
+	<% end %>
+</div>
