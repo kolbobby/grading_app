@@ -1,7 +1,7 @@
 <tbody>
 	<tr>
 		<td class="left-side"><span class="det">1.</span></td>
-		<td><%= link_to "profile home", '#' %></td>
+		<td><%= link_to "profile home", {:controller => "users", :action => "view_home"}, :remote => true %></td>
 	</tr>
 	<tr>
 		<td class="left-side"><span class="det">2.</span></td>
