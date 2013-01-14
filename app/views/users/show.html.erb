@@ -7,10 +7,10 @@
 				<td><h3><%= @user.name %></h3></td>
 			</tr>
 		</thead>
-		<% if @user.u_type == 1 %>
-			<%= render 'student_side' %>
-		<% elsif current_user.u_type == 0 %>
+		<% if @user.teacher? %>
 			<%= render 'teacher_side' %>
+		<% else %>
+			<%= render 'student_side' %>
 		<% end %>
 	</table>
 </div>
