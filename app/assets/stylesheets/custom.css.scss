@@ -4,6 +4,7 @@ body {
 
 .container {
 	width:80%;
+	float:left;
 	margin-left:10%;
 	margin-right:10%;
 }
@@ -55,6 +56,7 @@ body {
 
 .main-unit {
 	width:100%;
+	float:left;
 	margin-top:3%;
 	.container {
 		width:76%;
@@ -85,13 +87,17 @@ body {
 			width:100%;
 		}
 		.pull-left {
-			position:left;
-			left:0
+			float:left;
 		}
 		.tabular {
 			border-radius:10px;
 			border-left:1px solid #222;
 			border-right:1px solid #222;
+		}
+
+		#main-user-content {
+			width:74%;
+			float:right;
 		}
 
 		#sign-in-form {
