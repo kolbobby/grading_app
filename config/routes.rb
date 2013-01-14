@@ -1,6 +1,7 @@
 GradingApp::Application.routes.draw do
   resources :users do
     member do
+      get "view_home"
       get "view_students"
     end
   end
