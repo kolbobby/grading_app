@@ -1,3 +1,7 @@
 <% if !user.teacher? %>
-	<tr><td><%= user.name %></td><td><%= user.period %></td><td><%= user.grade_level %></td></tr>
+	<tr id="<%= user.id %>">
+		<td class="u_name"><%= link_to user.name, user_path %></td>
+		<td class="u_period"><%= user.period %></td>
+		<td class="u_grade_level"><%= user.grade_level %></td>
+	</tr>
 <% end %>

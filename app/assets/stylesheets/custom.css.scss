@@ -85,6 +85,14 @@ body {
 		}
 		.row {
 			width:100%;
+			.view_students {
+				width:100%;
+				text-align:center;
+				tr td {
+					width:auto;
+					font:9pt sans-serif;
+				}
+			}
 		}
 		.pull-left {
 			float:left;
