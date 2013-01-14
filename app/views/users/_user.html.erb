@@ -1,3 +1,5 @@
-<% if user.teacher? %>
-	<%= render 'user_layout' %>
-<% end %>
+<span>
+	<% if user.teacher? %>
+		<%= user.name %>
+	<% end %>
+</span><br />
