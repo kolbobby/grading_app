@@ -1,5 +1,3 @@
-<span>
-	<% if !user.teacher? %>
-		<%= user.name %>
-	<% end %>
-</span><br />
+<% if !user.teacher? %>
+	<span><%= user.name %></span><br />
+<% end %>
