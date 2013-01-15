@@ -85,17 +85,6 @@ body {
 		}
 		.row {
 			width:100%;
-			.view_students {
-				width:98%;
-				text-align:center;
-				tr th, tr td {
-					width:auto;
-					font:9pt sans-serif;
-				}
-				tr th {
-					border-bottom:1px solid #444;
-				}
-			}
 		}
 		.pull-left {
 			float:left;
@@ -109,6 +98,19 @@ body {
 		#main-user-content {
 			width:74%;
 			float:right;
+			.row {
+				width:98%;
+				.view_students {
+					text-align:center;
+					tr th, tr td {
+						width:auto;
+						font:9pt sans-serif;
+					}
+					tr th {
+						border-bottom:1px solid #444;
+					}
+				}
+			}
 		}
 
 		#sign-in-form {
