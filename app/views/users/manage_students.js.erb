@@ -1,7 +1,17 @@
-$('#main-user-content').html("<%= escape_javascript(link_to('add', '#', :id => 's_add')) %> | <%= escape_javascript(link_to('assign', '#', :id => 's_assign')) %>");
+$('#main-user-content').html("<div class='row'><%= escape_javascript(link_to('add', '#', :id => 's_add')) %> | <%= escape_javascript(link_to('assign', '#', :id => 's_assign')) %></div>");
+function change_tab(new_tab) {
+	var title;
+	if(new_tab == 'add') {
+		$('#main-user-content').append("<div class='row'><h3>add student</h3></div>");
+	} else if(new_tab == 'assign') {
+		$('#main-user-content').append("<div class='row'></div>")
+	}
+	$('#main-user-content').append("<div class='row'><h3>"+ title +"</h3></div>");
+}
 $('#s_add').click(function() {
-	alert("asdf1");
+	change_tab('add');
 });
 $('#s_assign').click(function() {
-	alert("asdf2");
+	change_tab('assign');
 });
+change_tab('add');
