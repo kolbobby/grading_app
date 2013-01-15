@@ -1,12 +1,12 @@
-$('#main-user-content').html("<div class='row'><%= escape_javascript(link_to('add', '#', :id => 's_add')) %> | <%= escape_javascript(link_to('assign', '#', :id => 's_assign')) %></div>");
+$('#main-user-content').html("<div class='row'><%= escape_javascript(link_to('add', '#', :id => 's_add')) %> | <%= escape_javascript(link_to('assign', '#', :id => 's_assign')) %></div><div id='manange-students-content'></div>");
 function change_tab(new_tab) {
 	var title;
 	if(new_tab == 'add') {
-		$('#main-user-content').append("<div class='row'><h3>add student</h3></div>");
+		title = 'add student';
 	} else if(new_tab == 'assign') {
-		$('#main-user-content').append("<div class='row'></div>")
+		title = 'assign student';
 	}
-	$('#main-user-content').append("<div class='row'><h3>"+ title +"</h3></div>");
+	$('#manage-students-content').html("<div class='row'><h3>"+ title +"</h3></div>");
 }
 $('#s_add').click(function() {
 	change_tab('add');
