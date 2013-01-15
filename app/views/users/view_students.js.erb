@@ -1,2 +1,1 @@
-$('#main-user-content').html("");
 $('#main-user-content').html("<div class='row'><table class='view_students'><tr><th>Student Name</th><th>Period</th><th>Grade</th><th><%= escape_javascript(link_to('+ student', '#')) %></th></tr><%= escape_javascript(render @users) %></table></div>");
