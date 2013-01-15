@@ -3,6 +3,7 @@ GradingApp::Application.routes.draw do
     member do
       get "view_home"
       get "view_students"
+      get "manage_students"
     end
   end
   resources :sessions, :only => [:new, :create, :destroy]
