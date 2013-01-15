@@ -10,8 +10,10 @@ function change_tab(new_tab) {
 }
 $('#s_add').click(function() {
 	change_tab('add');
+	return false;
 });
 $('#s_assign').click(function() {
 	change_tab('assign');
+	return false;
 });
 change_tab('add');
