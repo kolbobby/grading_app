@@ -1,12 +1,15 @@
 $('#main-user-content').html("<div class='row'><%= escape_javascript(link_to('add', '#', :id => 's_add')) %> | <%= escape_javascript(link_to('assign', '#', :id => 's_assign')) %></div><div id='manage-students-content'></div>");
 function change_tab(new_tab) {
 	var title;
+	var content;
 	if(new_tab == 'add') {
 		title = 'add student';
+		content = '<label>Name: <input type="text" /></label>';
 	} else if(new_tab == 'assign') {
 		title = 'assign student';
+		content = 'Name';
 	}
-	$('#manage-students-content').html("<div class='row'><h3>"+ title +"</h3></div>");
+	$('#manage-students-content').html("<div class='row'><h3>"+ title +"</h3><hr /><div class='row'>"+ content +"</div></div>");
 }
 $('#s_add').click(function() {
 	change_tab('add');
