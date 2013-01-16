@@ -1,22 +1,39 @@
-$('#main-user-content').html("<div class='row'><%= escape_javascript(link_to('add', '#', :id => 's_add')) %> | <%= escape_javascript(link_to('assign', '#', :id => 's_assign')) %></div><div id='manage-students-content'></div>");
+$('#main-user-content').html("<div class='row'><span id='s_a_outer'>add</span> | <span id='s_as_outer'><%= escape_javascript(link_to('assign', '#', :id => 's_assign')) %></span></div><div id='manage-students-content'></div>");
 function change_tab(new_tab) {
 	var title;
-	var content;
+	var content = '';
 	if(new_tab == 'add') {
-		title = 'add student';
-		content = '<label>Name: <input type="text" /></label>';
+		title = 'add student (<span id="s_a_bulk_outer">bulk</span> | <span id="s_a_single_outer"><%= escape_javascript(link_to("single", "#", :id => "s_a_single")) %></span>)';
 	} else if(new_tab == 'assign') {
 		title = 'assign student';
-		content = 'Name';
 	}
 	$('#manage-students-content').html("<div class='row'><h3>"+ title +"</h3><hr /><div class='row'>"+ content +"</div></div>");
 }
+
 $('#s_add').click(function() {
 	change_tab('add');
+	$('#s_a_outer').html("add");
+	$('#s_as_outer').html("<%= escape_javascript(link_to('assign', '#', :id => 's_assign')) %>");
 	return false;
 });
 $('#s_assign').click(function() {
 	change_tab('assign');
+	$('#s_as_outer').html("assign");
+	$('#s_a_outer').html("<%= escape_javascript(link_to('add', '#', :id => 's_add')) %>");
 	return false;
 });
+
+$('#s_a_bulk').click(function() {
+	//CHANGE SUB_TAB
+	$('#s_a_bulk_outer').html("bulk");
+	$('#s_a_single_outer').html("<%= escape_javascript(link_to('single', '#', :id => 's_a_single')) %>");
+	return false;
+});
+$('#s_a_single').click(function() {
+	//CHANGE SUB_TAB
+	$('#s_a_single_outer').html("single");
+	$('#s_a_bulk_outer').html("<%= escape_javascript(link_to('bulk', '#', :id => 's_a_bulk')) %>");
+	return false;
+});
+
 change_tab('add');
