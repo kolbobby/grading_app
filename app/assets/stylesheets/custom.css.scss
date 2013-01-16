@@ -103,12 +103,25 @@ body {
 				.view_students {
 					width:100%;
 					text-align:center;
+					background-color:#b9d2e3;
+					border-radius:10px;
+					padding-left:5px;
+					padding-right:5px;
 					tr th, tr td {
 						width:auto;
 						font:9pt sans-serif;
+						a {
+							opacity:0.6;
+						}
 					}
 					tr th {
 						border-bottom:1px solid #444;
+					}
+					tr td {
+						border-right:1px solid #444;
+						.u_remove {
+							border-right:0;
+						}
 					}
 				}
 			}
