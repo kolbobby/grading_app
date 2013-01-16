@@ -1,20 +1,20 @@
-$('#main-user-content').html("<div class='row'><span id='s_a_outer'><%= escape_javascript(link_to('add', '#', :id => 's_add')) %><span id='s_add_plain'>add</span></span> | <span id='s_as_outer'><%= escape_javascript(link_to('assign', '#', :id => 's_assign')) %><span id='s_assign_plain'>assign</span></span></div><div id='manage-students-content'> </div>");
+$('#main-user-content').html("<div class='row'><span id='s_a_outer'><%= escape_javascript(link_to('add', '#', :id => 's_add')) %><span id='s_add_plain'>add</span></span> | <span id='s_as_outer'><%= escape_javascript(link_to('assign', '#', :id => 's_assign')) %><span id='s_assign_plain'>assign</span></span></div><div id='manage-students-content'><div id='student_add'>add</div><div id='student_assign'>assign</div></div>");
 $('#s_add').hide();
 $('#s_assign_plain').hide();
 
-/*function change_tab(new_tab) {
+function change_tab(new_tab) {
 	if(new_tab == 'add') {
 		$('#student_add').show();
 		$('#student_assign').hide();
-		$('#s_a_bulk').hide();
+		/*$('#s_a_bulk').hide();
 		$('#s_a_single_plain').hide();
-		change_sub_tab('bulk');
+		change_sub_tab('bulk');*/
 	} else if(new_tab == 'assign') {
 		$('#student_assign').show();
 		$('#student_add').hide();
 	}
 }
-function change_sub_tab(new_sub_tab) {
+/*function change_sub_tab(new_sub_tab) {
 	var content;
 	if(new_sub_tab == 'bulk') {
 		content = 'bulk';
@@ -25,7 +25,7 @@ function change_sub_tab(new_sub_tab) {
 }*/
 
 $('#s_add').click(function() {
-	//change_tab('add');
+	change_tab('add');
 	$(this).hide();
 	$('#s_add_plain').show();
 	$('#s_assign_plain').hide();
@@ -35,8 +35,8 @@ $('#s_add').click(function() {
 });
 $('#s_assign').click(function() {
 	/*$('#s_a_bulk').click();
-	$('#m_s_c_inner').html("");
-	change_tab('assign');*/
+	$('#m_s_c_inner').html("");*/
+	change_tab('assign');
 	$(this).hide();
 	$('#s_assign_plain').show();
 	$('#s_add_plain').hide();
@@ -45,9 +45,9 @@ $('#s_assign').click(function() {
 	return false;
 });
 
-/*change_tab('add');
+change_tab('add');
 
-$('#s_a_bulk').click(function() {
+/*$('#s_a_bulk').click(function() {
 	change_sub_tab('bulk');
 	$(this).hide();
 	$('#s_a_bulk_plain').show();
