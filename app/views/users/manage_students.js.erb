@@ -1,8 +1,8 @@
 $('#main-user-content').html("<div class='row'><span id='s_a_outer'><%= escape_javascript(link_to('add', '#', :id => 's_add')) %><span id='s_add_plain'>add</span></span> | <span id='s_as_outer'><%= escape_javascript(link_to('assign', '#', :id => 's_assign')) %><span id='s_assign_plain'>assign</span></span></div><div id='manage-students-content'> </div>");
-/*$('#s_add').hide();
+$('#s_add').hide();
 $('#s_assign_plain').hide();
 
-function change_tab(new_tab) {
+/*function change_tab(new_tab) {
 	if(new_tab == 'add') {
 		$('#student_add').show();
 		$('#student_assign').hide();
@@ -22,10 +22,10 @@ function change_sub_tab(new_sub_tab) {
 		content = 'single';
 	}
 	$('#m_s_c_inner').html(content);
-}
+}*/
 
 $('#s_add').click(function() {
-	change_tab('add');
+	//change_tab('add');
 	$(this).hide();
 	$('#s_add_plain').show();
 	$('#s_assign_plain').hide();
@@ -34,9 +34,9 @@ $('#s_add').click(function() {
 	return false;
 });
 $('#s_assign').click(function() {
-	$('#s_a_bulk').click();
+	/*$('#s_a_bulk').click();
 	$('#m_s_c_inner').html("");
-	change_tab('assign');
+	change_tab('assign');*/
 	$(this).hide();
 	$('#s_assign_plain').show();
 	$('#s_add_plain').hide();
@@ -45,7 +45,7 @@ $('#s_assign').click(function() {
 	return false;
 });
 
-change_tab('add');
+/*change_tab('add');
 
 $('#s_a_bulk').click(function() {
 	change_sub_tab('bulk');
