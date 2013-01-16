@@ -6,9 +6,7 @@ function change_tab(new_tab) {
 	if(new_tab == 'add') {
 		$('#student_add').show();
 		$('#student_assign').hide();
-		/*$('#s_a_bulk').hide();
-		$('#s_a_single_plain').hide();
-		change_sub_tab('bulk');*/
+		/*change_sub_tab('bulk');*/
 	} else if(new_tab == 'assign') {
 		$('#student_assign').show();
 		$('#student_add').hide();
@@ -26,6 +24,8 @@ function change_tab(new_tab) {
 
 $('#s_add').click(function() {
 	change_tab('add');
+	$('#s_a_bulk').hide();
+	$('#s_a_single_plain').hide();
 	$(this).hide();
 	$('#s_add_plain').show();
 	$('#s_assign_plain').hide();
