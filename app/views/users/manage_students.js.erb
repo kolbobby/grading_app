@@ -1,14 +1,28 @@
-$('#main-user-content').html("<div class='row'><span id='s_a_outer'><%= escape_javascript(link_to('add', '#', :id => 's_add')) %><span id='s_add_plain'>add</span></span> | <span id='s_as_outer'><%= escape_javascript(link_to('assign', '#', :id => 's_assign')) %><span id='s_assign_plain'>assign</span></span></div><div id='manage-students-content'></div>");
+$('#main-user-content').html("<div class='row'><span id='s_a_outer'><%= escape_javascript(link_to('add', '#', :id => 's_add')) %><span id='s_add_plain'>add</span></span> | <span id='s_as_outer'><%= escape_javascript(link_to('assign', '#', :id => 's_assign')) %><span id='s_assign_plain'>assign</span></span></div>\n
+							  <div id='manage-students-content'><div id='student_add'><h3>add student (<span id='s_a_bulk_outer'><%= escape_javascript(link_to('bulk', '#', :id => 's_a_bulk')) %></span> | <span id='s_a_single_outer'><%= escape_javascript(link_to('single', '#', :id => 's_a_single')) %></span>)</h3></div><div id='student_assign'><h3>assign student</h3></div></div>");
+$('#s_add').hide();
+$('#s_assign_plain').hide();
+
 function change_tab(new_tab) {
-	var title;
-	var content;
 	if(new_tab == 'add') {
-		title = 'add student';
-		content = '(<span id="s_a_bulk_outer"><%= escape_javascript(link_to("bulk", "#", :id => "s_a_bulk")) %></span> | <span id="s_a_single_outer"><%= escape_javascript(link_to("single", "#", :id => "s_a_single")) %></span>)';
+		$('#student_add').show();
+		$('#student_assign').hide();
+		$('#s_a_bulk').hide();
+		$('#s_a_single_plain').hide();
+		change_sub_tab('bulk');
 	} else if(new_tab == 'assign') {
-		title = 'assign student';
+		$('#student_assign').show();
+		$('#student_add').hide();
 	}
-	$('#manage-students-content').html("<div class='row'><h3>"+ title +"</h3><hr /><div class='row'>"+ content +"</div></div>");
+}
+function change_sub_tab(new_sub_tab) {
+	var content;
+	if(new_sub_tab == 'bulk') {
+		content = 'bulk';
+	} else if(new_sub_tab == 'single') {
+		content = 'single';
+	}
+	$('#m_s_c_inner').html(content);
 }
 
 $('#s_add').click(function() {
@@ -21,6 +35,8 @@ $('#s_add').click(function() {
 	return false;
 });
 $('#s_assign').click(function() {
+	$('#s_a_bulk').click();
+	$('#m_s_c_inner').html("");
 	change_tab('assign');
 	$(this).hide();
 	$('#s_assign_plain').show();
@@ -30,15 +46,23 @@ $('#s_assign').click(function() {
 	return false;
 });
 
+change_tab('add');
+
 $('#s_a_bulk').click(function() {
-	//CHANGE SUB_TAB
-	
+	change_sub_tab('bulk');
+	$(this).hide();
+	$('#s_a_bulk_plain').show();
+	$('#s_a_single_plain').hide();
+	$('#s_a_single').show();
+
 	return false;
 });
 $('#s_a_single').click(function() {
-	//CHANGE SUB_TAB
-	
+	change_sub_tab('single');
+	$(this).hide();
+	$('#s_a_single_plain').show();
+	$('#s_a_bulk_plain').hide();
+	$('#s_a_bulk').show();
+
 	return false;
 });
-
-change_tab('add');
