@@ -1,17 +1,4 @@
-$('#main-user-content').html("<div class='row'>\n
-							  	<span id='s_a_outer'>\n
-							  		<%= escape_javascript(link_to('add', '#', :id => 's_add')) %>\n
-							  		<span id='s_add_plain'>add</span>\n
-							  	</span>\n
-							  	|\n
-							  	<span id='s_as_outer'>\n
-							  		<%= escape_javascript(link_to('assign', '#', :id => 's_assign')) %>\n
-							  		<span id='s_assign_plain'>assign</span>\n
-							  	</span>\n
-							  </div>\n
-							  <div id='manage-students-content'>\n
-							  	
-							  </div>");
+$('#main-user-content').html("<div class='row'><span id='s_a_outer'><%= escape_javascript(link_to('add', '#', :id => 's_add')) %><span id='s_add_plain'>add</span></span> | <span id='s_as_outer'><%= escape_javascript(link_to('assign', '#', :id => 's_assign')) %><span id='s_assign_plain'>assign</span></span></div><div id='manage-students-content'> </div>");
 /*$('#s_add').hide();
 $('#s_assign_plain').hide();
 
