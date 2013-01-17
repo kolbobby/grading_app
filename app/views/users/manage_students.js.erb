@@ -1,7 +1,7 @@
 var str = "<div class='row'>";
-str +=	  "<span id='s_a_outer'><%= escape_javascript(link_to('add', '#', :id => 's_add')) %><span id='s_add_plain'>add</span></span>";
+str +=	  "<h3>manage students (<span id='s_a_outer'><%= escape_javascript(link_to('add', '#', :id => 's_add')) %><span id='s_add_plain'>add</span></span>";
 str +=	  " | ";
-str +=	  "<span id='s_as_outer'><%= escape_javascript(link_to('assign', '#', :id => 's_assign')) %><span id='s_assign_plain'>assign</span></span>";
+str +=	  "<span id='s_as_outer'><%= escape_javascript(link_to('assign', '#', :id => 's_assign')) %><span id='s_assign_plain'>assign</span></span>)</h3>";
 str +=	  "</div>";
 str +=	  "<div class='row'>";
 str +=	  "<div id='manage-students-content'>";
@@ -25,7 +25,7 @@ str +=	  "<h4>assign student</h4>";
 str +=	  "</div>";
 
 str +=	  "<hr />";
-str +=	  "<div id='m_s_c_inner'></div>";
+str +=	  "<div id='m_s_c_inner' class='tabular_opp'></div>";
 
 str +=	  "</div>";
 str +=	  "</div>";
