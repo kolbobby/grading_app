@@ -47,7 +47,7 @@ function change_tab(new_tab) {
 function change_sub_tab(new_sub_tab) {
 	var content;
 	if(new_sub_tab == 'bulk') {
-		content = '<input type="file" size="50" id="file_select" /><button id="add_s">Add Students</button>';
+		content = '<input type="file" size="50" id="file_select" /><button id="add_s_bulk">Add Students</button>';
 		content += '<table id="add_bulk_students">';
 		content += '<thead>';
 		content += '<tr>';
@@ -61,6 +61,7 @@ function change_sub_tab(new_sub_tab) {
 		content += '<tbody id="add_bulk_students_inner"></tbody>';
 		content += '</table>';
 		content += '<button id="confirm">Confirm?</button>';
+		content += '<%= javascript_include_tag "bulk_add_jquery" %>';
 	} else if(new_sub_tab == 'single') {
 		content = 'single';
 	}
