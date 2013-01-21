@@ -47,7 +47,7 @@ function change_tab(new_tab) {
 function change_sub_tab(new_sub_tab) {
 	var content;
 	if(new_sub_tab == 'bulk') {
-		content = 'bulk';
+		content = '<%= escape_javascript(render "bulk_add") %>';
 	} else if(new_sub_tab == 'single') {
 		content = 'single';
 	}
