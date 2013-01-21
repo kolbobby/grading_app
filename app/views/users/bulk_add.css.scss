@@ -1,0 +1,18 @@
+#add_bulk_students {
+	width:100%;
+	text-align:center;
+	display:none;
+	tr:nth-child(odd) {
+		background-color:#c9d2d0;
+	}
+	tr:nth-child(even) {
+		background-color:white;
+	}
+	thead tr th {
+		background:#ffec8b;
+	}
+
+	#confirm {
+		display:none;
+	}
+}

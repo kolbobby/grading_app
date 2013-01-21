@@ -61,7 +61,7 @@ function change_sub_tab(new_sub_tab) {
 		content += '<tbody id="add_bulk_students_inner"></tbody>';
 		content += '</table>';
 		content += '<button id="confirm">Confirm?</button>';
-		content += '<%= javascript_include_tag "bulk_add_jquery" %>';
+		content += '<%= stylesheet_link_tag "bulk_add", :meida => "all" %>';
 	} else if(new_sub_tab == 'single') {
 		content = 'single';
 	}
