@@ -26,7 +26,7 @@ $('#confirm').click(function() {
 });
 
 function add_list(list) {
-	var files = $('#file_select').files;
+	var files = document.getElementById('file_select').files;
 	alert(files);
 
 	/*var file = files[0];
