@@ -47,7 +47,7 @@ function change_tab(new_tab) {
 function change_sub_tab(new_sub_tab) {
 	var content;
 	if(new_sub_tab == 'bulk') {
-		content = '<script type="text/javascript">$(document).ready(function() { alert("asdf"); })</script>';
+		content = '<script type="text/javascript">$("#add_s_bulk").click(function() { alert("asdf"); });</script>';
 	} else if(new_sub_tab == 'single') {
 		content = 'single';
 	}
