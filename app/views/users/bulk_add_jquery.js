@@ -26,8 +26,8 @@ $('#confirm').click(function() {
 });
 
 function add_list(list) {
-	var files = document.getElementById('file_select').files;
-	alert(files);
+	var file = $('#file_select').get(0).files[0];
+	alert(file);
 
 	/*var file = files[0];
 	var reader = new FileReader();
