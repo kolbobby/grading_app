@@ -31,6 +31,16 @@ function add_list() { // VARIABLE: list
 		alert("Please select a file!");
 		return;
 	}
+
+	var file = files[0];
+	var reader = new FileReader();
+	reader.onloadend = function(evt) {
+		if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+			alert(evt.target.result);
+		}
+	}
+	var blob = file.slice(0, file.size);
+	reader.readAsBinaryString(blob);
 	//alert(document.getElementById('file_select').files[0].name);
 	/*$.ajax({
 		type: "GET",
