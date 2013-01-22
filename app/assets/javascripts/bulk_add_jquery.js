@@ -6,8 +6,8 @@ $('#add_s_bulk').click(function() {
 	} else {
 		add_list(); // VARIABLE: $('#file_select').val()
 	}
-	/*$('table').show();
-	$('#confirm').show();*/
+	$('table').show();
+	$('#confirm').show();
 });
 $('#confirm').click(function() {
 	var empty_cells = "";
