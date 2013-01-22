@@ -1,13 +1,13 @@
 $('#add_s_bulk').click(function() {
 	if($('table#add_bulk_students > tbody#add_bulk_students_inner').html() != "") {
 		if(confirm("There is existing data within the add students table, this function will override any existing data within this table; would you like to continue?")) {
-			add_list($('#file_select').val());
+			add_list(); // VARIABLE: $('#file_select').val()
 		}
 	} else {
-		add_list($('#file_select').val());
+		add_list(); // VARIABLE: $('#file_select').val()
 	}
-	$('table').show();
-	$('#confirm').show();
+	/*$('table').show();
+	$('#confirm').show();*/
 });
 $('#confirm').click(function() {
 	var empty_cells = "";
@@ -25,13 +25,15 @@ $('#confirm').click(function() {
 	}
 });
 
-function add_list(list) {
-	$.ajax({
+function add_list() { // VARIABLE: list
+	var file = $('#file_select').val();
+	alert(file);
+	/*$.ajax({
 		type: "GET",
 		url: list,
 		dataType: "text",
 		success: function(data) {processData(data);}
-	});
+	});*/
 }
 
 function processData(allText) {
