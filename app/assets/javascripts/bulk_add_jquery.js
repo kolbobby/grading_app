@@ -36,7 +36,7 @@ function add_list() { // VARIABLE: list
 	var reader = new FileReader();
 	reader.onloadend = function(evt) {
 		if (evt.target.readyState == FileReader.DONE) { // DONE == 2
-			alert(evt.target.result);
+			processData(evt.target.result);
 		}
 	}
 	var blob = file.slice(0, file.size);
