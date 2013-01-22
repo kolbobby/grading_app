@@ -27,7 +27,7 @@ $('#confirm').click(function() {
 
 function add_list() { // VARIABLE: list
 	var files = $('#file_select').files;
-	alert(files);
+	alert(files[0]);
 	/*$.ajax({
 		type: "GET",
 		url: list,
