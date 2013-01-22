@@ -1,10 +1,10 @@
 $('#add_s_bulk').click(function() {
 	if($('table#add_bulk_students > tbody#add_bulk_students_inner').html() != "") {
 		if(confirm("There is existing data within the add students table, this function will override any existing data within this table; would you like to continue?")) {
-			add_list(); // VARIABLE: $('#file_select').val()
+			add_list();
 		}
 	} else {
-		add_list(); // VARIABLE: $('#file_select').val()
+		add_list();
 	}
 	$('table').show();
 	$('#confirm').show();
@@ -25,7 +25,7 @@ $('#confirm').click(function() {
 	}
 });
 
-function add_list() { // VARIABLE: list
+function add_list() {
 	var files = document.getElementById('file_select').files;
 	if(!files.length) {
 		alert("Please select a file!");
@@ -35,19 +35,12 @@ function add_list() { // VARIABLE: list
 	var file = files[0];
 	var reader = new FileReader();
 	reader.onloadend = function(evt) {
-		if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+		if (evt.target.readyState == FileReader.DONE) {
 			processData(evt.target.result);
 		}
 	}
 	var blob = file.slice(0, file.size);
 	reader.readAsBinaryString(blob);
-	//alert(document.getElementById('file_select').files[0].name);
-	/*$.ajax({
-		type: "GET",
-		url: list,
-		dataType: "text",
-		success: function(data) {processData(data);}
-	});*/
 }
 
 function processData(allText) {
