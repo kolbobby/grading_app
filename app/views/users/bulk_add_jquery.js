@@ -1,5 +1,4 @@
-alert("asdf");
-/*$('#add_s_bulk').click(function() {
+$('#add_s_bulk').click(function() {
 	if($('table#add_bulk_students > tbody#add_bulk_students_inner').html() != "") {
 		if(confirm("There is existing data within the add students table, this function will override any existing data within this table; would you like to continue?")) {
 			add_list($('#file_select').val());
@@ -67,4 +66,4 @@ function processData(allText) {
 		t_str += "</tr>";
 	}
 	$('table#add_bulk_students > tbody#add_bulk_students_inner').html(t_str);
-}*/
+}
