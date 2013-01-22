@@ -26,12 +26,7 @@ $('#confirm').click(function() {
 });
 
 function add_list(evt) { // VARIABLE: list
-	var files = evt.target.files;
-	var output = [];
-    for (var i = 0, f; f = files[i]; i++) {
-      output.push('<strong>' + escape(f.name) + '</strong>');
-    }
-    alert(output);
+	alert("You have selected: " + evt.target.files[0].name);
 	/*$.ajax({
 		type: "GET",
 		url: list,
