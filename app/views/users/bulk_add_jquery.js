@@ -27,12 +27,9 @@ $('#confirm').click(function() {
 
 function add_list(list) {
 	var files = $('#file_select').files;
-	if (!files.length) {
-		alert('Please select a file!');
-		return;
-	}
+	alert(files);
 
-	var file = files[0];
+	/*var file = files[0];
 	var reader = new FileReader();
 	reader.onloadend = function(evt) {
 		if (evt.target.readyState == FileReader.DONE) { // DONE == 2
@@ -40,7 +37,7 @@ function add_list(list) {
 		}
 	};
 	var blob = file.slice(0, file.size);
-	reader.readAsBinaryString(blob);
+	reader.readAsBinaryString(blob);*/
 	/*$.ajax({
 		type: "GET",
 		url: list,
