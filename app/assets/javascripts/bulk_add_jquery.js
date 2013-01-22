@@ -25,8 +25,8 @@ $('#confirm').click(function() {
 	}
 });
 
-function add_list(evt) { // VARIABLE: list
-	alert("You have selected: " + evt.target.files[0].name);
+function add_list() { // VARIABLE: list
+	alert(document.getElementById('file_select').files);
 	/*$.ajax({
 		type: "GET",
 		url: list,
