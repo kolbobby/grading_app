@@ -53,7 +53,7 @@ function processData(allText) {
 	for(var i = 0;i < lines.length;i++) {
 		var data = lines[i];
 		t_str += "<tr id="+i+">";
-		t_str += "<td class='id'>"+i+"</td>"
+		t_str += "<td class='id'>"+i+"</td>";
 		for(var j = 0;j < data.length;j++) {
 			var cell_f = data[j].substring(0, data[j].indexOf(':'));
 			var cell_s = data[j].substring(data[j].indexOf(':') + 2, data[j].length-1);
