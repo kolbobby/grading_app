@@ -29,9 +29,7 @@ function add_list(evt) { // VARIABLE: list
 	var files = evt.target.files;
 	var output = [];
     for (var i = 0, f; f = files[i]; i++) {
-      output.push('<strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
-                  f.size, ' bytes, last modified: ',
-                  f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a');
+      output.push('<strong>' + escape(f.name) + '</strong>');
     }
     alert(output);
 	/*$.ajax({
