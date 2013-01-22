@@ -47,7 +47,11 @@ function change_tab(new_tab) {
 function change_sub_tab(new_sub_tab) {
 	var content;
 	if(new_sub_tab == 'bulk') {
-		content = '<button id="add_s_bulk">Add Students</button><script type="text/javascript">$("#add_s_bulk").click(function() { alert("asdf"); });</script>';
+		content = '<input type="file" id="file_select" size="50" /><button id="add_s_bulk">Add Students</button>';
+		content += '<table id="add_bulk_students"><thead><tr><th class="id">Row</th><th class="name">Name</th><th class="period">Period</th><th class="grade_level">Grade</th><th class="sign_in_teacher">Sign In Teacher</th></tr></thead><tbody id="add_bulk_students_inner"></tbody></table>';
+		content += '<button id="confirm">Confirm?</button>';
+		content += '<script type="text/javascript">$("#add_s_bulk").click(function() { if($("table#add_bulk_students > tbody#add_bulk_students_inner").html() != "") { if(confirm("There is existing data within the add students table, this function will override any existing data within this table; would you like to continue?")) { add_list($("#file_select").val()); } } else { add_list($("#file_select").val()); } $("table").show();$("#confirm").show(); });</script>';
+		//content += '<script type="text/javascript">$("#confirm").click(function() { var empty_cells = ""; $("table#add_bulk_students > tbody#add_bulk_students_inner").children("tr").children("td").each(function() { if($(this).css("background-color") == "rgb(238, 44, 44)") { if(empty_cells.length == 0) { empty_cells = ($(this).parent("tr").attr("id")); } else { empty_cells = empty_cells + ", " + ($(this).parent("tr").attr("id")); } } }); if(empty_cells.length > 0) { confirm("There are blank cells within rows:\n" + empty_cells + "\nAre you sure you want to confirm?"); } });</script>';
 	} else if(new_sub_tab == 'single') {
 		content = 'single';
 	}
