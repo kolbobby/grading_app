@@ -26,7 +26,12 @@ $('#confirm').click(function() {
 });
 
 function add_list() { // VARIABLE: list
-	alert(document.getElementById('file_select').files[0].name);
+	var files = document.getElementById('file_select').files;
+	if(!files.length) {
+		alert("Please select a file!");
+		return;
+	}
+	//alert(document.getElementById('file_select').files[0].name);
 	/*$.ajax({
 		type: "GET",
 		url: list,
