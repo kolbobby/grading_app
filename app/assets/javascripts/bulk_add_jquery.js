@@ -26,8 +26,8 @@ $('#confirm').click(function() {
 });
 
 function add_list() { // VARIABLE: list
-	var file = $('#file_select').val();
-	alert(file);
+	var files = $('#file_select').files;
+	alert(files);
 	/*$.ajax({
 		type: "GET",
 		url: list,
