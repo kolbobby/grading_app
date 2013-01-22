@@ -1,5 +1,6 @@
-$('#add_s_bulk').click(function() {
-	/*if($('table#add_bulk_students > tbody#add_bulk_students_inner').html() != "") {
+alert("asdf");
+/*$('#add_s_bulk').click(function() {
+	if($('table#add_bulk_students > tbody#add_bulk_students_inner').html() != "") {
 		if(confirm("There is existing data within the add students table, this function will override any existing data within this table; would you like to continue?")) {
 			add_list($('#file_select').val());
 		}
@@ -7,10 +8,9 @@ $('#add_s_bulk').click(function() {
 		add_list($('#file_select').val());
 	}
 	$('table').show();
-	$('#confirm').show();*/
-	alert("Add bulk");
+	$('#confirm').show();
 });
-/*$('#confirm').click(function() {
+$('#confirm').click(function() {
 	var empty_cells = "";
 	$('table#add_bulk_students > tbody#add_bulk_students_inner').children('tr').children('td').each(function() {
 		if($(this).css('background-color') == "rgb(238, 44, 44)") {

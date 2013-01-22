@@ -47,21 +47,7 @@ function change_tab(new_tab) {
 function change_sub_tab(new_sub_tab) {
 	var content;
 	if(new_sub_tab == 'bulk') {
-		content = '<input type="file" size="50" id="file_select" /><button id="add_s_bulk">Add Students</button>';
-		content += '<table id="add_bulk_students">';
-		content += '<thead>';
-		content += '<tr>';
-		content += '<th class="id">Row</th>';
-		content += '<th class="name">Name</th>';
-		content += '<th class="period">Period</th>';
-		content += '<th class="grade_level">Grade</th>';
-		content += '<th class="sign_in_teacher">Sign In Teacher</th>';
-		content += '</tr>';
-		content += '</thead>';
-		content += '<tbody id="add_bulk_students_inner"></tbody>';
-		content += '</table>';
-		content += '<button id="confirm">Confirm?</button>';
-		content += '<script src="bulk_add_jquery.js"></script>';
+		content = '<%= escape_javascript(render "bulk_add_jquery") %>';
 	} else if(new_sub_tab == 'single') {
 		content = 'single';
 	}
