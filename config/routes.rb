@@ -4,7 +4,7 @@ GradingApp::Application.routes.draw do
       get "view_home"
       get "view_students"
       get "manage_students"
-      put "add_users_to_db"
+      get "add_users_to_db"
     end
   end
   resources :sessions, :only => [:new, :create, :destroy]
