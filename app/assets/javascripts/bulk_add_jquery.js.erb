@@ -84,5 +84,11 @@ function processData(allText) {
 }
 
 function addBulkUsersToDb() {
-	
+	$('tbody#add_bulk_students_inner').children('tr').each(function() {
+		var name = $(this).children('td.name').text();
+		var period = $(this).children('td.period').text();
+		var grade = $(this).children('td.grade_level').text();
+		var teacher = $(this).children('td.sign_in_teacher').text();
+		<%= remote_function :url => {:controller => "users", :action => "add_bulk_users_to_db"}, :with => {:name => name, :period => period, :grade => grade, :teacher => teacher} %>
+	});
 }
