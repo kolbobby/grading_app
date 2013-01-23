@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 	end
 	def add_bulk_users_to_db
 		users = params[:users]
-		flash[:success] = "#{users[0]}"
+		flash[:success] = "#{users[0][0]}"
 	end
 
 	private
