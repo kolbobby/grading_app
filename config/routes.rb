@@ -4,6 +4,7 @@ GradingApp::Application.routes.draw do
       get "view_home"
       get "view_students"
       get "manage_students"
+      put "add_bulk_users_to_db"
     end
   end
   resources :sessions, :only => [:new, :create, :destroy]
@@ -13,8 +14,6 @@ GradingApp::Application.routes.draw do
   match '/help', :to => 'static_pages#help'
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy', :via => :delete
-
-  match '/users/add_bulk_users_to_db', :to => 'users#add_bulk_users_to_db'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
