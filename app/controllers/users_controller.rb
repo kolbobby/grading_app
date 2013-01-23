@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 			format.js { render :layout => false }
 		end
 	end
-	def add_bulk_users_to_db
+	def add_bulk_users_to_db(users)
 		
 	end
 
