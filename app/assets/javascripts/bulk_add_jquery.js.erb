@@ -96,6 +96,4 @@ function addUsers() {
 		users.push(user);
 	});
 	//SEND TO USERS CONTROLLER, add_bulk_users_to_db
-	$('#confirm2').html('Last chance; confirm? <%= escape_javscript(link_to "yes", {:controller => "users", :action => "add_bulk_users_to_db"}, :id => "confirm2_inner") %> | no');
-	$('#confirm2').append("<script>var url = $('#confirm2_inner').attr('href') + '?users = "+users+"';$('#confirm2_inner').attr('href', url);</script>");
 }
