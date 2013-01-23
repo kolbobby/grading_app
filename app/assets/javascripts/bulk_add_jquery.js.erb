@@ -77,7 +77,6 @@ function processData(allText) {
 			} else {
 				t_str += "<td class="+cell_f+">"+cell_s+"</td>";
 			}
-			t_str += "<input type='hidden' name='users[]' value="+cell_s+" />";
 		}
 		t_str += "</tr>";
 	}
@@ -97,4 +96,5 @@ function addUsers() {
 		users.push(user);
 	});
 	//SEND TO USERS CONTROLLER, add_bulk_users_to_db
+	$('#bulk_user_form').append("<input type='hidden' name='users[]' value="+users+" />");
 }
