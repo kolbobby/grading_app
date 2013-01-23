@@ -95,6 +95,6 @@ function addUsers() {
 		});
 		users.push(user);
 	});
-	$('#bulk_user_form').append("<input type='hidden' name='users' value="+users+" />");
+	$('#bulk_user_form').append("<input type='hidden' name='users[][]' value="+users+" />");
 	$('#bulk_user_form').submit();
 }
