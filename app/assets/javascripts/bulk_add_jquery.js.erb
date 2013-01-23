@@ -22,11 +22,11 @@ $('#confirm').click(function() {
 	});
 	if(empty_cells.length > 0) {
 		if(confirm("There are blank cells within rows:\n" + empty_cells + "\nAre you sure you want to confirm?")) {
-			$('#bulk_user_form').submit();
+			addUsers();
 		}
 	} else {
 		if(confirm("Are you sure you want to confirm?")) {
-			$('#bulk_user_form').submit();
+			addUsers();
 		}
 	}
 });
@@ -97,4 +97,5 @@ function addUsers() {
 	});
 	//SEND TO USERS CONTROLLER, add_bulk_users_to_db
 	$('#bulk_user_form').append("<input type='hidden' name='users[]' value="+users+" />");
+	$('#bulk_user_form').submit();
 }
