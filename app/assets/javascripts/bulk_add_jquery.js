@@ -21,7 +21,13 @@ $('#confirm').click(function() {
 		}
 	});
 	if(empty_cells.length > 0) {
-		confirm("There are blank cells within rows:\n" + empty_cells + "\nAre you sure you want to confirm?");
+		if(confirm("There are blank cells within rows:\n" + empty_cells + "\nAre you sure you want to confirm?")) {
+			addBulkUsersToDb();
+		}
+	} else {
+		if(confirm("Are you sure you want to confirm?")) {
+			addBulkUsersToDb();
+		}
 	}
 });
 
@@ -75,4 +81,8 @@ function processData(allText) {
 		t_str += "</tr>";
 	}
 	$('table#add_bulk_students > tbody#add_bulk_students_inner').html(t_str);
+}
+
+function addBulkUsersToDb() {
+	
 }
