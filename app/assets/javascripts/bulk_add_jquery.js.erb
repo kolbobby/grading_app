@@ -23,17 +23,11 @@ $('#confirm').click(function() {
 	if(empty_cells.length > 0) {
 		if(confirm("There are blank cells within rows:\n" + empty_cells + "\nAre you sure you want to confirm?")) {
 			$('#confirm').hide();
-			var users = [];
 			$('tbody#add_bulk_students_inner').children('tr').each(function() {
-				var user = [];
 				$(this).children('td').each(function() {
-					if($(this).attr('class') != 'id') {
-						user.push($(this).text());
-					}
+					alert("asdf");
 				});
-				users.push(user);
 			});
-			alert(users[0]);
 		}
 	} else {
 		if(confirm("Are you sure you want to confirm?")) {
