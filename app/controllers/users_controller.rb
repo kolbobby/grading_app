@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 		end
 	end
 	def add_bulk_users_to_db
-		User.create(:name => params[:name], :uname => params[:name], :period => [:period], :grade_level => [:grade], :sign_in_teacher => params[:sign_in_teacher], :password => "foobar", :password_confirmation => "foobar")
+		
 	end
 
 	private
