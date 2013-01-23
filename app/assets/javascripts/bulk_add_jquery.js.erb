@@ -94,6 +94,7 @@ function addBulkUsersToDb() {
 			, type: "PUT"
 			, data: {u_name: name, u_period: period, u_grade: grade, u_teacher: teacher}
 			, success: function() { $(this).hide(); }
+			, failure: function() { alert("asdf"); }
 		});
 	});
 }
