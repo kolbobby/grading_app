@@ -85,9 +85,15 @@ function processData(allText) {
 
 function addUsers() {
 	$('#confirm').hide();
+	var users = [];
 	$('tbody#add_bulk_students_inner').children('tr').each(function() {
+		var user = [];
 		$(this).children('td').each(function() {
-			alert("asdf");
+			if($(this).attr('class') != 'id') {
+				user.push($(this).text());
+			}
 		});
+		users.push(user);
 	});
+	alert(users[0]);
 }
