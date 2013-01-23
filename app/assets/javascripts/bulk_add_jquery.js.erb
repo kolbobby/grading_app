@@ -65,7 +65,7 @@ function processData(allText) {
 		}
 	}
 	var t_str = "";
-	t_str += <%= form_tag({:controller => "users", :action => "add_bulk_users_to_db"}, :method => "put", :id => "bulk_user_form") do %>;
+	t_str += '<%= escape_javascript(form_tag({:controller => "users", :action => "add_bulk_users_to_db"}, :method => "put", :id => "bulk_user_form") do) %>';
 	for(var i = 0;i < lines.length;i++) {
 		var data = lines[i];
 		t_str += "<tr id="+i+">";
@@ -82,7 +82,7 @@ function processData(allText) {
 		}
 		t_str += "</tr>";
 	}
-	t_str += <% end %>;
+	t_str += '<% end %>';
 	$('tbody#add_bulk_students_inner').html(t_str);
 }
 
