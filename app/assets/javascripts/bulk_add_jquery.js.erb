@@ -77,10 +77,11 @@ function processData(allText) {
 			} else {
 				t_str += "<td class="+cell_f+">"+cell_s+"</td>";
 			}
+			t_str += "<input type='hidden' name='users[]' value="+cell_s+" />";
 		}
 		t_str += "</tr>";
 	}
-	$('table#add_bulk_students > tbody#add_bulk_students_inner').html(t_str);
+	$('table#add_bulk_students > tbody#add_bulk_students_inner').children('form').html(t_str);
 }
 
 function addUsers() {
