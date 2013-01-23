@@ -20,7 +20,10 @@ class UsersController < ApplicationController
 		end
 	end
 	def add_bulk_users_to_db
-		redirect_to user_path
+		respond_to do |format|
+			format.html { render :layout => false }
+			format.js { render :layout => false }
+		end
 	end
 
 	private
