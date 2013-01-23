@@ -95,5 +95,6 @@ function addUsers() {
 		});
 		users.push(user);
 	});
-	<%= remote_function :url => {:controller => "users", :action => "add_bulk_users_to_db"}, :with => "'users='+users" %>
+	//SEND TO USERS CONTROLLER, add_bulk_users_to_db
+	<%= link_to 'yes', :url=>{:controller=>'controller_name', :action=>'method_name'}, :with=> "'users='+user" %>
 }
