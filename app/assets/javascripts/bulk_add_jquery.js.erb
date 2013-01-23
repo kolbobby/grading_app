@@ -22,11 +22,14 @@ $('#confirm').click(function() {
 	});
 	if(empty_cells.length > 0) {
 		if(confirm("There are blank cells within rows:\n" + empty_cells + "\nAre you sure you want to confirm?")) {
-			addBulkUsersToDb();
+			$('#confirm').hide();
+			var users = createUsersArray();
+			alert(users[0]);
+			//$('#confirm2').html("Last chance; confirm? <%= escape_javascript(link_to 'yes', {:controller => 'users', :action => 'add_bulk_users_to_db'}, :remote => true, :with => {:users => "+users+"}) %> | no");
 		}
 	} else {
 		if(confirm("Are you sure you want to confirm?")) {
-			addBulkUsersToDb();
+			$('#confirm').hide();
 		}
 	}
 });
@@ -83,18 +86,15 @@ function processData(allText) {
 	$('table#add_bulk_students > tbody#add_bulk_students_inner').html(t_str);
 }
 
-function addBulkUsersToDb() {
+function createUsersArray() {
+	var users = [];
 	$('tbody#add_bulk_students_inner').children('tr').each(function() {
-		var name = $(this).children('td.name').text();
-		var period = $(this).children('td.period').text();
-		var grade = $(this).children('td.grade_level').text();
-		var teacher = $(this).children('td.sign_in_teacher').text();
-		$.ajax({
-			url: "/users/add_bulk_users_to_db"
-			, type: "PUT"
-			, data: {u_name: name, u_period: period, u_grade: grade, u_teacher: teacher}
-			, success: function(r) { alert(r); }
-			, failure: function() { alert("asdf"); }
+		var user = [];
+		$(this).children('td').each(function() {
+			if($(this).attr('class') != 'id') {
+				user.push($(this).text());
+			}
 		});
+		users.push(user);
 	});
 }
