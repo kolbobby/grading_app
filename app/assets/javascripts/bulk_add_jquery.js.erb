@@ -91,11 +91,12 @@ function createUsersArray() {
 		var user = [];
 		$(this).children('td').each(function() {
 			if($(this).attr('class') != 'id') {
-				user.push($(this).text());
+				alert($(this).text());
+				//user.push($(this).text());
 			}
 		});
-		users.push(user);
+		//users.push(user);
 	});
 
-	return users;
+	//return users;
 }
