@@ -25,7 +25,6 @@ $('#confirm').click(function() {
 			$('#confirm').hide();
 			var users = createUsersArray();
 			alert(users[0]);
-			//$('#confirm2').html("Last chance; confirm? <%= escape_javascript(link_to 'yes', {:controller => 'users', :action => 'add_bulk_users_to_db'}, :remote => true, :with => {:users => "+users+"}) %> | no");
 		}
 	} else {
 		if(confirm("Are you sure you want to confirm?")) {
@@ -97,4 +96,6 @@ function createUsersArray() {
 		});
 		users.push(user);
 	});
+
+	return users;
 }
