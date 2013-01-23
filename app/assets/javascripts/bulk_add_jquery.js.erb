@@ -93,7 +93,7 @@ function addBulkUsersToDb() {
 			url: "/users/add_bulk_users_to_db"
 			, type: "PUT"
 			, data: {u_name: name, u_period: period, u_grade: grade, u_teacher: teacher}
-			, success: function() { $(this).hide(); }
+			, success: function(r) { alert(r); }
 			, failure: function() { alert("asdf"); }
 		});
 	});
