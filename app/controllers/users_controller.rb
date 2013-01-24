@@ -35,9 +35,9 @@ class UsersController < ApplicationController
 			@new_user.sign_in_teacher = n_user[n_u][3]
 			
 			if @new_user.save
-				flash[:success] = "Added"
+				flash[:success] = "Added #{n_u} students, return to <%= link_to 'profile', user_path(current_user) %>"
 			else
-				flash[:failure] = "Failed"
+				flash[:failure] = "Failed, return to <%= link_to 'profile', user_path(current_user) %>"
 			end
 		end
 	end
