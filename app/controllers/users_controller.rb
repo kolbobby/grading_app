@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 			n_user[u] = user
 		end
 
-		flash[:success] = "#{n_user.size}"
+		flash[:success] = "#{n_user[0][0]}"
 	end
 
 	private
