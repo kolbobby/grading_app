@@ -22,13 +22,13 @@ class UsersController < ApplicationController
 	def add_bulk_users_to_db
 		users = params[:users]
 
+		n_user = []
 		(users.size).times do |u|
 			user = users[u].split(/,/)
-			@new_user = User.new(:name => user[0], :uname => user[0], :period => user[1], :grade_level => user[2], :sign_in_teacher => user[3], :password => "foobar", :password_confirmation => "foobar")
-			if @new_user.save
-				flash[:success] = "User #{@new_user[:name]} was added to the database"
-			end
+			n_user[u] = user
 		end
+
+		flash[:success] = "#{n_user.size}"
 	end
 
 	private
