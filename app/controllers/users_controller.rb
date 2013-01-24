@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 		end
 
 		(n_user.size).times do |n_u|
-			@new_user = User.create(:name => n_user[n_u][0], :uname => n_user[n_u][0], :password => "foobar", :password_confirmation => "foobar")
+			@new_user = User.new(:name => n_user[n_u][0], :uname => n_user[n_u][0], :password => "foobar", :password_confirmation => "foobar")
 			
 			if @new_user.save
 				flash[:success] = "Added"
