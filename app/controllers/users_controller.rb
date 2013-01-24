@@ -24,7 +24,10 @@ class UsersController < ApplicationController
 
 		(users.size).times do |u|
 			user = users[u].split(/,/)
-			flash[:success] = "#{user[0]}"
+			@new_user = User.new(:name => user[0], :uname => user[0], :period => user[1], :grade_level => user[2], :sign_in_teacher => user[3], :password => "foobar", :password_confirmation => "foobar")
+			if @new_user.save
+				flash[:success] = "User #{@user.name} was added to the database"
+			end
 		end
 	end
 
