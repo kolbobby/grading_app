@@ -22,9 +22,11 @@ class UsersController < ApplicationController
 	def add_bulk_users_to_db
 		users = params[:users]
 
+		(users.size).times do |u|
+			user = users[u].split(/,/)
+		end
 
-
-		flash[:success] = "#{users[0]}\n#{users[0].length}"
+		flash[:success] = "#{user[0]}"
 	end
 
 	private
