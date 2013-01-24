@@ -85,7 +85,6 @@ function processData(allText) {
 
 function addUsers() {
 	$('#confirm').hide();
-	var users = [];
 	$('tbody#add_bulk_students_inner').children('tr').each(function() {
 		var user = [];
 		$(this).children('td').each(function() {
@@ -93,9 +92,8 @@ function addUsers() {
 				user.push($(this).text());
 			}
 		});
-		users.push(user);
+		$('#bulk_user_form').append("<input type='hidden' name='users[]' value="+user+" />");
 	});
 	//SEND TO USERS CONTROLLER, add_bulk_users_to_db
-	$('#bulk_user_form').append("<input type='hidden' name='users[]' value="+users+" />");
 	$('#bulk_user_form').submit();
 }
