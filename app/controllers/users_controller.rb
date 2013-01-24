@@ -24,9 +24,8 @@ class UsersController < ApplicationController
 
 		(users.size).times do |u|
 			user = users[u].split(/,/)
+			flash[:success] = "#{user[0]}"
 		end
-
-		flash[:success] = "#{user[0]}"
 	end
 
 	private
