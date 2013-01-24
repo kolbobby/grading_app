@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
 
 
-		flash[:success] = "#{users[0].length}"
+		flash[:success] = "#{users[0]}\n#{users[0].length}"
 	end
 
 	private
