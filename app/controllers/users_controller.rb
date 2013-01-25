@@ -14,9 +14,24 @@ class UsersController < ApplicationController
 			format.js { render :layout => false }
 		end
 	end
+	def add_teacher
+		respond_to do |format|
+			format.js { render :layout => false }
+		end
+	end
 	def manage_students
 		respond_to do |format|
 			format.js { render :layout => false }
+		end
+	end
+
+	def add_user(teacher)
+		@new_user = User.new(:name => params[:u_name], :uname => params[:u_uname], :teacher => teacher, :password => params[:u_password], :password_confirmation => params[:u_password])
+
+		if @new_user.save
+			flash[:success] = "Added #{@new_user.name}"
+		else
+			flash[:failure] = "Failed"
 		end
 	end
 	def add_bulk_users_to_db
@@ -35,7 +50,7 @@ class UsersController < ApplicationController
 			@new_user.sign_in_teacher = n_user[n_u][3]
 			
 			if @new_user.save
-				flash[:success] = "Added #{n_u} students"
+				flash[:success] = "Added #{n_u + 1} students"
 			else
 				flash[:failure] = "Failed"
 			end

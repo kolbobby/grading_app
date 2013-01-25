@@ -9,6 +9,10 @@
 	</tr>
 	<tr>
 		<td class="left-side"><span class="det">3.</span></td>
+		<td><%= link_to "add teacher", {:controller => "users", :action => 'add_teacher'}, :remote => true %></td>
+	</tr>
+	<tr>
+		<td class="left-side"><span class="det">4.</span></td>
 		<td><%= link_to "manage students", {:controller => "users", :action => 'manage_students', :remote => true} %></td>
 	</tr>
 </tbody>
