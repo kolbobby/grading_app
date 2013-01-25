@@ -68,7 +68,7 @@ $('#s_add').click(function() {
 });
 $('#s_assign').click(function() {
 	$('#s_a_bulk').click();
-	$('#m_s_c_inner').html("");
+	$('#m_s_c_inner').html("<%= escape_javascript(render 'assign_students') %>");
 	change_tab('assign');
 	$(this).hide();
 	$('#s_assign_plain').show();
