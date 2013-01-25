@@ -10,6 +10,20 @@
 				<td class="left-side"><span class="det">username:</span></td>
 				<td><%= text_field_tag 'u_uname' %></td>
 			</tr>
+			<% if !teacher %>
+				<tr>
+					<td class="left-side"><span class="det">period:</span></td>
+					<td><%= text_field_tag 'u_period' %></td>
+				</tr>
+				<tr>
+					<td class="left-side"><span class="det">grade level:</span></td>
+					<td><%= text_field_tag 'u_grade_level' %></td>
+				</tr>
+				<tr>
+					<td class="left-side"><span class="det">sign in teacher:</span></td>
+					<td><%= text_field_tag 'u_sign_in_teacher' %></td>
+				</tr>
+			<% end %>
 			<tr>
 				<td class="left-side"><span class="det">passsword:</span></td>
 				<td><%= password_field_tag 'u_password' %></td>

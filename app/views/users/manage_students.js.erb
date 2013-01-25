@@ -52,7 +52,7 @@ function change_sub_tab(new_sub_tab) {
 		content += '<button id="confirm">Confirm?</button>';
 		content += '<%= escape_javascript(javascript_include_tag "bulk_add_jquery") %>';
 	} else if(new_sub_tab == 'single') {
-		content = 'single';
+		content = '<%= escape_javascript(render :partial => "add_user_form", :locals => {:teacher => false}) %>';
 	}
 	$('#m_s_c_inner').html(content);
 }
