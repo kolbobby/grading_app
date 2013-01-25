@@ -14,11 +14,11 @@
 				<td class="left-side"><span class="det">passsword:</span></td>
 				<td><%= password_field_tag 'u_password' %></td>
 			</tr>
-			<%= hidden_field_tag 'teacher', {:teacher => params[:teacher]} %>
+			<%= hidden_field_tag 'teacher', teacher %>
 			<tr>
 				<td></td>
 				<td>
-					<% if params[:teacher] %>
+					<% if teacher %>
 						<%= submit_tag 'add teacher' %>
 					<% else %>
 						<%= submit_tag 'add student' %>
