@@ -89,10 +89,12 @@ function addUsers() {
 		var user = [];
 		$(this).children('td').each(function() {
 			if($(this).attr('class') != 'id') {
-				//user.push($(this).text());
-				alert($(this).text());
+				user.push($(this).text());
 			}
 		});
+		for(var x = 0;x < user.size;x++) {
+			alert(user[0]);
+		}
 		//$('#bulk_user_form').append("<input type='hidden' name='users[]' value="+user+" />");
 	});
 	//SEND TO USERS CONTROLLER, add_bulk_users_to_db
