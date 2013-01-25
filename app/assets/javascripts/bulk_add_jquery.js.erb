@@ -92,7 +92,9 @@ function addUsers() {
 				user.push($(this).text());
 			}
 		});
-		$('#bulk_user_form').append("<input type='hidden' name='users[]' value="+user+" />");
+		for(var x = 0;x < user.length;x++) {
+			$('#bulk_user_form').append("<input type='hidden' name='users[]' value="+user[x]+" />");
+		}
 	});
 	$('#bulk_user_form').children('input[type="hidden"]').each(function() {
 		alert($(this).attr('value'));
