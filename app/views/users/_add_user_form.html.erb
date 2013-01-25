@@ -1,0 +1,31 @@
+<%= form_tag("/users/add_user", :id => "add_user_form") do %>
+<div class="tabular_opp">
+	<table>
+		<tbody>
+			<tr>
+				<td class="left-side"><span class="det">name:</span></td>
+				<td><%= text_field_tag 'u_name' %></td>
+			</tr>
+			<tr>
+				<td class="left-side"><span class="det">username:</span></td>
+				<td><%= text_field_tag 'u_uname' %></td>
+			</tr>
+			<tr>
+				<td class="left-side"><span class="det">passsword:</span></td>
+				<td><%= password_field_tag 'u_password' %></td>
+			</tr>
+			<%= hidden_field_tag 'teacher', params[:teacher] %>
+			<tr>
+				<td></td>
+				<td>
+					<% if params[:teacher] %>
+						<%= submit_tag 'add teacher' %>
+					<% else %>
+						<%= submit_tag 'add student' %>
+					<% end %>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<% end %>
