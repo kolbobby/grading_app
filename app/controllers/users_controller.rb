@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 		@new_user.teacher = params[:teacher]
 
 		if @new_user.save
-			flash[:success] = "Added #{@new_user.name}"
+			flash[:success] = "Added"
 		else
 			flash[:failure] = "Failed"
 		end
