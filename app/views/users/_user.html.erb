@@ -9,6 +9,6 @@
 	<% end %>
 <% else %>
 	<% if user.teacher? %>
-
+		<tr><td><%= link_to user.name, user_path(user) %></td></tr>
 	<% end %>
 <% end %>
