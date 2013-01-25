@@ -14,7 +14,7 @@
 				<td class="left-side"><span class="det">passsword:</span></td>
 				<td><%= password_field_tag 'u_password' %></td>
 			</tr>
-			<%= hidden_field_tag 'teacher', :value => params[:teacher] %>
+			<%= hidden_field_tag 'teacher', {:teacher => params[:teacher]} %>
 			<tr>
 				<td></td>
 				<td>
