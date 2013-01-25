@@ -27,6 +27,9 @@ class UsersController < ApplicationController
 
 	def add_user
 		@new_user = User.new(:name => params[:u_name], :uname => params[:u_uname], :password => params[:u_password], :password_confirmation => params[:u_password])
+		@new_user.period = params[:u_period]
+		@new_user.grade_level = params[:u_grade_level]
+		@new_user.sign_in_teacher = params[:u_sign_in_teacher]
 		@new_user.teacher = params[:teacher]
 
 		if @new_user.save
