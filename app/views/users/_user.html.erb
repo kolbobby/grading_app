@@ -1,4 +1,4 @@
-<% if teacher %>
+<% if !teacher %>
 	<% if !user.teacher? %>
 		<tr id="<%= user.id %>">
 			<td class="u_name"><%= link_to user.name, user_path(user) %></td>
@@ -9,6 +9,6 @@
 	<% end %>
 <% else %>
 	<% if user.teacher? %>
-		
+
 	<% end %>
 <% end %>
