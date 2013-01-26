@@ -8,7 +8,8 @@
 		</tr>
 	<% end %>
 <% else %>
-	<% if user.teacher? %>
-		<li><span><%= link_to user.name, user_path(user) %></span></li>
+	<% @users = User.find(:all, :conditions => {:teacher => true}) %>
+	<% @users.each do |u| %>
+		<li><span><%= link_to u.name, user_path(u) %></span></li>
 	<% end %>
 <% end %>
