@@ -68,7 +68,7 @@ $('#s_add').click(function() {
 });
 $('#s_assign').click(function() {
 	$('#s_a_bulk').click();
-	$('#m_s_c_inner').html("<div class='col pull-left tabular'><table><tbody></tbody></table></div>");
+	$('#m_s_c_inner').html("<div class='col pull-left tabular'><ul id="student_assign_teacher_list"></ul><%= escape_javascript(javascript_include_tag "assign_students_jquery") %></div>");
 	change_tab('assign');
 	$(this).hide();
 	$('#s_assign_plain').show();
