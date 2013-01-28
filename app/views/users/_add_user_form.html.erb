@@ -5,41 +5,19 @@
 			<tr>
 				<td class="left-side"><span class="det">name:</span></td>
 				<td><%= text_field_tag 'u_name' %></td>
-				<% if teacher %>
-					<td class="left-side"><span class="det">username:</span></td>
-					<td><%= text_field_tag 'u_uname' %></td>
-				<% end %>
+				<td class="left-side"><span class="det">username:</span></td>
+				<td><%= text_field_tag 'u_uname' %></td>
 			</tr>
-			<% if !teacher %>
-				<tr>
-					<td class="left-side"><span class="det">period:</span></td>
-					<td><%= text_field_tag 'u_period' %></td>
-					<td class="left-side"><span class="det">grade level:</span></td>
-					<td><%= text_field_tag 'u_grade_level' %></td>
-				</tr>
-				<tr>
-					<td class="left-side"><span class="det">sign in teacher:</span></td>
-					<td><%= text_field_tag 'u_sign_in_teacher' %></td>
-					<td></td>
-					<td></td>
-				</tr>
-			<% else %>
-				<tr>
-					<td class="left-side"><span class="det">passsword:</span></td>
-					<td><%= password_field_tag 'u_password' %></td>
-					<td></td>
-					<td></td>
-				</tr>
-			<% end %>
-			<%= hidden_field_tag 'teacher', teacher %>
+			<tr>
+				<td class="left-side"><span class="det">passsword:</span></td>
+				<td><%= password_field_tag 'u_password' %></td>
+				<td></td>
+				<td></td>
+			</tr>
 			<tr>
 				<td></td>
 				<td>
-					<% if teacher %>
-						<%= submit_tag 'add teacher' %>
-					<% else %>
-						<%= submit_tag 'add student' %>
-					<% end %>
+					<%= submit_tag 'add teacher' %>
 				</td>
 			</tr>
 		</tbody>

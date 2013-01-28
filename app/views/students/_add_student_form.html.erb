@@ -1,0 +1,26 @@
+<%= form_tag("/students/add_student", :id => "add_user_form") do %>
+<div class="tabular_opp">
+	<table>
+		<tbody>
+			<tr>
+				<td class="left-side"><span class="det">name:</span></td>
+				<td><%= text_field_tag 'u_name' %></td>
+				<td class="left-side"><span class="det">sign in teacher:</span></td>
+				<td><%= text_field_tag 'u_sign_in_teacher' %></td>
+			</tr>
+			<tr>
+				<td class="left-side"><span class="det">period:</span></td>
+				<td><%= text_field_tag 'u_period' %></td>
+				<td class="left-side"><span class="det">grade level:</span></td>
+				<td><%= text_field_tag 'u_grade_level' %></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<%= submit_tag 'add student' %>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<% end %>

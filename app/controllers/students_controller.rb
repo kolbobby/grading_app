@@ -3,6 +3,15 @@ class StudentsController < ApplicationController
 		@student = Student.find(params[:id])
 	end
 
+	def add_student
+		@new_user = Student.new(:name => params[:u_name], :period => params[:u_period], :grade_level => params[:grade_level], :sign_in_teacher => params[:sign_in_teacher])
+
+		if @new_user.save
+			flash[:success] = "Added"
+		else
+			flash[:failure] = "Failed"
+		end
+	end
 	def add_bulk_users_to_db
 		users = params[:users]
 
