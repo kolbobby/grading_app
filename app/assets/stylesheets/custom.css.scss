@@ -183,6 +183,10 @@ body {
 								margin:.2em 0 .2em 0;
 								span {
 									padding-left:5px;
+									a {
+										text-decoration:none;
+										display:block;
+									}
 									&:hover {
 										padding-left:25px;
 									}
