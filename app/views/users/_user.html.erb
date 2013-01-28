@@ -1,6 +1,6 @@
 <% if !view %>
 	<% @users = User.find(:all, :conditions => {:teacher => true}) %>
 	<% @users.each do |u| %>
-		<li><span><%= link_to u.name, user_path(u) %></span></li>
+		<li><span><%= link_to u.name, '#', :id => "t_#{u.id}", :class => "assign_coach" %></span></li>
 	<% end %>
 <% end %>

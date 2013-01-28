@@ -181,6 +181,9 @@ body {
 							padding:.2em 0 .2em .5em;
 							li {
 								margin:.2em 0 .2em 0;
+								&:hover {
+									margin-left:25px;
+								}
 							}
 						}
 						#assign-right-side {
