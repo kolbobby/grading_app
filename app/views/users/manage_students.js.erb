@@ -68,7 +68,7 @@ $('#s_add').click(function() {
 });
 $('#s_assign').click(function() {
 	$('#s_a_bulk').click();
-	$('#m_s_c_inner').html("<div class='col pull-left tabular'><ul id ='student_assign_teacher_list'><li><h4>coaches</h4></li><%= escape_javascript(render :partial => 'user', :locals => {:teacher => true, :view => false}) %></ul></div><div id='assign-right-side' class='tabular'><div class='row'><ul><%= escape_javascript(render :partial => 'user', :locals => {:teacher => false, :view => false}) %></ul></div></div>");
+	$('#m_s_c_inner').html("<div class='col pull-left tabular'><ul id ='student_assign_teacher_list'><li><h4>coaches</h4></li><%= escape_javascript(render :partial => 'user', :locals => {:teacher => true, :view => false}) %></ul></div><div id='assign-right-side' class='tabular'><div class='row'><h4>students</h4></div></div>");
 	change_tab('assign');
 	$(this).hide();
 	$('#s_assign_plain').show();
