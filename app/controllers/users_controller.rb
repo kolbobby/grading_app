@@ -26,11 +26,11 @@ class UsersController < ApplicationController
 	end
 
 	def add_user
-		@new_user = User.new(:name => params[:u_name], :uname => params[:u_uname], :password => params[:u_password], :password_confirmation => params[:u_password])
-		@new_user.period = params[:u_period]
-		@new_user.grade_level = params[:u_grade_level]
-		@new_user.sign_in_teacher = params[:u_sign_in_teacher]
-		@new_user.teacher = params[:teacher]
+		if params[:teacher]
+			@new_user = User.new(:name => params[:u_name], :uname => params[:u_uname], :teacher => true, :password => params[:u_password], :password_confirmation => params[:u_password])
+		else
+			@new_user = Student.new(:name => params[:u_name], :period => params[:u_period], :grade_level => params[:grade_level], :sign_in_teacher => params[:sign_in_teacher])
+		end
 
 		if @new_user.save
 			flash[:success] = "Added"

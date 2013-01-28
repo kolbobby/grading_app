@@ -5,8 +5,10 @@
 			<tr>
 				<td class="left-side"><span class="det">name:</span></td>
 				<td><%= text_field_tag 'u_name' %></td>
-				<td class="left-side"><span class="det">username:</span></td>
-				<td><%= text_field_tag 'u_uname' %></td>
+				<% if teacher %>
+					<td class="left-side"><span class="det">username:</span></td>
+					<td><%= text_field_tag 'u_uname' %></td>
+				<% end %>
 			</tr>
 			<% if !teacher %>
 				<tr>
@@ -21,13 +23,14 @@
 					<td></td>
 					<td></td>
 				</tr>
+			<% else %>
+				<tr>
+					<td class="left-side"><span class="det">passsword:</span></td>
+					<td><%= password_field_tag 'u_password' %></td>
+					<td></td>
+					<td></td>
+				</tr>
 			<% end %>
-			<tr>
-				<td class="left-side"><span class="det">passsword:</span></td>
-				<td><%= password_field_tag 'u_password' %></td>
-				<td></td>
-				<td></td>
-			</tr>
 			<%= hidden_field_tag 'teacher', teacher %>
 			<tr>
 				<td></td>
