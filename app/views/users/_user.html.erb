@@ -1,37 +1,6 @@
 <% if !view %>
 	<% @users = User.find(:all, :conditions => {:teacher => true}) %>
 	<% @users.each do |u| %>
-		<li><%= link_to u.name, user_path(u) %>
-			<ul>
-				<li>MP1
-					<ul>
-						<li>Act1</li>
-						<li>Act2</li>
-						<li>Act3</li>
-					</ul>
-				</li>
-				<li>MP2
-					<ul>
-						<li>Act1</li>
-						<li>Act2</li>
-						<li>Act3</li>
-					</ul>
-				</li>
-				<li>MP3
-					<ul>
-						<li>Act1</li>
-						<li>Act2</li>
-						<li>Act3</li>
-					</ul>
-				</li>
-				<li>MP4
-					<ul>
-						<li>Act1</li>
-						<li>Act2</li>
-						<li>Act3</li>
-					</ul>
-				</li>
-			</ul>
-		</li>
+		<li><span><%= link_to u.name, user_path(u) %></span></li>
 	<% end %>
 <% end %>
