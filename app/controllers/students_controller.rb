@@ -4,7 +4,7 @@ class StudentsController < ApplicationController
 	end
 
 	def add_student
-		@new_user = Student.new(:name => params[:u_name], :period => params[:u_period], :grade_level => params[:grade_level], :sign_in_teacher => params[:sign_in_teacher])
+		@new_user = Student.new(:name => params[:u_name], :period => params[:u_period], :grade_level => params[:u_grade_level], :sign_in_teacher => params[:u_sign_in_teacher])
 
 		if @new_user.save
 			flash[:success] = "Added"
