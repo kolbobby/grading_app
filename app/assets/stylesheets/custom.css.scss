@@ -181,6 +181,30 @@ body {
 							padding:.2em 0 .2em .5em;
 							li {
 								margin:.2em 0 .2em 0;
+								ul {
+									list-style:none;
+									margin-left:15;
+									padding:0;
+									li {
+										display:none;
+										ul li {
+											display:none;
+										}
+										&:hover {
+											ul li {
+												display:block;
+											}
+										}
+									}
+								}
+								&:hover {
+									ul li {
+										display:block;
+										ul li {
+											display:none;
+										}
+									}
+								}
 							}
 						}
 						#assign-right-side {
