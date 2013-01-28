@@ -27,15 +27,17 @@ class UsersController < ApplicationController
 
 	def add_user
 		if params[:teacher]
+			@msg = "true"
 			@new_user = User.new(:name => params[:u_name], :uname => params[:u_uname], :teacher => true, :password => params[:u_password], :password_confirmation => params[:u_password])
 		else
+			@msg = "false"
 			@new_user = Student.new(:name => params[:u_name], :period => params[:u_period], :grade_level => params[:grade_level], :sign_in_teacher => params[:sign_in_teacher])
 		end
 
 		if @new_user.save
-			flash[:success] = "Added"
+			flash[:success] = "#{@msg}, Added"
 		else
-			flash[:failure] = "Failed"
+			flash[:failure] = "#{@msg}, Failed"
 		end
 	end
 
