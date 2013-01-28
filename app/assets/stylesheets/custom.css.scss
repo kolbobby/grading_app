@@ -181,8 +181,11 @@ body {
 							padding:.2em 0 .2em .5em;
 							li {
 								margin:.2em 0 .2em 0;
-								&:hover {
-									padding-left:25px;
+								span {
+									padding-left:5px;
+									&:hover {
+										padding-left:25px;
+									}
 								}
 							}
 						}
