@@ -7,6 +7,7 @@ GradingApp::Application.routes.draw do
       get "add_teacher"
     end
   end
+  resources :students
   resources :sessions, :only => [:new, :create, :destroy]
 
   root :to => "static_pages#index"

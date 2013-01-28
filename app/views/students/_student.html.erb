@@ -1,0 +1,8 @@
+<% if view %>
+	<tr id="<%= student.id %>">
+		<td class="s_name"><%= link_to student.name, student_path(student) %></td>
+		<td class="s_period"><%= student.period %></td>
+		<td class="s_grade_level"><%= student.grade_level %></td>
+		<td class="s_remove"><%= link_to 'x student', '#' %></td>
+	</tr>
+<% end %>
