@@ -1,1 +1,12 @@
-<span class='mp-header'>MP1</span> | <span class='mp-header'>MP2</span> | <span class='mp-header'>MP3</span> | <span class='mp-header'>MP4</span>
+<script type="text/javascript">
+	$('ul#student_assign_teacher_list').children('li').children('span').each(function() {
+		$(this).hover(
+			function() {
+				$(this).children('label').children('input').css({ 'display': 'inherit', 'position': 'absolute', 'left': '0' });
+			},
+			function() {
+				$(this).children('label').children('input').hide();
+			}
+		);
+	});
+</script>
