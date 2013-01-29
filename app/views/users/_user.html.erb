@@ -1,10 +1,6 @@
 <% if !view %>
 	<% @users = User.find(:all, :conditions => {:teacher => true}) %>
 	<% @users.each do |u| %>
-		<% if u.id == 2 %>
-			<li><span><label><input type="radio" name="coaches" value="<%= u.id %>" checked /><%= u.name %></label></span></li>
-		<% else %>
-			<li><span><label><input type="radio" name="coaches" value="<%= u.id %>" /><%= u.name %></label></span></li>
-		<% end %>
+		<li><span><%= link_to u.name, '#', :id => "t_#{u.id}" %></span></li>
 	<% end %>
 <% end %>
