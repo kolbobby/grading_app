@@ -8,4 +8,9 @@
 			<td class="s_remove"><%= link_to 'x student', '#' %></td>
 		</tr>
 	<% end %>
+<% else %>
+	<% @students = Student.all %>
+	<% @students.each do |s| %>
+		<div class="draggable"><span><%= "#{s.name}" %></span></div>
+	<% end %>
 <% end %>
