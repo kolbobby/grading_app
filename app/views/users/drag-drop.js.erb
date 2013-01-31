@@ -1,0 +1,31 @@
+$('.draggable').click(function(event) {
+	if(event.ctrlKey)
+		$(this).toggleClass('grouped');
+});
+/*$('.draggable').draggable({
+	start: function(event, ui) {
+		count = 0;
+		if($(this).hasClass('grouped')) {
+			collectedData = "<div id='grouped-drags' style='display:none;'>";
+			$('.grouped').each(function() {
+				count++;
+				collectedData += $(this).html();
+			});
+			collectedData += "</div>";
+			prevData = $(this).html();
+			$(this).html(count + " " + collectedData);
+			prevDropHeight = $('li').height();
+			$('li').animate({ height: '50px' }, 300);
+			$('li').append("<div class='drag-here'><em>drag here</em></div>");
+		}
+		prevPos = $(this).offset();
+	},
+	stop: function(event, ui) {
+		if($(this).hasClass('grouped')) {
+			$(this).html(prevData);
+			$('li').animate({ height: prevDropHeight }, 300);
+			$('li').children('.drag-here').remove();
+		}
+		$(this).offset({ top: prevPos.top, left: prevPos.left });
+	}
+});*/
