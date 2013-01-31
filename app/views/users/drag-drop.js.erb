@@ -14,7 +14,7 @@ $('.draggable').draggable({
 			collectedData += "</div>";
 			prevData = $(this).html();
 			$(this).html(count + " " + collectedData);
-			prevDropHeight = $('li').height();
+			prevDropHeight = $('li.droppable').height();
 			$('li.droppable').animate({ height: '50px' }, 300);
 			$('li.droppable').append("<div class='drag-here'><em>drag here</em></div>");
 		}
