@@ -14,17 +14,17 @@ $('.draggable').draggable({
 			collectedData += "</div>";
 			prevData = $(this).html();
 			$(this).html(count + " " + collectedData);
-			prevDropHeight = $('li.droppable').height();
-			$('li.droppable').animate({ height: '50px' }, 300);
-			$('li.droppable').append("<div class='drag-here'><em>drag here</em></div>");
+			prevDropHeight = $('.droppable').height();
+			$('.droppable').animate({ height: '50px' }, 300);
+			$('.droppable').append("<div class='drag-here'><em>drag here</em></div>");
 		}
 		prevPos = $(this).offset();
 	},
 	stop: function(event, ui) {
 		if($(this).hasClass('grouped')) {
 			$(this).html(prevData);
-			$('li.droppable').animate({ height: prevDropHeight }, 300);
-			$('li.droppable').children('.drag-here').remove();
+			$('.droppable').animate({ height: prevDropHeight }, 300);
+			$('.droppable').children('.drag-here').remove();
 		}
 		$(this).offset({ top: prevPos.top, left: prevPos.left });
 	}
