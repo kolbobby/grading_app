@@ -2,7 +2,7 @@ $('.draggable').click(function(event) {
 	if(event.ctrlKey)
 		$(this).toggleClass('grouped');
 });
-/*$('.draggable').draggable({
+$('.draggable').draggable({
 	start: function(event, ui) {
 		count = 0;
 		if($(this).hasClass('grouped')) {
@@ -28,4 +28,4 @@ $('.draggable').click(function(event) {
 		}
 		$(this).offset({ top: prevPos.top, left: prevPos.left });
 	}
-});*/
+});
