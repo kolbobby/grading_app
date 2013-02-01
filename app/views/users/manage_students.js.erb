@@ -68,7 +68,7 @@ $('#s_add').click(function() {
 });
 $('#s_assign').click(function() {
 	$('#s_a_bulk').click();
-	$('#m_s_c_inner').html("<div class='col pull-left tabular'><ul id='student_assign_teacher_list'><li><h4>coaches</h4></li><%= escape_javascript(render :partial => 'user', :locals => {:view => false}) %></ul></div><div id='assign-right-side' class='tabular'><div class='row'><div id='assign-right-header'><div class='row'><%= escape_javascript(render 'assign_right_header') %></div></div><%= escape_javascript(render :partial => '/students/student', :locals => {:view => false}) %></div></div><%= escape_javascript(javascript_include_tag 'drag-drop') %>");
+	$('#m_s_c_inner').html("<div class='col pull-left tabular'><ul id='student_assign_teacher_list'><li><h4>coaches</h4></li><%= escape_javascript(render :partial => 'user', :locals => {:view => false}) %></ul></div><div id='assign-right-side' class='tabular'><div class='row'><div id='assign-right-header'><div class='row'><%= escape_javascript(render 'assign_right_header') %></div></div><%= escape_javascript(render :partial => '/students/student', :locals => {:view => false}) %></div></div><%= escape_javascript(javascript_include_tag 'assign_right_header') %><%= escape_javascript(javascript_include_tag 'drag-drop') %>");
 	change_tab('assign');
 	$(this).hide();
 	$('#s_assign_plain').show();
