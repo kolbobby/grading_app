@@ -192,8 +192,13 @@ body {
 						#assign-right-side {
 							width:74%;
 							float:right;
-							.mp-header {
-								font-weight:bold;
+							.draggable {
+								border-right:1px solid blue;
+								border-left:1px solid blue;
+							}
+							.grouped {
+								border-right:1px solid lightgreen;
+								border-left:1px solid lightgreen;
 							}
 						}
 					}
