@@ -193,7 +193,9 @@ body {
 							width:74%;
 							float:right;
 							#assign-right-header {
-								color:blue;
+								span {
+									color:blue;
+								}
 							}
 							.draggable {
 								border-right:1px solid blue;
