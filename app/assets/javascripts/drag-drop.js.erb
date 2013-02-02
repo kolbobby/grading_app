@@ -19,6 +19,7 @@ $('.draggable').draggable({
 			$('li.droppable').append("<div class='drag-here'><em>drag here</em></div>");
 			prevWidth = $(this).width();
 			$(this).css({ width: '15px' });
+			$(this).addClass('selected');
 		}
 		prevPos = $(this).offset();
 	},
@@ -28,6 +29,7 @@ $('.draggable').draggable({
 			$(this).css({ width: prevWidth });
 			$('li.droppable').animate({ height: prevDropHeight }, 300);
 			$('li.droppable').children('.drag-here').remove();
+			$(this).addClass('selected');
 		}
 		$(this).offset({ top: prevPos.top, left: prevPos.left });
 	}
