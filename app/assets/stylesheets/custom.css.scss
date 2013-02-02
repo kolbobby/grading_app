@@ -192,9 +192,12 @@ body {
 						#assign-right-side {
 							width:74%;
 							float:right;
+							margin-bottom:2%;
+							padding-bottom:2%;
 							#assign-right-header {
 								span {
 									color:blue;
+									cursor:pointer;
 								}
 							}
 							.draggable {
