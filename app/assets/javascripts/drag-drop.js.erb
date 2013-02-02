@@ -29,7 +29,7 @@ $('.draggable').draggable({
 			$(this).css({ width: prevWidth });
 			$('li.droppable').animate({ height: prevDropHeight }, 300);
 			$('li.droppable').children('.drag-here').remove();
-			$(this).addClass('selected');
+			$(this).removeClass('selected');
 		}
 		$(this).offset({ top: prevPos.top, left: prevPos.left });
 	}
