@@ -22,7 +22,7 @@ $('.draggable').draggable({
 			$(this).addClass('selected');
 			$('.grouped').each(function() {
 				if(!$(this).hasClass('selected')) {
-					$(this).slideUp();
+					$(this).hide();
 				}
 			});
 		}
@@ -36,7 +36,7 @@ $('.draggable').draggable({
 			$('li.droppable').children('.drag-here').remove();
 			$('.grouped').each(function() {
 				if(!$(this).hasClass('selected')) {
-					$(this).slideDown();
+					$(this).show();
 				}
 			});
 			$(this).removeClass('selected');
