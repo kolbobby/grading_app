@@ -20,9 +20,11 @@ $('.draggable').draggable({
 			prevWidth = $(this).width();
 			$(this).css({ width: '15px' });
 			$(this).addClass('selected');
-			if(!$('.grouped').hasClass('.selected')) {
-				alert('asf');
-			}
+			$('.grouped').each(function() {
+				if(!$(this).hasClass('.selected')) {
+					alert('asdf');
+				}
+			});
 		}
 		prevPos = $(this).offset();
 	},
