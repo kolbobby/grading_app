@@ -34,6 +34,11 @@ $('.draggable').draggable({
 			$(this).css({ width: prevWidth });
 			$('li.droppable').animate({ height: prevDropHeight }, 300);
 			$('li.droppable').children('.drag-here').remove();
+			$('.grouped').each(function() {
+				if(!$(this).hasClass('selected')) {
+					$(this).slideDown();
+				}
+			});
 			$(this).removeClass('selected');
 		}
 		$(this).offset({ top: prevPos.top, left: prevPos.left });
