@@ -21,7 +21,7 @@ $('.draggable').draggable({
 			$(this).css({ width: '15px' });
 			$(this).addClass('selected');
 			$('.grouped').each(function() {
-				if(!$(this).hasClass('.selected')) {
+				if($(this).hasClass('.grouped') && !$(this).hasClass('.selected')) {
 					alert('asdf');
 				}
 			});
