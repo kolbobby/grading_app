@@ -19,14 +19,14 @@ $('.draggable').draggable({
 			$('li.droppable').append("<div class='drag-here'><em>drag here</em></div>");
 			prevWidth = $(this).width();
 			$(this).css({ width: '15px' });
-			$(this).addClass('selected');
-			$('.grouped').each(function() {
-				if(!$(this).hasClass('selected')) {
-					$(this).hide();
-				}
-			});
 		}
 		prevPos = $(this).offset();
+		$(this).addClass('selected');
+		$('.grouped').each(function() {
+			if(!$(this).hasClass('selected')) {
+				$(this).hide();
+			}
+		});
 	},
 	stop: function(event, ui) {
 		if($(this).hasClass('grouped')) {
@@ -34,14 +34,14 @@ $('.draggable').draggable({
 			$(this).css({ width: prevWidth });
 			$('li.droppable').animate({ height: prevDropHeight }, 300);
 			$('li.droppable').children('.drag-here').remove();
-			$('.grouped').each(function() {
-				if(!$(this).hasClass('selected')) {
-					$(this).show();
-				}
-			});
-			$(this).removeClass('selected');
 		}
 		$(this).offset({ top: prevPos.top, left: prevPos.left });
+		$('.grouped').each(function() {
+			if(!$(this).hasClass('selected')) {
+				$(this).show();
+			}
+		});
+		$(this).removeClass('selected');
 	}
 });
 $('.droppable').droppable({
