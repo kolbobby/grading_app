@@ -20,6 +20,9 @@ $('.draggable').draggable({
 			prevWidth = $(this).width();
 			$(this).css({ width: '15px' });
 			$(this).addClass('selected');
+			if(!$('.grouped').hasClass('.selected')) {
+				alert('asf');
+			}
 		}
 		prevPos = $(this).offset();
 	},
