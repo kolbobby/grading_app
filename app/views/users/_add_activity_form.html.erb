@@ -1,16 +1,20 @@
-<table>
-	<% @users = User.all %>
-	<% @users.each do |u| %>
-		<tr>
-			<td colspan="4"><%= u.name %></td>
-		</tr>
-		<% 4.times do |x| %>
+<% @users = User.all %>
+<% @users.each do |u| %>
+	<table class="add-activities">
+		<thead>
 			<tr>
-				<td>Marking period <%= x %></td>
-				<td>Activity 1</td>
-				<td>Activity 2</td>
-				<td>Activity 3</td>
+				<th colspan="4"><%= u.name %></th>
 			</tr>
-		<% end %>
-	<% end %>
-</table>
+		</thead>
+		<tbody>
+			<% 4.times do |x| %>
+				<tr>
+					<td>Marking period <%= x + 1 %></td>
+					<td>Activity 1</td>
+					<td>Activity 2</td>
+					<td>Activity 3</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+<% end %>
