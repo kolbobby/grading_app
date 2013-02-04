@@ -5,14 +5,18 @@
 	</tr>
 	<tr>
 		<td class="left-side"><span class="det">2.</span></td>
-		<td><%= link_to "view students", {:controller => "users", :action => 'view_students'}, :remote => true %></td>
+		<td><%= link_to "add teacher", {:controller => "users", :action => 'add_teacher'}, :remote => true %></td>
 	</tr>
 	<tr>
 		<td class="left-side"><span class="det">3.</span></td>
-		<td><%= link_to "add teacher", {:controller => "users", :action => 'add_teacher'}, :remote => true %></td>
+		<td><%= link_to "view students", {:controller => "users", :action => 'view_students'}, :remote => true %></td>
 	</tr>
 	<tr>
 		<td class="left-side"><span class="det">4.</span></td>
 		<td><%= link_to "manage students", {:controller => "users", :action => 'manage_students', :remote => true} %></td>
+	</tr>
+	<tr>
+		<td class="left-side"><span class="det">5.</span></td>
+		<td><%= link_to "manage activities", {:controller => "users", :action => 'manage_activities'}, :remote => true %></td>
 	</tr>
 </tbody>

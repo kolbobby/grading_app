@@ -8,18 +8,23 @@ class UsersController < ApplicationController
 			format.js { render :layout => false }
 		end
 	end
+	def add_teacher
+		respond_to do |format|
+			format.js { render :layout => false }
+		end
+	end
 	def view_students
 		@users = User.all
 		respond_to do |format|
 			format.js { render :layout => false }
 		end
 	end
-	def add_teacher
+	def manage_students
 		respond_to do |format|
 			format.js { render :layout => false }
 		end
 	end
-	def manage_students
+	def manage_activities
 		respond_to do |format|
 			format.js { render :layout => false }
 		end
