@@ -1,20 +1,6 @@
-<% @users = User.all %>
-<% @users.each do |u| %>
-	<table class="add-activities">
-		<thead>
-			<tr>
-				<th colspan="4"><%= u.name %></th>
-			</tr>
-		</thead>
-		<tbody>
-			<% 4.times do |x| %>
-				<tr>
-					<td>Marking period <%= x + 1 %></td>
-					<td>Activity 1</td>
-					<td>Activity 2</td>
-					<td>Activity 3</td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
-<% end %>
+<div>
+	<% @users = User.all %>
+	<% @users.each do |u| %>
+		<label><input type="radio" name="coach" /><%= u.name %></label>
+	<% end %>
+</div>
