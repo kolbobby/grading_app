@@ -6,19 +6,23 @@
 </div>
 <div class="tabular_opp">
 	<table id="manage-activities">
-		<tr>
-			<td></td>
-			<td>Activity 1</td>
-			<td>Activity 2</td>
-			<td>Activity 3</td>
-		</tr>
-		<% 4.times do |x| %>
+		<thead>
 			<tr>
-				<td>Marking Period <%= x + 1 %></td>
-				<td><em>none</em></td>
-				<td><em>none</em></td>
-				<td><em>none</em></td>
+				<th></th>
+				<th>Activity 1</th>
+				<th>Activity 2</th>
+				<th>Activity 3</th>
 			</tr>
-		<% end %>
+		</thead>
+		<tbody>
+			<% 4.times do |x| %>
+				<tr>
+					<td>Marking Period <%= x + 1 %></td>
+					<td><em>none</em></td>
+					<td><em>none</em></td>
+					<td class="right-side"><em>none</em></td>
+				</tr>
+			<% end %>
+		</tbody>
 	</table>
 </div>

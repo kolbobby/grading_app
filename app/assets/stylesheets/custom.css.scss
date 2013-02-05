@@ -138,7 +138,7 @@ body {
 					}
 					tr td {
 						border-right:1px solid #444;
-						&.u_remove {
+						&.s_remove {
 							border-right:0;
 						}
 					}
@@ -221,6 +221,15 @@ body {
 				}
 				#manage-activities {
 					width:100%;
+					tr th {
+						border-bottom:1px solid #444;
+					}
+					tr td {
+						border-right:1px solid #444;
+						&.right-side {
+							border-right:0;
+						}
+					}
 				}
 			}
 		}
