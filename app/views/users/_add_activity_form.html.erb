@@ -4,11 +4,20 @@
 		<div><label><input type="radio" name="coach" /><%= u.name %></label></div>
 	<% end %>
 </div>
-<div class="tabular">
+<div class="tabular-opp">
 	<table id="manage-activities">
+		<tr>
+			<td></td>
+			<td>Activity 1</td>
+			<td>Activity 2</td>
+			<td>Activity 3</td>
+		</tr>
 		<% 4.times do |x| %>
 			<tr>
 				<td>Marking Period <%= x + 1 %></td>
+				<td>none</td>
+				<td>none</td>
+				<td>none</td>
 			</tr>
 		<% end %>
 	</table>
