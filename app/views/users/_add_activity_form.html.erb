@@ -1,6 +1,6 @@
 <div>
 	<% @users = User.all %>
 	<% @users.each do |u| %>
-		<label><input type="radio" name="coach" /><%= u.name %></label>
+		<div><label><input type="radio" name="coach" /><%= u.name %></label></div>
 	<% end %>
 </div>
