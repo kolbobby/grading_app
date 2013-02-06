@@ -227,6 +227,9 @@ body {
 					tr td {
 						text-align:center;
 						border-right:1px solid #444;
+						&.left-side {
+							width:15%;
+						}
 						&.right-side {
 							border-right:0;
 						}
