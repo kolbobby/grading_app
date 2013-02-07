@@ -1,0 +1,11 @@
+<tr>
+	<td class='left-side'>Marking Period <%= mp %></td>
+	<% @activities = Activity.find(:all, :conditions => { :coach => coa, :marking_period => mp}) %>
+	<% 3.times do |y|) %>
+		<% if !@activities.find(:first, :conditions => { :activity_number => y }) %>
+			<td><em>none</em></td>
+		<% else %>
+			<td><em><%= @activities.find(:first, :conditions => { :activity_number => y }).name %></em></td>
+		<% end %>
+	<% end %>
+</tr>
