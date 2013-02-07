@@ -14,7 +14,7 @@ $('#edit-all-activities').click(function() {
 $('#save-activities').click(function() {
 	if($('#manage-activities').children('tbody').children('tr').children('td').children('input').length) {
 		$('#manage-activities').children('tbody').children('tr').children('td').children('input').each(function() {
-			alert('asdf');
+			$(this).parent('td').html($(this).val());
 		});
 	}
 });
