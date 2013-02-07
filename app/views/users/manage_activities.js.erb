@@ -1,4 +1,9 @@
 $('#main-user-content').html("<div class='row'><%= escape_javascript(render 'add_activity_form') %></div>");
+
+$('input[name=coach]:radio').change(function() {
+	alert("asdf");
+});
+
 $('#manage-activities').children('tbody').children('tr').children('td').dblclick(function() {
 	if(!$(this).hasClass('left-side')) {
 		$(this).html("<input type='text' value=" + $(this).text() + " />");
@@ -12,10 +17,9 @@ $('#edit-all-activities').click(function() {
 	});
 });
 $('#save-activities').click(function() {
-	/*if($('#manage-activities').children('tbody').children('tr').children('td').children('input').length) {
+	if($('#manage-activities').children('tbody').children('tr').children('td').children('input').length) {
 		$('#manage-activities').children('tbody').children('tr').children('td').children('input').each(function() {
 			$(this).parent('td').html("<em>" + $(this).val() + "</em>");
 		});
-	}*/
-	alert("<%= escape_javascript(Activity.find(1).name) %>");
+	}
 });
