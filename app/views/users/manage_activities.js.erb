@@ -12,7 +12,7 @@ $('#edit-all-activities').click(function() {
 	});
 });
 $('#save-activities').click(function() {
-	$('#manage-activities').children('tbody').children('tr').children('td').each(function() {
-		alert($(this).html());
-	});
+	//$('#manage-activities').children('tbody').children('tr').children('td').each(function() {
+		alert($(this).children('input').length);
+	//});
 });
