@@ -1,21 +1,9 @@
 $('#main-user-content').html("<div class='row'><%= escape_javascript(render 'add_activity_form') %></div>");
 
 function InitRender() {
-	var str = "";
 	for(var x = 1;x < 5;x++) {
-		str += "<tr>";
-		str += "<td class='left-side'>Marking Period " + x + "</td>";
-		str += "<% escape_javascript(@activities = Activity.find(:all, :conditions => { :coach => " + $('input[name=coaches]:checked').val() + ", marking_period => " + x + " })) %>"
-		str += "<% escape_javascript(3.times do |y|) %>";
-		str += "<% escape_javascript(if !@activities.find(:first, :conditions => { :activity_number => y })) %>";
-		str += "<td><em>none</em></td>";
-		str += "<% escape_javascript(else) %>";
-		str += "<td><em><%= escape_javascript(@activities.find(:first, :conditions => { :activity_number => y }).name) %></em></td>";
-		str += "<% escape_javascript(end) %>";
-		str += "<% escape_javascript(end) %>";
-		str += "</tr>";
+		$('#manage-activities').children('tbody').append("<%= escape_javascript(render :partial => 'activity_cell', :locals => { :mp => "+ x +", :coa => "+ $('input[name=coaches]:checked').val() +" }) %>");
 	}
-	$('#manage-activities').children('tbody').append(str);
 }
 
 $('input[name=coaches]:radio').change(function() {
