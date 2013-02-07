@@ -12,7 +12,9 @@ $('#edit-all-activities').click(function() {
 	});
 });
 $('#save-activities').click(function() {
-	//$('#manage-activities').children('tbody').children('tr').children('td').each(function() {
-		alert($('#manage-activities').children('tbody').children('tr').children('td').children('input').length);
-	//});
+	if($('#manage-activities').children('tbody').children('tr').children('td').children('input').length) {
+		$('#manage-activities').children('tbody').children('tr').children('td').children('input').each(function() {
+			alert('asdf');
+		});
+	}
 });
