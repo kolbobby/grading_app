@@ -234,6 +234,9 @@ body {
 						&.right-side {
 							border-right:0;
 						}
+						input[type='text'] {
+							text-align:center;
+						}
 					}
 				}
 			}

@@ -1,4 +1,4 @@
 $('#main-user-content').html("<div class='row'><%= escape_javascript(render 'add_activity_form') %></div>");
 $('#manage-activities').children('tbody').children('tr').children('td').dblclick(function() {
-	$(this).html("<input type='text' value=" + $(this).val() + " />");
+	$(this).html("<input type='text' value=" + $(this).text() + " />");
 });
