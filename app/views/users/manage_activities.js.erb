@@ -15,7 +15,7 @@ function InitRender() {
 		str += "<% escape_javascript(end) %>";
 		str += "</tr>";
 	}
-	$('#manage-activities').children('tbody').append();
+	$('#manage-activities').children('tbody').append(str);
 }
 
 $('input[name=coaches]:radio').change(function() {
