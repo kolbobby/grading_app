@@ -1,7 +1,7 @@
 <div class="tabular">
 	<% @users = User.all %>
 	<% @users.each do |u| %>
-		<% if u.id %>
+		<% if u.id == 2 %>
 			<div><label><input type="radio" name="coach" checked /><%= u.name %></label></div>
 		<% else %>
 			<div><label><input type="radio" name="coach" /><%= u.name %></label></div>
