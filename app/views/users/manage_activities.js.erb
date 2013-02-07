@@ -4,8 +4,15 @@ $('#manage-activities').children('tbody').children('tr').children('td').dblclick
 		$(this).html("<input type='text' value=" + $(this).text() + " />");
 	}
 });
-$('#manage-activities').children('tbody').children('tr').children('td').each(function() {
-	if(!$(this).hasClass('left-side')) {
-		$(this).html("<input type='text' value=" + $(this).text() + " />");
-	}
+$('#edit-all-activities').click(function() {
+	$('#manage-activities').children('tbody').children('tr').children('td').each(function() {
+		if(!$(this).hasClass('left-side')) {
+			$(this).html("<input type='text' value=" + $(this).text() + " />");
+		}
+	});
+});
+$('#save-activities').click(function() {
+	$('#manage-activities').children('tbody').children('tr').children('td').each(function() {
+		alert($(this).html());
+	});
 });
