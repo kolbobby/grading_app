@@ -221,6 +221,7 @@ body {
 				}
 				#manage-activities {
 					width:100%;
+					border-bottom:1px solid #444;
 					tr th {
 						border-bottom:1px solid #444;
 					}
@@ -238,6 +239,9 @@ body {
 							text-align:center;
 						}
 					}
+				}
+				.act-btn {
+					width:100%;
 				}
 			}
 		}
