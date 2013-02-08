@@ -27,8 +27,14 @@
 				<tr>
 					<td>Marking Period <%= x + 1 %></td>
 					<% @activities = Activity.find(:all, :conditions => { :marking_period => x + 1, :coach => @coach.name }) %>
-					<% (@activities.length).times do |y| %>
-						<td>asdf</td>
+					<% @activities.each do |a| %>
+						<% acount = 0 %>
+						<% if (a.activity_number == 1 && acount == 0) || (a.activity_number == 2 && acout == 1) || (a.activity_number == 3 && acount == 2) %>
+							<td><em><%= a.name %></em></td>
+						<% else %>
+							<td><em>none</em></td>
+						<% end %>
+						<% acount = acount + 1 %>
 					<% end %>
 				</tr>
 			<% end %>
