@@ -22,7 +22,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<% @coach = User.first() %>
+			<% @coach = User.find(:first, :conditions => { :name => "Test Teacher" }) %>
 			<% 4.times do |x| %>
 				<tr>
 					<td>Marking Period <%= x + 1 %></td>
