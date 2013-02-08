@@ -26,7 +26,7 @@
 			<% 4.times do |x| %>
 				<tr>
 					<td>Marking Period <%= x + 1 %></td>
-					<% @activities = Activity.find(:all, :conditions => { :marking_period => x + 1, :coach => @coach }) %>
+					<% @activities = Activity.find(:all, :conditions => { :marking_period => x + 1, :coach => @coach.name }) %>
 					<% (@activities.length).times do |y| %>
 						<td>asdf</td>
 					<% end %>
