@@ -21,7 +21,18 @@
 				<th>Activity 3</th>
 			</tr>
 		</thead>
-		<tbody></tbody>
+		<tbody>
+			<% @coach = User.first() %>
+			<% 4.times do |x| %>
+				<tr>
+					<td>Marking Period <%= x + 1 %></td>
+					<% @activities = Activity.find(:all, :conditions => { :marking_period => x + 1, :coach => @coach }) %>
+					<% (@activities.length).times do |y| %>
+						<td>asdf</td>
+					<% end %>
+				</tr>
+			<% end %>
+		</tbody>
 	</table>
 	<button id="edit-all-activities" class="act-btn">Edit All</button>
 	<button id="save-activities" class="act-btn">Save</button>
