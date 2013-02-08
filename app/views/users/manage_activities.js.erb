@@ -25,5 +25,15 @@ $('#save-activities').click(function() {
 				$(this).parent('td').html("<em>none</em>");
 			}
 		});
+		var moveOn = true;
+		$('#manage-activities').children('tbody').children('tr').children('td').each(function() {
+			if($(this).children('em').html() == 'none') {
+				moveOn = false;
+			}
+		});
+
+		if(moveOn) {
+			alert('asdf');
+		}
 	}
 });
