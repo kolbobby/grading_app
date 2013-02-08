@@ -1,7 +1,7 @@
 $('#main-user-content').html("<div class='row'><%= escape_javascript(render 'add_activity_form') %></div>");
 
 $('input[name=coaches]:radio').change(function() {
-	$.post('https://ancient-thicket-3082.herokuapp.com/add_activities', { coach: $(this).val() }, function(r) { alert(r); });
+	$.post('https://ancient-thicket-3082.herokuapp.com/add_activities', { coach: $(this).val() }).done(function(r) { alert(r); });
 });
 
 $('#manage-activities').children('tbody').children('tr').children('td').dblclick(function() {
