@@ -1,11 +1,5 @@
 $('#main-user-content').html("<div class='row'><%= escape_javascript(render 'add_activity_form') %></div>");
 
-function InitRender() {
-	for(var x = 1;x < 5;x++) {
-		$('#manage-activities').children('tbody').append("<%= escape_javascript(render :partial => 'activity_cell', :locals => { :mp => @mp}) %>");
-	}
-}
-
 $('input[name=coaches]:radio').change(function() {
 
 });
@@ -29,5 +23,3 @@ $('#save-activities').click(function() {
 		});
 	}
 });
-
-InitRender();
