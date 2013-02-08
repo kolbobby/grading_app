@@ -27,9 +27,13 @@
 			<% if @activities.length < 12 %>
 				<% 4.times do |x| %>
 					<tr>
-						<td>Marking Period <%= x + 1 %></td>
+						<td class="left-side">Marking Period <%= x + 1 %></td>
 						<% 3.times do |y| %>
-							<td><em>none</em></td>
+							<% if y != 2 %>
+								<td><em>none</em></td>
+							<% else %>
+								<td class="right-side"><em>none</em></td>
+							<% end %>
 						<% end %>
 					</tr>
 				<% end %>
