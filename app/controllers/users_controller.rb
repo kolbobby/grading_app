@@ -14,7 +14,6 @@ class UsersController < ApplicationController
 		end
 	end
 	def view_students
-		@users = User.all
 		respond_to do |format|
 			format.js { render :layout => false }
 		end
@@ -25,6 +24,7 @@ class UsersController < ApplicationController
 		end
 	end
 	def manage_activities
+		@mp = 1
 		respond_to do |format|
 			format.js { render :layout => false }
 		end
