@@ -23,20 +23,16 @@
 		</thead>
 		<tbody>
 			<% @coach = User.find(:first, :conditions => { :name => "Test Teacher" }) %>
-			<% 4.times do |x| %>
-				<tr>
-					<td>Marking Period <%= x + 1 %></td>
-					<% @activities = Activity.find(:all, :conditions => { :marking_period => x + 1, :coach => @coach.name }) %>
-					<% @activities.each do |a| %>
-						<% acount = 0 %>
-						<% if (a.activity_number == 1 && acount == 0) || (a.activity_number == 2 && acount == 1) || (a.activity_number == 3 && acount == 2) %>
-							<td><em><%= a.name %></em></td>
-						<% else %>
+			<% @activities = Activity.find(:all, :conditions => { :coach => @coach.name }) %>
+			<% if @activities.length < 12 %>
+				<% 4.times do |x| %>
+					<tr>
+						<td>Marking Period <%= x + 1 %></td>
+						<% 3.times do |y| %>
 							<td><em>none</em></td>
 						<% end %>
-						<% acount = acount + 1 %>
-					<% end %>
-				</tr>
+					</tr>
+				<% end %>
 			<% end %>
 		</tbody>
 	</table>

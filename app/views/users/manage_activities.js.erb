@@ -19,7 +19,11 @@ $('#edit-all-activities').click(function() {
 $('#save-activities').click(function() {
 	if($('#manage-activities').children('tbody').children('tr').children('td').children('input').length) {
 		$('#manage-activities').children('tbody').children('tr').children('td').children('input').each(function() {
-			$(this).parent('td').html("<em>" + $(this).val() + "</em>");
+			if($(this).val() != 'none') {
+				$(this).parent('td').html("<em>" + $(this).val() + "</em>");
+			} else {
+				$(this).parent('td').html("<em>none</em>");
+			}
 		});
 	}
 });
