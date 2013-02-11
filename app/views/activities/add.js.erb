@@ -1,2 +1,1 @@
-alert(<%= @coach %>);
-return <%= @coach %>;
+alert("<%= escape_javascript(@coach) %>");
