@@ -19,7 +19,8 @@ GradingApp::Application.routes.draw do
   match '/students/add_bulk_users_to_db', :to => 'students#add_bulk_users_to_db'
   match '/users/add_user', :to => 'users#add_user'
   match '/students/add_student', :to => 'students#add_student'
-  match '/add_activities', :to => 'activities#add'
+
+  post '/add_activities', :to => 'activities#add'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
