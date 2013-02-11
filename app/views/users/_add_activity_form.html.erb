@@ -3,9 +3,9 @@
 	<% count = 1 %>
 	<% @users.each do |u| %>
 		<% if count == 1 %>
-			<div><label><input type="radio" name="coaches" checked /><%= u.name %></label></div>
+			<div><label><input type="radio" name="coaches" value="<%= u.name %>" checked /><%= u.name %></label></div>
 		<% else %>
-			<div><label><input type="radio" name="coaches" /><%= u.name %></label></div>
+			<div><label><input type="radio" name="coaches" value="<%= u.name %>" /><%= u.name %></label></div>
 		<% end %>
 		<% count = count + 1 %>
 	<% end %>
