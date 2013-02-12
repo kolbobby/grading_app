@@ -39,8 +39,10 @@ $('#save-activities').click(function() {
 });
 
 function loadActivities(activities) {
-	alert(activities[0]['coach']);
 	$.each(activities, function() {
 		alert("asdf");
+		$.each(this, function(key, value) {
+			alert(key + ": " + value);
+		});
 	});
 }
