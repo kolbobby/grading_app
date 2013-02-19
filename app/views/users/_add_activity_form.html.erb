@@ -22,7 +22,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<% @coach = User.find(:first, :conditions => { :name => "Test Teacher" }) %>
+			<% @coach = User.find(:first) %>
 			<% @activities = Activity.find(:all, :conditions => { :coach => @coach.name }) %>
 			<% if @activities.length < 12 %>
 				<% 4.times do |x| %>

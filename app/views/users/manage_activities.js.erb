@@ -39,6 +39,23 @@ $('#save-activities').click(function() {
 });
 
 function loadActivities(activities) {
+	var str = "";
+	if(activities.length < 12) {
+		for(var i = 0;i < 4;i++) {
+			str += "<tr>";
+			str += "<td class='left-side'>Marking Period "+ (i+1) +"</td>";
+			for(var j = 0;i < 3;i++) {
+				if(j != 2) {
+					str += "<td><em>none</em></td>";
+				} else {
+					str += "<td class='right-side'><em>none</em></td>";
+				}
+			}
+			str += "</tr>";
+		}
+	}
+	$("#manage-activities").children('tbody').html(str);
+
 	$.each(activities, function() {
 		$.each(this, function(key, value) {
 			alert(key + ": " + value);
