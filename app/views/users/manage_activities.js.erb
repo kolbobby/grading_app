@@ -43,15 +43,20 @@ $('#save-activities').click(function() {
 });
 
 function loadActivities(activities) {
-	alert(activities[0]['name']);
 	var str = "";
 	if(activities.length < 12) {
 		for(var i = 0;i < 4;i++) {
 			str += "<tr>";
 			str += "<td class='left-side'>Marking Period "+ (i+1) +"</td>";
 			for(var j = 0;j < 3;j++) {
+				var text = "";
 				if(j != 2) {
-					str += "<td><em>none</em></td>";
+					if(activities.length < 12) {
+						str += "<td><em>none</em></td>";
+					} else {
+						$.post('/get_activities', { act: j+1, mp: i+1 }, function(r) { text = r; });
+						str += "<td>"+ text +"</td>";
+					}
 				} else {
 					str += "<td class='right-side'><em>none</em></td>";
 				}

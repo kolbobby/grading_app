@@ -21,6 +21,7 @@ GradingApp::Application.routes.draw do
   match '/students/add_student', :to => 'students#add_student'
 
   post '/change_coach', :to => 'activities#change_coach'
+  post '/get_activity', :to => 'activities#get_activity'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
