@@ -22,7 +22,7 @@ $('#save-activities').click(function() {
 	if($('#manage-activities').children('tbody').children('tr').children('td').children('input').length) {
 		var moveOn = true;
 		$('#manage-activities').children('tbody').children('tr').children('td.data').each(function() {
-			if($(this).children('em').html() == 'none') {
+			if($(this).children('input').val() == 'none') {
 				moveOn = false;
 			}
 		});
@@ -33,6 +33,7 @@ $('#save-activities').click(function() {
 				var id = $(this).prop('id');
 				var mp = id.substring(0, 1);
 				var act = id.substring(2);
+				
 				alert(mp + ": " + act);
 			});
 		}
