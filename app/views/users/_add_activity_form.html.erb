@@ -29,9 +29,9 @@
 					<td class="left-side">Marking Period <%= x + 1 %></td>
 					<% 3.times do |y| %>
 						<% if y != 2 %>
-							<td id="<%= x+1 %>_<%= y+1 %>"><em>none</em></td>
+							<td id="<%= (x+1) + "_" + (y+1) %>"><em>none</em></td>
 						<% else %>
-							<td id="<%= x+1 %>_<%= y+1 %>" class="right-side"><em>none</em></td>
+							<td id="<%= (x+1) + "_" + (y+1) %>" class="right-side"><em>none</em></td>
 						<% end %>
 					<% end %>
 				</tr>
