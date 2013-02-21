@@ -20,13 +20,6 @@ $('#edit-all-activities').click(function() {
 });
 $('#save-activities').click(function() {
 	if($('#manage-activities').children('tbody').children('tr').children('td').children('input').length) {
-		/*$('#manage-activities').children('tbody').children('tr').children('td').children('input').each(function() {
-			if($(this).val() != '') {
-				$(this).parent('td').html("<em>" + $(this).val() + "</em>");
-			} else {
-				$(this).parent('td').html("<em>none</em>");
-			}
-		});*/
 		var moveOn = true;
 		$('#manage-activities').children('tbody').children('tr').children('td').each(function() {
 			if($(this).children('em').html() == 'none') {
