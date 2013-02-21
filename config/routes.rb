@@ -22,6 +22,7 @@ GradingApp::Application.routes.draw do
 
   post '/change_coach', :to => 'activities#change_coach'
   post '/get_activity', :to => 'activities#get_activity'
+  post '/add_activities', :to => 'activities#add_activities'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

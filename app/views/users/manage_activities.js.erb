@@ -29,13 +29,11 @@ $('#save-activities').click(function() {
 
 		if(moveOn) {
 			//ADD ACTIVITIES TO DB HERE
+			var activities = new Array();
 			$('#manage-activities').children('tbody').children('tr').children('td.data').each(function() {
-				var id = $(this).prop('id');
-				var mp = id.substring(0, 1);
-				var act = id.substring(2);
-				
-				alert(mp + ": " + act);
+				activities.push($(this).children('input').val());
 			});
+			$.post('/add_activities', { acts: activities }, function(r) { alert(r); });
 		}
 
 		$.post('/change_coach', { coach: cur_coach }, function(r) { loadActivities(r); });
