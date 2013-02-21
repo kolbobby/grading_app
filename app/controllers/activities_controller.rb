@@ -14,7 +14,7 @@ class ActivitiesController < ApplicationController
 		str = ""
 
 		activities.each do |a|
-			str = "#{str}<br />#{a}"
+			str = "#{str}\n#{a}"
 		end
 
 		render :text => str
