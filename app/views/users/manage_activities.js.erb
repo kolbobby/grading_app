@@ -1,7 +1,7 @@
 $('#main-user-content').html("<div class='row'><%= escape_javascript(render 'add_activity_form') %></div>");
 
 $('input[name=coaches]:radio').change(function() {
-	$.post('/add_activities', { coach: $(this).val() }, function(r) { loadActivities(r); });
+	$.post('/change_coach', { coach: $(this).val() }, function(r) { loadActivities(r); });
 });
 
 $('#manage-activities').children('tbody').children('tr').children('td').dblclick(function() {
@@ -33,7 +33,7 @@ $('#save-activities').click(function() {
 		});
 
 		if(moveOn) {
-			//ENTER ACTIVITIES INTO DATABASE
+			
 		}
 	}
 });

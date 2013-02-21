@@ -1,5 +1,5 @@
 class ActivitiesController < ApplicationController
-	def add
+	def change_coach
 		activities = Activity.find(:all, :conditions => { :coach => params[:coach] })
 		render :json => activities
 	end
