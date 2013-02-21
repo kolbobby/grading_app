@@ -1,8 +1,9 @@
 $('#main-user-content').html("<div class='row'><%= escape_javascript(render 'add_activity_form') %></div>");
 
-alert($('input[name=coaches]:radio').val());
+var cur_coach = $('input[name=coaches]:radio').val();
 $('input[name=coaches]:radio').change(function() {
-	$.post('/change_coach', { coach: $(this).val() }, function(r) { loadActivities(r); });
+	cur_coach = $(this).val();
+	$.post('/change_coach', { coach: cur_coach }, function(r) { loadActivities(r); });
 });
 
 $('#manage-activities').children('tbody').children('tr').children('td').dblclick(function() {
@@ -36,10 +37,13 @@ $('#save-activities').click(function() {
 		if(moveOn) {
 			
 		}
+
+		$.post('/change_coach', { coach: cur_coach }, function(r) { loadActivities(r); });
 	}
 });
 
 function loadActivities(activities) {
+	alert(activities[0]['name']);
 	var str = "";
 	if(activities.length < 12) {
 		for(var i = 0;i < 4;i++) {
