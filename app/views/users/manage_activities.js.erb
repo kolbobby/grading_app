@@ -27,6 +27,8 @@ $('#save-activities').click(function() {
 			}
 		});
 
+		alert(moveOn);
+
 		if(moveOn) {
 			//ADD ACTIVITIES TO DB HERE
 
@@ -52,7 +54,12 @@ function loadActivities(activities) {
 						str += "<td id='"+(i+1)+"_"+(j+1)+"' class='data'>"+ text +"</td>";
 					}
 				} else {
-					str += "<td id='"+(i+1)+"_"+(j+1)+"' class='right-side data'><em>none</em></td>";
+					if(activities.length < 12) {
+						str += "<td id='"+(i+1)+"_"+(j+1)+"' class='right-side data'><em>none</em></td>";
+					} else {
+						$.post('/get_activities', { act: j+1, mp: i+1 }, function(r) { text = r; });
+						str += "<td id='"+(i+1)+"_"+(j+1)+"' class='right-side data'>"+ text +"</td>";
+					}
 				}
 			}
 			str += "</tr>";
