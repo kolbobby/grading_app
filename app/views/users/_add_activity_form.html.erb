@@ -1,7 +1,7 @@
 <div class="tabular">
-	<% @users = User.all %>
+	<% users = User.all %>
 	<% count = 1 %>
-	<% @users.each do |u| %>
+	<% users.each do |u| %>
 		<% if count == 1 %>
 			<div><label><input type="radio" name="coaches" value="<%= u.name %>" checked /><%= u.name %></label></div>
 		<% else %>
@@ -22,21 +22,20 @@
 			</tr>
 		</thead>
 		<tbody>
-			<% @coach = User.find(:first) %>
-			<% @activities = Activity.find(:all, :conditions => { :coach => @coach.name }) %>
-			<% if @activities.length < 12 %>
-				<% 4.times do |x| %>
-					<tr>
-						<td class="left-side">Marking Period <%= x + 1 %></td>
-						<% 3.times do |y| %>
-							<% if y != 2 %>
-								<td><em>none</em></td>
-							<% else %>
-								<td class="right-side"><em>none</em></td>
+			<% coach = User.find(:first) %>
+			<% activities = Activity.find(:all, :conditions => { :coach => coach.name }) %>
+			<% 4.times do |x| %>
+				<tr>
+					<td class="left-side">Marking Period <%= x + 1 %></td>
+					<% cur_activities = activities.find(:all, :conditions => { :marking_period => x+1 }) %>
+					<% 3.times do |y| %>
+						<% cur_activities.each do |a| %>
+							<% if a.activity_number == y+1 %>
+								<td><%= a.name %></td>
 							<% end %>
 						<% end %>
-					</tr>
-				<% end %>
+					<% end %>
+				</tr>
 			<% end %>
 		</tbody>
 	</table>
