@@ -29,9 +29,9 @@
 					<td class="left-side">Marking Period <%= x + 1 %></td>
 					<% 3.times do |y| %>
 						<% if y != 2 %>
-							<td id="<%= (x+1).to_s() + "_" + (y+1).to_s() %>"><em>none</em></td>
+							<td id="<%= (x+1).to_s() + "_" + (y+1).to_s() %>" class="data"><em>none</em></td>
 						<% else %>
-							<td id="<%= (x+1).to_s() + "_" + (y+1).to_s() %>" class="right-side"><em>none</em></td>
+							<td id="<%= (x+1).to_s() + "_" + (y+1).to_s() %>" class="right-side data"><em>none</em></td>
 						<% end %>
 					<% end %>
 				</tr>

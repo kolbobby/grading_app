@@ -21,7 +21,7 @@ $('#edit-all-activities').click(function() {
 $('#save-activities').click(function() {
 	if($('#manage-activities').children('tbody').children('tr').children('td').children('input').length) {
 		var moveOn = true;
-		$('#manage-activities').children('tbody').children('tr').children('td').each(function() {
+		$('#manage-activities').children('tbody').children('tr').children('td.data').each(function() {
 			if($(this).children('em').html() == 'none') {
 				moveOn = false;
 			}
@@ -29,6 +29,7 @@ $('#save-activities').click(function() {
 
 		if(moveOn) {
 			//ADD ACTIVITIES TO DB HERE
+
 		}
 
 		$.post('/change_coach', { coach: cur_coach }, function(r) { loadActivities(r); });
@@ -45,13 +46,13 @@ function loadActivities(activities) {
 				var text = "";
 				if(j != 2) {
 					if(activities.length < 12) {
-						str += "<td><em>none</em></td>";
+						str += "<td id='"+(i+1)+"_"+(j+1)+"' class='data'><em>none</em></td>";
 					} else {
 						$.post('/get_activities', { act: j+1, mp: i+1 }, function(r) { text = r; });
-						str += "<td>"+ text +"</td>";
+						str += "<td id='"+(i+1)+"_"+(j+1)+"' class='data'>"+ text +"</td>";
 					}
 				} else {
-					str += "<td class='right-side'><em>none</em></td>";
+					str += "<td id='"+(i+1)+"_"+(j+1)+"' class='right-side data'><em>none</em></td>";
 				}
 			}
 			str += "</tr>";
