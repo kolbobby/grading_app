@@ -25,12 +25,16 @@ $('#save-activities').click(function() {
 			if($(this).children('em').html() == 'none') {
 				moveOn = false;
 			}
-			alert('asdf');
 		});
 
 		if(moveOn) {
 			//ADD ACTIVITIES TO DB HERE
-
+			$('#manage-activities').children('tbody').children('tr').children('td.data').each(function() {
+				var id = $(this).prop('id');
+				var mp = id.substring(0, 1);
+				var act = id.substring(2);
+				alert(mp + ": " + act);
+			});
 		}
 
 		$.post('/change_coach', { coach: cur_coach }, function(r) { loadActivities(r); });
