@@ -19,11 +19,10 @@ class ActivitiesController < ApplicationController
 			if count == 3
 				count = 1
 				mp = mp + 1
-			else
-				count = count + 1
 			end
 			#activity = Activity.new(:activity_number => count, :coach => , :marking_period => mp, :name => a)
 			str = "#{str}Count: #{count}, Marking Period: #{mp}, Name: #{a}\n"
+			count = count + 1
 		end
 
 		render :text => str
