@@ -33,10 +33,8 @@ $('#save-activities').click(function() {
 			$('#manage-activities').children('tbody').children('tr').children('td.data').each(function() {
 				activities.push($(this).children('input').val());
 			});
-			$.post('/add_activities', { acts: activities, coach: cur_coach }, function(r) { alert(r); });
+			$.post('/add_activities', { acts: activities, coach: cur_coach }, function(r) { confirm_add(r); });
 		}
-
-		$.post('/change_coach', { coach: cur_coach }, function(r) { loadActivities(r); });
 	}
 });
 
@@ -74,4 +72,10 @@ function loadActivities(activities) {
 			alert(key + ": " + value);
 		});
 	});*/
+}
+
+function confirm_add(activities) {
+	if(confirm('Are these correct?\n\n'+activities)) {
+		$.post('/change_coach', { coach: cur_coach }, function(r) { loadActivities(r); });
+	}
 }
