@@ -33,7 +33,7 @@ $('#save-activities').click(function() {
 			$('#manage-activities').children('tbody').children('tr').children('td.data').each(function() {
 				activities.push($(this).children('input').val());
 			});
-			$.post('/add_activities', { acts: activities }, function(r) { alert(r); });
+			$.post('/add_activities', { acts: activities, coach: cur_coach }, function(r) { alert(r); });
 		}
 
 		$.post('/change_coach', { coach: cur_coach }, function(r) { loadActivities(r); });

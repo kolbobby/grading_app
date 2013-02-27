@@ -10,6 +10,7 @@ class ActivitiesController < ApplicationController
 	end
 
 	def add_activities
+		coach = params[:coach]
 		activities = params[:acts]
 		str = ""
 
@@ -21,7 +22,7 @@ class ActivitiesController < ApplicationController
 				mp = mp + 1
 			end
 			#activity = Activity.new(:activity_number => count, :coach => , :marking_period => mp, :name => a)
-			str = "#{str}Count: #{count}, Marking Period: #{mp}, Name: #{a}\n"
+			str = "#{str}Name: #{a}, Activity Number: #{count}, Marking Period: #{mp}, Coach: #{coach}\n"
 			count = count + 1
 		end
 
