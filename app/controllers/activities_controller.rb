@@ -16,7 +16,7 @@ class ActivitiesController < ApplicationController
 		count = 1
 		mp = 1
 		activities.each do |a|
-			if count == 3
+			if count > 3
 				count = 1
 				mp = mp + 1
 			end
