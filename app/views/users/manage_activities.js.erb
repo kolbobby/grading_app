@@ -33,49 +33,48 @@ $('#save-activities').click(function() {
 			$('#manage-activities').children('tbody').children('tr').children('td.data').each(function() {
 				activities.push($(this).children('input').val());
 			});
-			$.post('/add_activities', { acts: activities, coach: cur_coach }, function(r) { confirm_add(r); });
+			$.post('/add_activities', { acts: activities, coach: cur_coach }, function(r) { confirm_add(r, activities); });
 		}
 	}
 });
 
 function loadActivities(activities) {
 	var str = "";
-	if(activities.length < 12) {
-		for(var i = 0;i < 4;i++) {
-			str += "<tr>";
-			str += "<td class='left-side'>Marking Period "+ (i+1) +"</td>";
-			for(var j = 0;j < 3;j++) {
-				var text = "";
-				if(j != 2) {
-					if(activities.length < 12) {
-						str += "<td id='"+(i+1)+"_"+(j+1)+"' class='data'><em>none</em></td>";
-					} else {
-						$.post('/get_activities', { act: j+1, mp: i+1 }, function(r) { text = r; });
-						str += "<td id='"+(i+1)+"_"+(j+1)+"' class='data'>"+ text +"</td>";
-					}
+	for(var i = 0;i < 4;i++) {
+		str += "<tr>";
+		str += "<td class='left-side'>Marking Period "+ (i+1) +"</td>";
+		for(var j = 0;j < 3;j++) {
+			var text = "";
+			if(j != 2) {
+				if(activities.length < 12) {
+					str += "<td id='"+(i+1)+"_"+(j+1)+"' class='data'><em>none</em></td>";
 				} else {
-					if(activities.length < 12) {
-						str += "<td id='"+(i+1)+"_"+(j+1)+"' class='right-side data'><em>none</em></td>";
-					} else {
-						$.post('/get_activities', { act: j+1, mp: i+1 }, function(r) { text = r; });
-						str += "<td id='"+(i+1)+"_"+(j+1)+"' class='right-side data'>"+ text +"</td>";
-					}
+					$.post('/get_activity', { act: j+1, mp: i+1 }, function(r) { text = r; });
+					str += "<td id='"+(i+1)+"_"+(j+1)+"' class='data'>"+ text +"</td>";
+				}
+			} else {
+				if(activities.length < 12) {
+					str += "<td id='"+(i+1)+"_"+(j+1)+"' class='right-side data'><em>none</em></td>";
+				} else {
+					$.post('/get_activity', { act: j+1, mp: i+1 }, function(r) { text = r; });
+					str += "<td id='"+(i+1)+"_"+(j+1)+"' class='right-side data'>"+ text +"</td>";
 				}
 			}
-			str += "</tr>";
 		}
+		str += "</tr>";
 	}
 	$("#manage-activities").children('tbody').html(str);
-
-	/*$.each(activities, function() {
-		$.each(this, function(key, value) {
-			alert(key + ": " + value);
-		});
-	});*/
 }
 
-function confirm_add(activities) {
-	if(confirm('Are these correct?\n\n'+activities)) {
-		$.post('/change_coach', { coach: cur_coach }, function(r) { loadActivities(r); });
+function confirm_add(response, activities) {
+	var continueA = false;
+	if(confirm('Are these correct?\n\n'+response)) {
+		alert(activities);
+		/*$.post('/confirm_add', { acts: activities, coach: cur_coach }, function(r) { continueA = true; });
+		if(continueA) {
+			$.post('/change_coach', { coach: cur_coach }, function(r) { loadActivities(r); });
+		} else {
+			alert("A problem has occurred!");
+		}*/
 	}
 }

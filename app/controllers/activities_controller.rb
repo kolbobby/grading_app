@@ -28,4 +28,8 @@ class ActivitiesController < ApplicationController
 
 		render :text => str
 	end
+
+	def confirm_add_activities
+
+	end
 end
