@@ -39,29 +39,33 @@ $('#save-activities').click(function() {
 });
 
 function loadActivities(activities) {
+	$.ajaxSetup({async:false});
 	var str = "";
 	for(var i = 0;i < 4;i++) {
 		str += "<tr>";
 		str += "<td class='left-side'>Marking Period "+ (i+1) +"</td>";
 		for(var j = 0;j < 3;j++) {
-			var text = "";
+			var textA = "";
 			if(j != 2) {
 				if(activities.length < 12) {
 					str += "<td id='"+(i+1)+"_"+(j+1)+"' class='data'><em>none</em></td>";
 				} else {
-					$.post('/get_activity', { coach: cur_coach, act: j+1, mp: i+1 }, function(r) { str += "<td id='"+(i+1)+"_"+(j+1)+"' class='data'>"+ r +"</td>"; });
+					$.post('/get_activity', { coach: cur_coach, act: j+1, mp: i+1 }, function(r) { textA = r; });
+					str += "<td id='"+(i+1)+"_"+(j+1)+"' class='data'>"+ textA +"</td>";
 				}
 			} else {
 				if(activities.length < 12) {
 					str += "<td id='"+(i+1)+"_"+(j+1)+"' class='right-side data'><em>none</em></td>";
 				} else {
-					$.post('/get_activity', { coach: cur_coach, act: j+1, mp: i+1 }, function(r) { str += "<td id='"+(i+1)+"_"+(j+1)+"' class='right-side data'>"+ r +"</td>"; });
+					$.post('/get_activity', { coach: cur_coach, act: j+1, mp: i+1 }, function(r) { textA = r; });
+					str += "<td id='"+(i+1)+"_"+(j+1)+"' class='right-side data'>"+ textA +"</td>";
 				}
 			}
 		}
 		str += "</tr>";
 	}
 	$("#manage-activities").children('tbody').html(str);
+	$.ajaxSetup({async:true});
 }
 
 function confirm_add(response, activities) {
