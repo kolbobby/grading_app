@@ -31,13 +31,13 @@
 					<% 3.times do |y| %>
 						<% if y != 2 %>
 							<% if activities.count > 12 %>
-								<td id="<%= (x+1).to_s() + "_" + (y+1).to_s() %>" class="data"><%= activities[count] %></td>
+								<td id="<%= (x+1).to_s() + "_" + (y+1).to_s() %>" class="data"><%= activities[count].name %></td>
 							<% else %>
 								<td id="<%= (x+1).to_s() + "_" + (y+1).to_s() %>" class="data"><em>none</em></td>
 							<% end %>
 						<% else %>
 							<% if activities.count > 12 %>
-								<td id="<%= (x+1).to_s() + "_" + (y+1).to_s() %>" class="right-side data"><%= activities[count] %></td>
+								<td id="<%= (x+1).to_s() + "_" + (y+1).to_s() %>" class="right-side data"><%= activities[count].name %></td>
 							<% else %>
 								<td id="<%= (x+1).to_s() + "_" + (y+1).to_s() %>" class="right-side data"><em>none</em></td>
 							<% end %>
