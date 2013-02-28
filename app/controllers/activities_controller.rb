@@ -21,7 +21,6 @@ class ActivitiesController < ApplicationController
 				count = 1
 				mp = mp + 1
 			end
-			#activity = Activity.new(:activity_number => count, :coach => , :marking_period => mp, :name => a)
 			str = "#{str}Name: #{a}, Activity Number: #{count}, Marking Period: #{mp}, Coach: #{coach}\n"
 			count = count + 1
 		end
@@ -30,6 +29,26 @@ class ActivitiesController < ApplicationController
 	end
 
 	def confirm_add_activities
+		coach = params[:coach]
+		activities = params[:acts]
+		str = ""
 
+		count = 1
+		mp = 1
+		activities.each do |a|
+			if count > 3
+				count = 1
+				mp = mp + 1
+			end
+			activity = Activity.new(:activity_number => count, :coach => coach, :marking_period => mp, :name => a)
+			if activity.save
+				str = "#{str}#{count}: saved\n"
+			else
+				str = "#{str}#{count}: not saved\n" 
+			end
+			count = count + 1
+		end
+
+		render :text => str
 	end
 end

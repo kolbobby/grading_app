@@ -70,11 +70,11 @@ function confirm_add(response, activities) {
 	var continueA = false;
 	if(confirm('Are these correct?\n\n'+response)) {
 		alert(activities);
-		/*$.post('/confirm_add', { acts: activities, coach: cur_coach }, function(r) { continueA = true; });
+		$.post('/confirm_add', { acts: activities, coach: cur_coach }, function(r) { alert(r);continueA = true; });
 		if(continueA) {
 			$.post('/change_coach', { coach: cur_coach }, function(r) { loadActivities(r); });
 		} else {
 			alert("A problem has occurred!");
-		}*/
+		}
 	}
 }
