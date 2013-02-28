@@ -22,6 +22,7 @@
 			</tr>
 		</thead>
 		<tbody>
+			<% count = 0 %>
 			<% coach = User.find(:first) %>
 			<% activities = Activity.find(:all, :conditions => { :coach => coach.name }) %>
 			<% 4.times do |x| %>
@@ -29,10 +30,19 @@
 					<td class="left-side">Marking Period <%= x + 1 %></td>
 					<% 3.times do |y| %>
 						<% if y != 2 %>
-							<td id="<%= (x+1).to_s() + "_" + (y+1).to_s() %>" class="data"><em>none</em></td>
+							<% if activities.count > 12 %>
+								<td id="<%= (x+1).to_s() + "_" + (y+1).to_s() %>" class="data"><%= activities[count] %></td>
+							<% else %>
+								<td id="<%= (x+1).to_s() + "_" + (y+1).to_s() %>" class="data"><em>none</em></td>
+							<% end %>
 						<% else %>
-							<td id="<%= (x+1).to_s() + "_" + (y+1).to_s() %>" class="right-side data"><em>none</em></td>
+							<% if activities.count > 12 %>
+								<td id="<%= (x+1).to_s() + "_" + (y+1).to_s() %>" class="right-side data"><%= activities[count] %></td>
+							<% else %>
+								<td id="<%= (x+1).to_s() + "_" + (y+1).to_s() %>" class="right-side data"><em>none</em></td>
+							<% end %>
 						<% end %>
+						<% count = count + 1 %>
 					<% end %>
 				</tr>
 			<% end %>
