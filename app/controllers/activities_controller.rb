@@ -5,7 +5,7 @@ class ActivitiesController < ApplicationController
 	end
 
 	def get_activity
-		activity = Activity.find(:first, :conditions => { :marking_period => params[:mp], :acitivity_number => params[:act] })
+		activity = Activity.find(:first, :conditions => { :coach => params[:coach], :marking_period => params[:mp], :acitivity_number => params[:act] })
 		render :text => activity.name
 	end
 

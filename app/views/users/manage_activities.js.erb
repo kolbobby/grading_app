@@ -49,13 +49,15 @@ function loadActivities(activities) {
 				if(activities.length < 12) {
 					str += "<td id='"+(i+1)+"_"+(j+1)+"' class='data'><em>none</em></td>";
 				} else {
-					$.post('/get_activity', { act: j+1, mp: i+1 }, function(r) { str += "<td id='"+(i+1)+"_"+(j+1)+"' class='data'>"+ r +"</td>"; });
+					$.post('/get_activity', { coach: cur_coach, act: j+1, mp: i+1 }, function(r) { alert(r); });
+					//str += "<td id='"+(i+1)+"_"+(j+1)+"' class='data'>"+ text +"</td>";
 				}
 			} else {
 				if(activities.length < 12) {
 					str += "<td id='"+(i+1)+"_"+(j+1)+"' class='right-side data'><em>none</em></td>";
 				} else {
-					$.post('/get_activity', { act: j+1, mp: i+1 }, function(r) { str += "<td id='"+(i+1)+"_"+(j+1)+"' class='right-side data'>"+ r +"</td>"; });
+					$.post('/get_activity', { coach: cur_coach, act: j+1, mp: i+1 }, function(r) { alert(r); });
+					//str += "<td id='"+(i+1)+"_"+(j+1)+"' class='right-side data'>"+ text +"</td>";
 				}
 			}
 		}
