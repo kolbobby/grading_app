@@ -34,14 +34,15 @@ class ActivitiesController < ApplicationController
 		str = ""
 
 		existing_activities = Activity.find(:all, :conditions => { :coach => coach })
-		if existing_activities.count == 12
+		str = "#{existing_activities.count}"
+		#if existing_activities.count == 12
 			#count = 0
 			#existing_activities.each do |e|
 			#	str = "#{str}#{e.name}, #{e.update_act(activities[count])}\n"
 			#	count = count + 1
 			#end
-			str = "edit"
-		else
+		#	str = "edit"
+		#else
 			#if existing_activities.count > 0
 			#	existing_activities.each do |e|
 			#		Activity.find(:first, :conditions => { :coach => coach, :name => e.name, marking_period => e.marking_period }).destroy
@@ -62,8 +63,8 @@ class ActivitiesController < ApplicationController
 			#	end
 			#	count = count + 1
 			#end
-			str = "add"
-		end
+		#	str = "add"
+		#end
 
 		render :text => str
 	end
