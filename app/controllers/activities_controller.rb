@@ -15,7 +15,7 @@ class ActivitiesController < ApplicationController
 		str = ""
 
 		activities.each do |a|
-			str = "#{str}Name: #{a[0]}, Activity Number: #{a[2]}, Marking Period: #{a[1]}, Coach: #{coach}\n"
+			str = "#{str}Name: #{a[0][0]}, Activity Number: #{a[0][2]}, Marking Period: #{a[0][1]}, Coach: #{coach}\n"
 		end
 
 		render :text => str
