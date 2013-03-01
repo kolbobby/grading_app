@@ -28,7 +28,6 @@ $('#save-activities').click(function() {
 		});
 
 		if(moveOn) {
-			//ADD ACTIVITIES TO DB HERE
 			var activities = new Array();
 			$('#manage-activities').children('tbody').children('tr').children('td.data').each(function() {
 				activities.push($(this).children('input').val());
