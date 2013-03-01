@@ -21,7 +21,7 @@ class ActivitiesController < ApplicationController
 				count = 1
 				mp = mp + 1
 			end
-			str = "#{str}Name: #{a}, Activity Number: #{count}, Marking Period: #{mp}, Coach: #{coach}\n"
+			str = "#{str}Name: #{a[0]}, Activity Number: #{count}, Marking Period: #{mp}, Coach: #{coach}\n"
 			count = count + 1
 		end
 
@@ -37,7 +37,8 @@ class ActivitiesController < ApplicationController
 		if existing_activities.count == 12
 			count = 0
 			existing_activities.each do |e|
-				e.update_attribute(:name, activities[count])
+				act = Activity.find(:first, :conditions => { :coach => coach, :marking_period => activities[count][1], :activity_number => activities[count][2] })
+				act.update_attribute(:name, activities[count][0])
 				count = count + 1
 			end
 		else
@@ -46,20 +47,13 @@ class ActivitiesController < ApplicationController
 					Activity.find(:first, :conditions => { :coach => coach, :name => e.name, :marking_period => e.marking_period }).destroy
 				end
 			end
-			count = 1
-			mp = 1
 			activities.each do |a|
-				if count > 3
-					count = 1
-					mp = mp + 1
-				end
-				activity = Activity.new(:activity_number => count, :coach => coach, :marking_period => mp, :name => a)
+				activity = Activity.new(:activity_number => a[2], :coach => coach, :marking_period => a[1], :name => a[0])
 				if activity.save
 					str = "#{str}#{mp}, #{count}: added\n"
 				else
 					str = "#{str}#{mp}, #{count}: not added\n" 
 				end
-				count = count + 1
 			end
 		end
 
