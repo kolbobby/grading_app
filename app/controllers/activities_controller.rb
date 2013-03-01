@@ -37,7 +37,7 @@ class ActivitiesController < ApplicationController
 		if existing_activities.count == 12
 			count = 0
 			existing_activities.each do |e|
-				str = "#{str}#{e.name}, #{e.update_act(activities[count])}\n"
+				e.update_act(activities[count])
 				count = count + 1
 			end
 		else

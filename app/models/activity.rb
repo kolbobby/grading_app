@@ -3,6 +3,5 @@ class Activity < ActiveRecord::Base
 
   def update_act(new_act)
   	update_attribute :name, new_act
-  	render :text => "#{self.name}"
   end
 end
