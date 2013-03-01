@@ -14,8 +14,10 @@ class ActivitiesController < ApplicationController
 		activities = params[:acts]
 		str = ""
 
+		count = 0
 		activities.each do |a|
-			str = "#{str}Name: #{a[0][0]}, Activity Number: #{a[0][2]}, Marking Period: #{a[0][1]}, Coach: #{coach}\n"
+			str = "#{str}Name: #{a[count][0]}, Activity Number: #{a[count][2]}, Marking Period: #{a[count][1]}, Coach: #{coach}\n"
+			count = count + 1
 		end
 
 		render :text => str
@@ -40,13 +42,15 @@ class ActivitiesController < ApplicationController
 					Activity.find(:first, :conditions => { :coach => coach, :name => e.name, :marking_period => e.marking_period }).destroy
 				end
 			end
+			count = 0
 			activities.each do |a|
 				activity = Activity.new(:activity_number => a[2], :coach => coach, :marking_period => a[1], :name => a[0])
 				if activity.save
-					str = "#{str}#{a[1]}, #{a[2]}: added\n"
+					str = "#{str}#{a[count][1]}, #{a[count][2]}: added\n"
 				else
-					str = "#{str}#{a[1]}, #{a[2]}: not added\n" 
+					str = "#{str}#{a[count][1]}, #{a[count][2]}: not added\n" 
 				end
+				count = count + 1
 			end
 		end
 
