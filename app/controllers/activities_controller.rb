@@ -14,15 +14,8 @@ class ActivitiesController < ApplicationController
 		activities = params[:acts]
 		str = ""
 
-		count = 1
-		mp = 1
 		activities.each do |a|
-			if count > 3
-				count = 1
-				mp = mp + 1
-			end
-			str = "#{str}Name: #{a[0]}, Activity Number: #{count}, Marking Period: #{mp}, Coach: #{coach}\n"
-			count = count + 1
+			str = "#{str}Name: #{a[0]}, Activity Number: #{a[2]}, Marking Period: #{a[1]}, Coach: #{coach}\n"
 		end
 
 		render :text => str
@@ -50,9 +43,9 @@ class ActivitiesController < ApplicationController
 			activities.each do |a|
 				activity = Activity.new(:activity_number => a[2], :coach => coach, :marking_period => a[1], :name => a[0])
 				if activity.save
-					str = "#{str}#{mp}, #{count}: added\n"
+					str = "#{str}#{a[1]}, #{a[2]}: added\n"
 				else
-					str = "#{str}#{mp}, #{count}: not added\n" 
+					str = "#{str}#{a[1]}, #{a[2]}: not added\n" 
 				end
 			end
 		end
