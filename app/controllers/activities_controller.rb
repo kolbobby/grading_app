@@ -37,7 +37,7 @@ class ActivitiesController < ApplicationController
 		if existing_activities.count == 12
 			count = 0
 			existing_activities.each do |e|
-				e.update_attribute(:name => activities[count])
+				e.update_attribute(:name, activities[count])
 				count = count + 1
 			end
 		else
