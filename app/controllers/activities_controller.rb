@@ -37,7 +37,12 @@ class ActivitiesController < ApplicationController
 		if existing_activities.count == 12
 			count = 0
 			existing_activities.each do |e|
-				e.update_act(activities[count])
+				e.name = activities[count]
+				if e.save
+					str = "#{str}#{mp}, #{count}: saved\n"
+				else
+					str = "#{str}#{mp}, #{count}: not saved\n" 
+				end
 				count = count + 1
 			end
 		else
@@ -55,9 +60,9 @@ class ActivitiesController < ApplicationController
 				end
 				activity = Activity.new(:activity_number => count, :coach => coach, :marking_period => mp, :name => a)
 				if activity.save
-					str = "#{str}#{mp}, #{count}: saved\n"
+					str = "#{str}#{mp}, #{count}: added\n"
 				else
-					str = "#{str}#{mp}, #{count}: not saved\n" 
+					str = "#{str}#{mp}, #{count}: not added\n" 
 				end
 				count = count + 1
 			end
