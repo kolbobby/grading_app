@@ -29,8 +29,10 @@ $('#save-activities').click(function() {
 
 		if(moveOn) {
 			var activities = new Array();
+			var count = 0;
 			$('#manage-activities').children('tbody').children('tr').children('td.data').each(function() {
-				activities.push($(this).children('input').val(), $(this).prop('id').substring(0, 1), $(this).prop('id').substring(2));
+				activities[count] = [ $(this).children('input').val(), $(this).prop('id').substring(0, 1), $(this).prop('id').substring(2) ];
+				count++;
 			});
 			$.post('/add_activities', { acts: activities, coach: cur_coach }, function(r) { confirm_add(r, activities); });
 		}
