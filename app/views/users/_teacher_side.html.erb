@@ -13,10 +13,14 @@
 	</tr>
 	<tr>
 		<td class="left-side"><span class="det">4.</span></td>
-		<td><%= link_to "manage students", {:controller => "users", :action => 'manage_students', :remote => true} %></td>
+		<td><%= link_to "view rouster", {:controller => "users", :action => 'view_rouster'}, :remote => true %></td>
 	</tr>
 	<tr>
 		<td class="left-side"><span class="det">5.</span></td>
+		<td><%= link_to "manage students", {:controller => "users", :action => 'manage_students', :remote => true} %></td>
+	</tr>
+	<tr>
+		<td class="left-side"><span class="det">6.</span></td>
 		<td><%= link_to "manage activities", {:controller => "users", :action => 'manage_activities'}, :remote => true %></td>
 	</tr>
 </tbody>

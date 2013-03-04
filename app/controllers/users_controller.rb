@@ -18,6 +18,11 @@ class UsersController < ApplicationController
 			format.js { render :layout => false }
 		end
 	end
+	def view_rouster
+		respond_to do |format|
+			format.js { render :layout => false }
+		end
+	end
 	def manage_students
 		respond_to do |format|
 			format.js { render :layout => false }
