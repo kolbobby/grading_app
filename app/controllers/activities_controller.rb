@@ -16,8 +16,7 @@ class ActivitiesController < ApplicationController
 
 		count = 0
 		activities.each do |a|
-			#str = "#{str}Name: #{a[count][1][0]}, Activity Number: #{a[count][1][2]}, Marking Period: #{a[count][1][1]}, Coach: #{coach}\n"
-			str = "#{str}#{a[1]}\n"
+			str = "#{str}Name: #{a[1][0]}, Activity Number: #{a[1][2]}, Marking Period: #{a[1][1]}, Coach: #{coach}\n"
 			count = count + 1
 		end
 
