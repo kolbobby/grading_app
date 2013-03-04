@@ -1,6 +1,6 @@
 <% if !view %>
 	<% @users = User.find(:all, :conditions => {:teacher => true}) %>
 	<% @users.each do |u| %>
-		<li class="droppable"><span><label><%= "#{u.name}" %></label></span></li>
+		<li id="<%= u.name %>" class="droppable"><span><label><%= u.name %></label></span></li>
 	<% end %>
 <% end %>
