@@ -14,10 +14,8 @@ class ActivitiesController < ApplicationController
 		activities = params[:acts]
 		str = ""
 
-		count = 0
 		activities.each do |a|
 			str = "#{str}Name: #{a[1][0]}, Activity Number: #{a[1][2]}, Marking Period: #{a[1][1]}, Coach: #{coach}\n"
-			count = count + 1
 		end
 
 		render :text => str
@@ -32,8 +30,8 @@ class ActivitiesController < ApplicationController
 		if existing_activities.count == 12
 			count = 0
 			existing_activities.each do |e|
-				act = Activity.find(:first, :conditions => { :coach => coach, :marking_period => activities[count][1], :activity_number => activities[count][2] })
-				act.update_attribute(:name, activities[count][0])
+				act = Activity.find(:first, :conditions => { :coach => coach, :marking_period => activities[count][1][1], :activity_number => activities[count][1][2] })
+				act.update_attribute(:name, activities[count][1][0])
 				count = count + 1
 			end
 		else
@@ -42,15 +40,13 @@ class ActivitiesController < ApplicationController
 					Activity.find(:first, :conditions => { :coach => coach, :name => e.name, :marking_period => e.marking_period }).destroy
 				end
 			end
-			count = 0
 			activities.each do |a|
-				activity = Activity.new(:activity_number => a[2], :coach => coach, :marking_period => a[1], :name => a[0])
+				activity = Activity.new(:activity_number => a[1][2], :coach => coach, :marking_period => a[1][1], :name => a[1][0])
 				if activity.save
-					str = "#{str}#{a[count][1]}, #{a[count][2]}: added\n"
+					str = "#{str}#{a[1][1]}, #{a[1][2]}: added\n"
 				else
-					str = "#{str}#{a[count][1]}, #{a[count][2]}: not added\n" 
+					str = "#{str}#{a[1][1]}, #{a[1][2]}: not added\n" 
 				end
-				count = count + 1
 			end
 		end
 
