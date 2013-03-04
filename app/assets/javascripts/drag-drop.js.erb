@@ -46,17 +46,13 @@ $('.droppable').droppable({
 		if(draggable.hasClass('grouped')) {
 			var str = "";
 			$.post('/get_activity', { coach: $(this).prop('id'), act: sec.substring(sec.length - 1, sec.length), mp: prim.substring(prim.length - 1, prim.length) }, function(r) { str = "The following students will be added to <strong>"+ r +"</strong>:\n"; });
-			//alert(prim.substring(prim.length - 1, prim.length) + ", " + sec.substring(sec.length - 1, sec.length));
 			draggable.children('#grouped-drags').children('span').each(function() {
-				//FIND STUDENT WITH NAME
-				//GET MARKING PERIOD AND ACTIVITY NUMBER
-				//BUILD ACTIVITY WITH STUDENT NAME
-
 				str += $(this).html() + "\n";
 			});
 			str += "\nIs this correct?";
 
 			if(confirm(str)) {
+				//ADD STUDENTS TO ACTIVITY
 				alert("ADDED TO ACTIVITY!");
 			}
 		}
