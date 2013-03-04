@@ -27,14 +27,14 @@ class ActivitiesController < ApplicationController
 		str = ""
 
 		existing_activities = Activity.find(:all, :conditions => { :coach => coach })
-		if existing_activities.count == 12
-			count = 0
-			existing_activities.each do |e|
-				act = Activity.find(:first, :conditions => { :coach => coach, :marking_period => activities[count][1], :activity_number => activities[count][2] })
-				act.update_attribute(:name, activities[count][0])
-				count = count + 1
-			end
-		else
+		#if existing_activities.count == 12
+		#	count = 0
+		#	existing_activities.each do |e|
+		#		act = Activity.find(:first, :conditions => { :coach => coach, :marking_period => activities[count][1], :activity_number => activities[count][2] })
+		#		act.update_attribute(:name, activities[count][0])
+		#		count = count + 1
+		#	end
+		#else
 			if existing_activities.count > 0
 				existing_activities.each do |e|
 					Activity.find(:first, :conditions => { :coach => coach, :name => e.name, :marking_period => e.marking_period }).destroy
@@ -48,7 +48,7 @@ class ActivitiesController < ApplicationController
 					str = "#{str}#{a[1][1]}, #{a[1][2]}: not added\n" 
 				end
 			end
-		end
+		#end
 
 		render :text => str
 	end
