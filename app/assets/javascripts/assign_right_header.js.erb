@@ -1,5 +1,5 @@
-var prim = "prim_1";
-var sec = "sec_1";
+var prim;
+var sec;
 $(document).ready(function() {
 	$('.prim').children('span').each(function() {
 		$(this).click(function() {
@@ -9,6 +9,8 @@ $(document).ready(function() {
 			$('#sec_1').css({ 'color': 'black', 'cursor': 'default' });
 			prim = $(this).attr('id');
 			sec = "sec_1";
+
+			change_students();
 		});
 	});
 	$('.sec').children('span').each(function() {
@@ -16,6 +18,8 @@ $(document).ready(function() {
 			resetLvl('sec');
 			$(this).css({ 'color': 'black', 'cursor': 'default' });
 			sec = $(this).attr('id');
+
+			change_students();
 		});
 	});
 
@@ -27,4 +31,11 @@ function resetLvl(type) {
 	$('.'+type).children('span').each(function() {
 		$(this).css({ 'color': 'blue', 'cursor': 'pointer' });
 	});
+}
+
+function change_students() {
+	var mp = prim.substring(prim.length - 1);
+	var act = sec.substring(prim.length - 1);
+	alert(mp + ", " + act);
+	//$('#student-list').html("<%= escape_javascript(render :partial => '/students/student', :locals => {:view => false, :students => @students_xml, :mp => "+  +", :act = "+  +"}) %>");
 }
