@@ -1,17 +1,6 @@
 var prim = "prim_1";
 var sec = "sec_1";
 $(document).ready(function() {
-	$('#coach-nav > ul').children('li').children('span').each(function() {
-		$(this).children('label').children('input').change(function() {
-			resetLvl('prim');
-			resetLvl('sec');
-			$('#prim_1').css({ 'color': 'black', 'cursor': 'default' });
-			$('#sec_1').css({ 'color': 'black', 'cursor': 'default' });
-			prim = "prim_1";
-			sec = "sec_1";
-			$('.selected_coach').html($(this).attr('value'));
-		});
-	});
 	$('.prim').children('span').each(function() {
 		$(this).click(function() {
 			resetLvl('prim');

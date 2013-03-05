@@ -9,12 +9,16 @@
 		</tr>
 	<% end %>
 <% else %>
-	
-	<% @students = Student.all %>
-	<% @students.each do |s| %>
-		<% if @students_xml.search("//student//name").inner_text != s.name %>
-			<div class="draggable"><span><%= "#{s.name}" %></span></div>
-		<% end %>
-	<% end %>
+	<div id="draggable-students">
+		<% @students = Student.all %>
+		<% @students.each do |s| %>
 
+			<% if @students_xml.search("//student//name").inner_text != s.name %>
+				<% activity = Activity.find(:first, :conditions => { :name => @students_xml.search("//student//activity").inner_text }) %>
+				<% if activity.activity_number != 1 && activity.marking_period != 1 %>
+					<div class="draggable"><span><%= "#{s.name}" %></span></div>
+				<% end %>
+			<% end %>
+		<% end %>
+	</div>
 <% end %>
