@@ -9,8 +9,12 @@
 		</tr>
 	<% end %>
 <% else %>
+	
 	<% @students = Student.all %>
 	<% @students.each do |s| %>
-		<div class="draggable"><span><%= "#{s.name}" %></span></div>
+		<% if @students_xml.search("//student//name").inner_text != s.name %>
+			<div class="draggable"><span><%= "#{s.name}" %></span></div>
+		<% end %>
 	<% end %>
+
 <% end %>

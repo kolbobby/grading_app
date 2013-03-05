@@ -27,6 +27,9 @@ class UsersController < ApplicationController
 		end
 	end
 	def manage_students
+		require 'nokogiri'
+		doc = Nokogiri::XML(open(Rails.root.join('app', 'student_activities.xml')))
+		@students_xml = doc.xpath("//student")
 		respond_to do |format|
 			format.js { render :layout => false }
 		end
