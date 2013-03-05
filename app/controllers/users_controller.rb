@@ -35,6 +35,9 @@ class UsersController < ApplicationController
 		end
 	end
 	def reload_students
+		require 'nokogiri'
+		doc = Nokogiri::XML(open(Rails.root.join('app', 'student_activities.xml')))
+		@students_xml = doc.xpath("//student")
 		render :partial => '/students/student', :locals => { :view => false, :mp => params[:marking], :act => params[:activity] }
 	end
 	def manage_activities
