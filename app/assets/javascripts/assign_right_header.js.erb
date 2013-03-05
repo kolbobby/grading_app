@@ -35,6 +35,7 @@ function resetLvl(type) {
 
 function change_students() {
 	var mp = prim.substring(prim.length - 1);
-	var act = sec.substring(prim.length - 1);
+	var act = sec.substring(sec.length - 1);
 	alert(mp + ", " + act);
+	$('#student-list').html("<%= escape_javascript(render :partial => '/students/student', :locals => {:view => false, :students => @students_xml, :mp => 1, :act => 1}) %>");
 }
