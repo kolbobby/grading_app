@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 		end
 	end
 	def reload_students
-		render :partial => '/students/student', :locals => { :mp => params[:marking], :act => params[:activity] }
+		render :partial => '/students/student', :locals => { :view => false, :mp => params[:marking], :act => params[:activity] }
 	end
 	def manage_activities
 		respond_to do |format|
