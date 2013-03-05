@@ -1,3 +1,4 @@
 <% students.each do |s| %>
-	<%= s %>
+	Name: <%= s.search("name") %><br />
+	Activity: <%= s.search("activity") %><br /><br />
 <% end %>
