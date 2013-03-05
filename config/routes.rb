@@ -6,6 +6,7 @@ GradingApp::Application.routes.draw do
       get "view_students"
       get "view_rouster"
       get "manage_students"
+      get "reload_students"
       get "manage_activities"
     end
   end

@@ -34,6 +34,9 @@ class UsersController < ApplicationController
 			format.js { render :layout => false }
 		end
 	end
+	def reload_students
+		render :partial => '/students/student', :locals => { :mp => params[:marking], :act => params[:activity] }
+	end
 	def manage_activities
 		respond_to do |format|
 			format.js { render :layout => false }
