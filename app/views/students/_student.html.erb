@@ -12,31 +12,19 @@
 	<div id="draggable-students">
 		<% @students = Student.all %>
 		<% @students.each do |s| %>
-			<%
-				continueN = true
-				continueA = true
-				str = ""
-			%>
+			<% continue = true %>
 			<% @students_xml.search("//student").each do |sx| %>
 				<% if sx.search("name").inner_text == s.name %>
-					<%
-						continueN = false
-						str = "false"
-					%>
-				<% end %>
-				<% activity = Activity.find(:first, :conditions => { :name => sx.search("activity").inner_text }) %>
-				<% if activity.marking_period == 1 && activity.activity_number == 1 %>
-					<%
-						continueA = false
-						str = "#{str}, false"
-					%>
+					<% activity = Activity.find(:first, :conditions => { :name => sx.search("activity").inner_text }) %>
+					<% if activity.marking_period == 1 && activity.activity_number == 1 %>
+						<% continue = false %>
+					<% end %>
 				<% end %>
 			<% end %>
 
-			<% if continueN && continueA %>
+			<% if continue %>
 				<div class="draggable"><span><%= "#{s.name}" %></span></div>
 			<% end %>
-			<span><%= str %></span>
 		<% end %>
 	</div>
 <% end %>
