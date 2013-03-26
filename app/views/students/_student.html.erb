@@ -1,26 +1,30 @@
-<% if view %>
-	<% @students = Student.all %>
-	<% @students.each do |s| %>
-		<tr id="<%= s.id %>">
-			<td class="s_name"><%= link_to s.name, student_path(s) %></td>
-			<td class="s_period"><%= s.period %></td>
-			<td class="s_grade_level"><%= s.grade_level %></td>
-			<td class="s_remove"><%= link_to 'x student', '#' %></td>
-		</tr>
-	<% end %>
+<% if over %>
+	<div>asdfqfqwefw</div>
 <% else %>
-	<% @students = Student.all %>
-	<% @students.each do |s| %>
-		<% students_xml.search("//student").each do |sx| %>
-			<% continue = true %>
-			<% if sx.search("name").inner_text == s.name %>
-				<% activity = Activity.find(:first, :conditions => { :name => sx.search("activity").inner_text }) %>
-				<% if activity.marking_period == mp && activity.activity_number == act %>
-					<% continue = false %>
+	<% if view %>
+		<% @students = Student.all %>
+		<% @students.each do |s| %>
+			<tr id="<%= s.id %>">
+				<td class="s_name"><%= link_to s.name, student_path(s) %></td>
+				<td class="s_period"><%= s.period %></td>
+				<td class="s_grade_level"><%= s.grade_level %></td>
+				<td class="s_remove"><%= link_to 'x student', '#' %></td>
+			</tr>
+		<% end %>
+	<% else %>
+		<% @students = Student.all %>
+		<% @students.each do |s| %>
+			<% students_xml.search("//student").each do |sx| %>
+				<% continue = true %>
+				<% if sx.search("name").inner_text == s.name %>
+					<% activity = Activity.find(:first, :conditions => { :name => sx.search("activity").inner_text }) %>
+					<% if activity.marking_period == mp && activity.activity_number == act %>
+						<% continue = false %>
+					<% end %>
 				<% end %>
-			<% end %>
-			<% if continue %>
-				<div class="draggable"><span><%= "#{s.name}" %></span></div>
+				<% if continue %>
+					<div class="draggable"><span><%= "#{s.name}" %></span></div>
+				<% end %>
 			<% end %>
 		<% end %>
 	<% end %>
