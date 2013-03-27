@@ -36,6 +36,5 @@ function resetLvl(type) {
 function change_students() {
 	var mp = prim.substring(prim.length - 1);
 	var act = sec.substring(sec.length - 1);
-	//$.post('/reload_students', { marking: parseInt(mp), activity: parseInt(act) }, function(r) { $('#student_list').html(r); });
-	alert("Test");
+	$.post('/reload_students', { marking: parseInt(mp), activity: parseInt(act) }, function(r) { $('#student_list').html(r); });
 }
