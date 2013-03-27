@@ -40,7 +40,6 @@ class UsersController < ApplicationController
 		@students_xml = doc.xpath("//student")
 		respond_to do |format|
 			format.js { render :layout => false }
-			format.html { render :text => "Changed!" }
 		end
 	end
 	def manage_activities
