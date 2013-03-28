@@ -1,16 +1,18 @@
 @import "bootstrap";
-@import "bootstrap-responsive";
-
 body {
 	margin:0 auto;
+	padding-top:40px;
 }
+@import "bootstrap-responsive";
 
+/*
 .container {
 	width:80%;
 	float:left;
 	margin-left:10%;
 	margin-right:10%;
 }
+*/
 
 .main-unit {
 	width:100%;
