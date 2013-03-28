@@ -7,6 +7,11 @@
 		<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js" %>
 		<%= csrf_meta_tags %>
 		<%= render 'layouts/shim' %>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('.collapse').collapse();
+			})
+		</script>
 	</head>
 	<body>
 		<%= render 'layouts/navigation' %>
