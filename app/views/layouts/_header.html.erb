@@ -1,4 +1,4 @@
-<header class="navbar rel-fixed-top">
+<!--<header class="navbar rel-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
 			<%= link_to "Phys. Ed.", root_path, :id => 'logo' %>
@@ -15,4 +15,20 @@
 			</nav>
 		</div>
 	</div>
-</header>
+</header>-->
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+		<%= link_to "Phys. Ed.", root_path, :class => 'brand' %>
+		<ul class="nav">
+			<li class="active"><%= link_to "Home", root_path %></li>
+			<li><%= link_to "Help", help_path %></li>
+			<li>
+			<% if signed_in? %>
+				<%= link_to "Sign out", signout_path, :method => "delete" %>
+			<% else %>
+				<%= link_to "Sign in", signin_path %>
+			<% end %>
+			</li>
+		</ul>
+	</div>
+</div>
