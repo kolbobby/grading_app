@@ -4,6 +4,15 @@ body {
 }
 @import "bootstrap-responsive";
 
+.col {
+	width:15%;
+}
+
+#main-user-content {
+	width:83%;
+	float:right;
+}
+
 /*
 .container {
 	width:80%;
@@ -11,7 +20,6 @@ body {
 	margin-left:10%;
 	margin-right:10%;
 }
-*/
 
 .main-unit {
 	width:100%;
@@ -221,6 +229,7 @@ body {
 		}
 	}
 }
+*/
 
 .footer {
 	margin-top:35px;
