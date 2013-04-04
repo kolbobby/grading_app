@@ -32,6 +32,22 @@ h3, h4 {
 			}
 		}
 	}
+	.act-btn {
+		width:100%;
+	}
+
+	#manage-students-content {
+		#m_s_c_inner {
+			#add_bulk_students {
+				width:100%;
+				text-align:center;
+				display:none;
+			}
+			#confirm {
+				display:none;
+			}
+		}
+	}
 }
 
 /*
