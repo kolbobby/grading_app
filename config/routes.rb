@@ -4,7 +4,7 @@ GradingApp::Application.routes.draw do
       get "view_home"
       get "add_teacher"
       get "view_students"
-      get "view_rouster"
+      get "view_roster"
       get "manage_students"
       get "reload_students"
       get "manage_activities"

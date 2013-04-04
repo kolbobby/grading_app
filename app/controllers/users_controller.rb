@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 			format.js { render :layout => false }
 		end
 	end
-	def view_rouster
+	def view_roster
 		require 'nokogiri'
 		doc = Nokogiri::XML(open(Rails.root.join('app', 'student_activities.xml')))
 		@students = doc.xpath("//student")
