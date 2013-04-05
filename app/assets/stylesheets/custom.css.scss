@@ -47,11 +47,14 @@ h3, h4 {
 				display:none;
 			}
 			#student_assign_teacher_list {
-				list-style:none;
 				margin:0;
+				list-style:none;
 				padding:.2em 0 .2em .5em;
 				li {
 					margin:.2em 0 .2em 0;
+					h4 {
+						border-bottom:1px solid #CCC;
+					}
 					span {
 						a {
 							text-decoration:none;
