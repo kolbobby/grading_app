@@ -46,6 +46,48 @@ h3, h4 {
 			#confirm {
 				display:none;
 			}
+			#student_assign_teacher_list {
+				list-style:none;
+				margin:0;
+				padding:.2em 0 .2em .5em;
+				li {
+					margin:.2em 0 .2em 0;
+					span {
+						padding-left:5px;
+						a {
+							text-decoration:none;
+						}
+					}
+				}
+			}
+			#assign-right-side {
+				width:84%;
+				float:right;
+				margin-bottom:1%;
+				padding:1% 0 1% 0;
+				#assign-right-header {
+					.prim {
+						border-bottom:1px solid #000;
+						margin-bottom:.2em;
+						padding-bottom:.2em;
+					}
+					span {
+						color:blue;
+						cursor:pointer;
+					}
+				}
+				.draggable {
+					border-right:1px solid blue;
+					border-left:1px solid blue;
+				}
+				.grouped {
+					border-right:1px solid lightgreen;
+					border-left:1px solid lightgreen;
+				}
+				.selected {
+					text-align:center;
+				}
+			}
 		}
 	}
 }
