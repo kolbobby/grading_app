@@ -50,6 +50,7 @@ h3, h4 {
 				margin:0;
 				list-style:none;
 				padding:.2em 0 .2em .5em;
+				border-right:1px solid #CCC;
 				li {
 					margin:.2em 0 .2em 0;
 					h4 {
@@ -66,9 +67,7 @@ h3, h4 {
 				width:80%;
 				float:right;
 				margin-bottom:1%;
-				padding:1% 0 1% 0;
 				#assign-right-header {
-					width:100%;
 					.prim {
 						border-bottom:1px solid #000;
 						margin-bottom:.2em;
