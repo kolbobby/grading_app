@@ -1,3 +1,5 @@
+var prim;
+var sec;
 //$(document).ready(function() {
 	$('.prim').children('span').each(function() {
 		$(this).click(function() {
@@ -5,6 +7,8 @@
 			resetLvl('sec');
 			$(this).css({ 'color': 'black', 'cursor': 'default' });
 			$('#sec_1').css({ 'color': 'black', 'cursor': 'default' });*/
+			prim = $(this).prop('id');
+			sec = '#sec_1';
 			alert("Prim click.");
 
 			//change_students();
@@ -14,6 +18,7 @@
 		$(this).click(function() {
 			/*resetLvl('sec');
 			$(this).css({ 'color': 'black', 'cursor': 'default' });*/
+			sec = $(this).prop('id');
 			alert("Sec click.");
 
 			//change_students();
