@@ -67,9 +67,11 @@ h3, h4 {
 				width:80%;
 				float:right;
 				margin-bottom:1%;
-				#assign-right-header {
+				#assign-right-header, #student-list {
 					float:right;
-					width:98%;
+					width:100%;
+				}
+				#assign-right-header {
 					.prim {
 						border-bottom:1px solid #000;
 						margin-bottom:.2em;
@@ -79,10 +81,6 @@ h3, h4 {
 						color:blue;
 						cursor:pointer;
 					}
-				}
-				#student-list {
-					float:right;
-					width:98%;
 				}
 				.draggable {
 					border-right:1px solid blue;
