@@ -68,7 +68,7 @@ $('#s_add').click(function() {
 });
 $('#s_assign').click(function() {
 	$('#s_a_bulk').click();
-	$('#m_s_c_inner').html("<div class='col pull-left'><ul id='student_assign_teacher_list'><li><h4>coaches</h4></li><%= escape_javascript(render :partial => 'user', :locals => {:view => false}) %></ul></div><div id='assign-right-side'><div class='row'><div id='assign-right-header'><%= escape_javascript(render 'assign_right_header') %><script type='text/javascript'>$(document).ready(function() { $('.prim').children('span').each(function() { $(this).click(function() { alert('asdf'); }); } })</script></div><div id='student-list'><%= escape_javascript(render :partial => '/students/student', :locals => {:over => false, :view => false, :students_xml => @students_xml, :mp => 1, :act => 1}) %></div></div></div><%= escape_javascript(javascript_include_tag 'assign_right_header') %><%= escape_javascript(javascript_include_tag 'drag-drop') %>");
+	$('#m_s_c_inner').html("<div class='col pull-left'><ul id='student_assign_teacher_list'><li><h4>coaches</h4></li><%= escape_javascript(render :partial => 'user', :locals => {:view => false}) %></ul></div><div id='assign-right-side'><div class='row'><div id='assign-right-header'><%= escape_javascript(render 'assign_right_header') %></div><div id='student-list'><%= escape_javascript(render :partial => '/students/student', :locals => {:over => false, :view => false, :students_xml => @students_xml, :mp => 1, :act => 1}) %></div></div></div><%= escape_javascript(javascript_include_tag 'assign_right_header') %><%= escape_javascript(javascript_include_tag 'drag-drop') %>");
 	change_tab('assign');
 	$(this).hide();
 	$('#s_assign_plain').show();
