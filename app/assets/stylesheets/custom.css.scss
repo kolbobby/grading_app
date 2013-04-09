@@ -18,7 +18,8 @@ h3, h4 {
 }
 
 #main-user-content {
-	width:100%;
+	width:85%;
+	float:right;
 	.teacher-select {
 		width:100%;
 		border:1px solid #CCC;
@@ -67,6 +68,7 @@ h3, h4 {
 				float:right;
 				margin-bottom:1%;
 				#assign-right-header {
+					float:right;
 					.prim {
 						border-bottom:1px solid #000;
 						margin-bottom:.2em;
@@ -76,6 +78,9 @@ h3, h4 {
 						color:blue;
 						cursor:pointer;
 					}
+				}
+				#student-list {
+					float:right;
 				}
 				.draggable {
 					border-right:1px solid blue;
