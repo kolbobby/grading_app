@@ -18,7 +18,7 @@ h3, h4 {
 }
 
 #main-user-content {
-	width:83%;
+	width:100%;
 	.teacher-select {
 		width:100%;
 		border:1px solid #CCC;
@@ -45,22 +45,19 @@ h3, h4 {
 			#confirm {
 				display:none;
 			}
-			#s_a_col {
-				margin-right:3%;
-				#student_assign_teacher_list {
-					margin:0;
-					list-style:none;
-					padding:.2em 0 .2em .5em;
-					border-right:1px solid #CCC;
-					li {
-						margin:.2em 0 .2em 0;
-						h4 {
-							border-bottom:1px solid #CCC;
-						}
-						span {
-							a {
-								text-decoration:none;
-							}
+			#student_assign_teacher_list {
+				margin:0;
+				list-style:none;
+				padding:.2em 0 .2em .5em;
+				border-right:1px solid #CCC;
+				li {
+					margin:.2em 0 .2em 0;
+					h4 {
+						border-bottom:1px solid #CCC;
+					}
+					span {
+						a {
+							text-decoration:none;
 						}
 					}
 				}
