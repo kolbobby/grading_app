@@ -6,7 +6,6 @@ GradingApp::Application.routes.draw do
       get "view_students"
       get "view_roster"
       get "manage_students"
-      get "reload_students"
       get "manage_activities"
     end
   end
@@ -26,6 +25,8 @@ GradingApp::Application.routes.draw do
   post '/get_activity', :to => 'activities#get_activity'
   post '/add_activities', :to => 'activities#add_activities'
   post '/confirm_add', :to => 'activities#confirm_add_activities'
+
+  match '/reload_students', :to => 'users#reload_students'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
