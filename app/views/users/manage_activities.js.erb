@@ -1,4 +1,4 @@
-$('#main-user-content').html("<div class='row'><%= escape_javascript(render 'add_activity_form') %></div>");
+$('#main-user-content').html("<%= escape_javascript(render 'add_activity_form') %>");
 
 var cur_coach = $('input[name=coaches]:radio').val();
 $('input[name=coaches]:radio').change(function() {
