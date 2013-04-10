@@ -22,7 +22,8 @@ group :assets do
   gem 'uglifier', '1.3.0'
 end
 
-gem 'jquery-rails', '~> 2.2.0'
+gem 'jquery-rails', '~> 2.2.1'
+gem 'jquery-ui-rails', '~> 4.0.2'
 
 group :test do
   gem 'rspec-rails', '2.9.0'
