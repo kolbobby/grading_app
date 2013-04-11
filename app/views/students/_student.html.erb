@@ -21,6 +21,7 @@
 					<% if activity.marking_period == mp && activity.activity_number == act %>
 						<% continue = false %>
 					<% end %>
+					<div><%= sx.search("name").inner_text %>, <%= s.name %></div>
 				<% end %>
 				<% if continue %>
 					<div class="draggable"><span><%= "#{s.name}" %></span></div>
