@@ -18,10 +18,10 @@
 				<% continue = true %>
 				<% if sx.search("name").inner_text == s.name %>
 					<% activity = Activity.find(:first, :conditions => { :name => sx.search("activity").inner_text }) %>
-					<% if activity.marking_period == mp && activity.activity_number == act %>
+					<% if activity.marking_period.to_s() == mp && activity.activity_number.to_s() == act %>
 						<% continue = false %>
 					<% end %>
-					<div><%= sx.search("name").inner_text %>, <%= activity.name %>, <%= activity.marking_period.to_s() %>, <%= activity.activity_number.to_s() %></div>
+					<div><%= sx.search("name").inner_text %>, <%= activity.name %>, <%= mp %>, <%= act %></div>
 				<% end %>
 				<% if continue %>
 					<div class="draggable"><span><%= "#{s.name}" %></span></div>
