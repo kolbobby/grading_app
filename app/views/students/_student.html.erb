@@ -27,6 +27,6 @@
 				<% end %>
 			<% end %>
 		<% end %>
-		<%= escape_javascript(javascript_include_tag 'drag-drop') %>
+		<%= javascript_include_tag(Rails.root.join('app', 'assets', 'javascripts', 'drag-drop.js.erb')) %>
 	<% end %>
 <% end %>
