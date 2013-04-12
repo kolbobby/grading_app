@@ -10,8 +10,11 @@ class ActivitiesController < ApplicationController
 	end
 
 	def add_to_activity
+		require 'nokogiri'
 		students = params[:students]
-		render :text => "ADDED TO ACTIVITY!"
+		doc = Nokogiri::XML(open(Rails.root.join('app', 'student_activities.xml')))
+		xml = doc.to_xml
+		render :text => xml.to_s
 	end
 
 	def add_activities
