@@ -76,14 +76,19 @@
 						var draggable = ui.draggable;
 						if(draggable.hasClass('grouped')) {
 							var str = "";
+							var students = new Array();
 							$.post('/get_activity', { coach: $(this).prop('id'), act: sec.substring(sec.length - 1, sec.length), mp: prim.substring(prim.length - 1, prim.length) }, function(r) { str = "The following students will be added to <strong>"+ r +"</strong>:\n"; });
 							draggable.children('#grouped-drags').children('span').each(function() {
+								students.push($(this).html());
 								str += $(this).html() + "\n";
 							});
 							str += "\nIs this correct?";
 
 							if(confirm(str)) {
 								//ADD STUDENTS TO ACTIVITY
+								for(var x = 0;x < students.length;x++) {
+									alert(students[x]);
+								}
 								alert("ADDED TO ACTIVITY!");
 							}
 						}
