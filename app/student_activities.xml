@@ -1,5 +1,7 @@
 <?xml version="1.0" ?>
-<student>
-	<name>Test Student</name>
-	<activity>/ertqg</activity>
-</student>
+<root>
+	<student>
+		<name>Test Student</name>
+		<activity>/ertqg</activity>
+	</student>
+</root>
