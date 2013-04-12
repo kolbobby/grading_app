@@ -14,7 +14,7 @@ class ActivitiesController < ApplicationController
 		students = params[:students]
 		builder = Nokogiri::XML(open(Rails.root.join('app', 'student_activities.xml')))
 
-		node = builder.doc.xpath("//root").first
+		node = builder.xpath("//root").first
 		#students.each do |s|
 		#	Nokogiri::XML::Builder.with(node) do |xml|
 		#		xml.student {
