@@ -9,6 +9,11 @@ class ActivitiesController < ApplicationController
 		render :text => activity.name
 	end
 
+	def add_to_activity
+		students = params[:students]
+		render :text => "ADDED TO ACTIVITY!"
+	end
+
 	def add_activities
 		coach = params[:coach]
 		activities = params[:acts]
