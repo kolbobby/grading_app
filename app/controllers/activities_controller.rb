@@ -16,10 +16,10 @@ class ActivitiesController < ApplicationController
 
 		root = builder.xpath("//root").first
 		students.each do |s|
-			node = Nokogiri::XML::Node.new "student"
-			name = Nokogiri::XML::Node.new "name"
-			activity = Nokogiri::XML::Node.new "activity"
-			
+			node = Nokogiri::XML::Node.new "student", builder
+			name = Nokogiri::XML::Node.new "name", builder
+			activity = Nokogiri::XML::Node.new "activity", builder
+
 			name.content = s
 			activity.content = params[:activity]
 
