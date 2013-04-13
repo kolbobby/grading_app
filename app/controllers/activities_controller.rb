@@ -22,8 +22,8 @@ class ActivitiesController < ApplicationController
 
 			name.content = s
 			activity.content = params[:activity]
-			student.add_next_sibling(name)
-			student.add_next_sibling(activity)
+			student.add_child(name)
+			student.add_child(activity)
 			root.add_next_sibling(student)
 
 			builder.to_xml
