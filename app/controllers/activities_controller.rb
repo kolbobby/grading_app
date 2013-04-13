@@ -16,16 +16,12 @@ class ActivitiesController < ApplicationController
 
 		root = builder.xpath("//root").first
 		students.each do |s|
-			node = Nokogiri::XML::Node.new "student", builder
+			student = Nokogiri::XML::Node.new "student", builder
 			name = Nokogiri::XML::Node.new "name", builder
 			activity = Nokogiri::XML::Node.new "activity", builder
-
-			name.content = s
-			activity.content = params[:activity]
-
-			node << name
-			node << activity
-			root << node
+			student.add_next_sibling(name)
+			student.add_next_sibling(activity)
+			root.add_next_sibling(student)
 
 			builder.to_xml
 		end
