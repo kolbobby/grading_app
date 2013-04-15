@@ -25,7 +25,16 @@ $(document).ready(function() {
 
 	prim = "prim_1";
 	sec = "sec_1";
-	$("#prim_1").click();
+
+	$('#prim_1').click();
+	resetLvl('prim');
+	resetLvl('sec');
+	$(this).css({ 'color': 'black', 'cursor': 'default' });
+	$('#sec_1').css({ 'color': 'black', 'cursor': 'default' });
+	prim = $(this).prop('id');
+	sec = '#sec_1';
+
+	change_students();
 })
 
 function resetLvl(type) {
