@@ -14,7 +14,7 @@
 	<% else %>
 		<% @students = Student.all %>
 		<% @students.each do |s| %>
-			<% students_xml.search("//student").each do |sx| %>
+			<% students_xml.xpath("//student").each do |sx| %>
 				<% continue = true %>
 				<% if sx.search("name").inner_text == s.name %>
 					<% activity = Activity.find(:first, :conditions => { :name => sx.search("activity").inner_text }) %>
