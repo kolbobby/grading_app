@@ -12,18 +12,28 @@ class ActivitiesController < ApplicationController
 	def add_to_activity
 		require 'nokogiri'
 		students = params[:students]
-		builder = Nokogiri::XML(open(Rails.root.join('app', 'student_activities.xml')))
+		io = File.open(Rails.root.join('app', 'student_activities.xml'))
+		builder = Nokogiri::XML(io)
+		io.close
 
-		str = ""
-		builder.xpath("//student").each do |node|
-			str = "#{str}#{node.content}\n"
+		root = builder.xpath("root")
+		students.each do |s|
+			student = Nokogiri::XML::Node.new "student", builder
+			name = Nokogiri::XML::Node.new "name", builder
+			activity = Nokogiri::XML::Node.new "activity", builder
+
+			name.content = s
+			activity.content = params[:activity]
+			name.parent = student
+			activity.parent = student
+			student.parent = root
 		end
 
-		#root = builder.xpath("//root").first
-		#students.each do |s|
-		#end
+		io = File.open(Rails.root.join('app', 'student_activities.xml'), "w")
+		io.puts builder.to_xml
+		io.close
 
-		render :text => "ADDED TO ACTIVITY!\n#{str}"
+		render :text => "ADDED TO ACTIVITY!"
 	end
 
 	def add_activities
