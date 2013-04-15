@@ -14,24 +14,16 @@ class ActivitiesController < ApplicationController
 		students = params[:students]
 		builder = Nokogiri::XML(open(Rails.root.join('app', 'student_activities.xml')))
 
-		root = builder.xpath("//root").first
-		students.each do |s|
-			student = Nokogiri::XML::Node.new "student", builder
-			name = Nokogiri::XML::Node.new "name", builder
-			act = Nokogiri::XML::Node.new "activity", builder
-
-			name.content = s
-			act.content = params[:activity]
-
-			name.parent = student
-			name.add_next_sibling(act)
-
-			student.parent = root
-
-			puts builder.to_xml
+		str = ""
+		builder.xpath("//student").each do |node|
+			str = "#{str}#{node.content}\n"
 		end
 
-		render :text => "ADDED TO ACTIVITY!"
+		#root = builder.xpath("//root").first
+		#students.each do |s|
+		#end
+
+		render :text => "ADDED TO ACTIVITY!\n#{str}"
 	end
 
 	def add_activities
