@@ -16,13 +16,13 @@ class ActivitiesController < ApplicationController
 		builder = Nokogiri::XML(io)
 		io.close
 
-		root = builder.xpath("root")
+		l_student = builder.xpath("//student").last
 		students.each do |s|
 			student = Nokogiri::XML::Node.new "student", builder
-			
+
 			student.add_child("<name>#{s}</name>")
 			student.add_child("<activity>#{params[:activity]}</activity>")
-			root.add_child(student)
+			l_student.add_next_sibling(student)
 		end
 
 		io = File.open(Rails.root.join('app', 'student_activities.xml'), "w")
