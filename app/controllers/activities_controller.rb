@@ -28,7 +28,7 @@ class ActivitiesController < ApplicationController
 
 			student.parent = root
 
-			builder.to_xml
+			puts builder.to_xml
 		end
 
 		render :text => "ADDED TO ACTIVITY!"
