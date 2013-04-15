@@ -25,16 +25,6 @@ $(document).ready(function() {
 
 	prim = "prim_1";
 	sec = "sec_1";
-
-	$('#prim_1').click();
-	resetLvl('prim');
-	resetLvl('sec');
-	$(this).css({ 'color': 'black', 'cursor': 'default' });
-	$('#sec_1').css({ 'color': 'black', 'cursor': 'default' });
-	prim = $(this).prop('id');
-	sec = '#sec_1';
-
-	change_students();
 })
 
 function resetLvl(type) {
@@ -50,3 +40,5 @@ function change_students() {
 	var act = sec.substring(sec.length - 1);
 	$.post('/reload_students', { marking: mp, activity: act }, function(r) { $('#student-list').html(r); });
 }
+
+change_students();
