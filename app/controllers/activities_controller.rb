@@ -18,13 +18,15 @@ class ActivitiesController < ApplicationController
 		students.each do |s|
 			student = Nokogiri::XML::Node.new "student", builder
 			name = Nokogiri::XML::Node.new "name", builder
-			activity = Nokogiri::XML::Node.new "activity", builder
+			act = Nokogiri::XML::Node.new "activity", builder
 
 			name.content = s
-			activity.content = params[:activity]
-			student.add_child(name)
-			student.add_child(activity)
-			root.add_next_sibling(student)
+			act.content = params[:activity]
+
+			name.parent = student
+			name.add_next_sibling(act)
+
+			student.parent = root
 
 			builder.to_xml
 		end
