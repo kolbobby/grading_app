@@ -88,6 +88,7 @@
 							if(confirm(str)) {
 								//ADD STUDENTS TO ACTIVITY
 								$.post('add_to_activity', { students: st, activity: act }, function(r) { alert(r); });
+								change_students();
 							}
 						}
 						$.ajaxSetup({async:true});

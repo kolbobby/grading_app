@@ -29,8 +29,6 @@ class ActivitiesController < ApplicationController
 		io.puts builder.to_xml
 		io.close
 
-		redirect_to '/reload_students' and return
-
 		render :text => "ADDED TO ACTIVITY!"
 	end
 
