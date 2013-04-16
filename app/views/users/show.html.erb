@@ -1,14 +1,6 @@
 <% provide(:title, @user.name) %>
 <div class="col pull-left">
-	<table>
-		<thead>
-			<tr>
-				<td></td>
-				<td><h3><%= @user.name %></h3></td>
-			</tr>
-		</thead>
-		<%= render 'teacher_side' %>
-	</table>
+	<%= render 'teacher_side' %>
 </div>
 <div id="main-user-content" class="pull-right">
 	This is the home portion of the teacher profile page.
