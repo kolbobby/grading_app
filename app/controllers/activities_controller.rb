@@ -22,7 +22,7 @@ class ActivitiesController < ApplicationController
 
 			student.add_child("<name>#{s}</name>")
 			student.add_child("<activity>#{params[:activity]}</activity>")
-			root.add_child(student)
+			root.after(student)
 		end
 
 		io = File.open(Rails.root.join('app', 'student_activities.xml'), "w")
