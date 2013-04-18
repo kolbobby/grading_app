@@ -1,3 +1,5 @@
-<%= Request.session_options[:key] %>
+<% if !signed_in? %>
+<span>Hello</span>
+<% end %>
 <h1>Phys. Ed.</h1>
 <p>Home page for scheduling application</p>
