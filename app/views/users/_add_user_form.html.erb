@@ -36,7 +36,7 @@
 			Scheduling<hr />
 			<% teachers = User.all %>
 			<% teachers.each do |t| %>
-				<%= t[:name] %>: <select><option>Marking Period 1...</option><option></option><option>Gym</option><option>Prep</option><option>Duty</option><option>Health</option></select><br />
+				<%= t[:name] %>:<br /><select><option>Marking Period 1...</option><option></option><option>Gym</option><option>Prep</option><option>Duty</option><option>Health</option></select> <select><option>Marking Period 2...</option><option></option><option>Gym</option><option>Prep</option><option>Duty</option><option>Health</option></select> <select><option>Marking Period 3...</option><option></option><option>Gym</option><option>Prep</option><option>Duty</option><option>Health</option></select> <select><option>Marking Period 4...</option><option></option><option>Gym</option><option>Prep</option><option>Duty</option><option>Health</option></select><br />
 			<% end %>
 		</div>
 	</div>
