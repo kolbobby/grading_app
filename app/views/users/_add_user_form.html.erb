@@ -35,12 +35,14 @@
 		<div class="tab-pane" id="scheduling-teachers">
 			Scheduling<hr />
 			<% teachers = User.all %>
+			<%= form_tag("/users/update_schedules", :id => "update_schedules_form") %>
 			<% teachers.each do |t| %>
 				<%= t[:name] %>:<br />
 				<% 4.times do |x| %>
-					<select><option>Marking Period <%= x %>...</option><option></option><option>Gym</option><option>Prep</option><option>Duty</option><option>Health</option></select>
+					<%= select_tag 'marking_period_'+(x+1), "<option>Marking Period #{x+1}...</option><option></option><option>Gym</option><option>Prep</option><option>Duty</option><option>Health</option>" %>
 				<% end %>
 				<br />
+			<% end %>
 			<% end %>
 		</div>
 	</div>
