@@ -1,26 +1,39 @@
-<%= form_tag("/users/add_user", :id => "add_user_form") do %>
-<div class="tabular_opp">
-	<table>
-		<tbody>
-			<tr>
-				<td class="left-side"><span class="det">name:</span></td>
-				<td><%= text_field_tag 'u_name' %></td>
-				<td class="left-side"><span class="det">username:</span></td>
-				<td><%= text_field_tag 'u_uname' %></td>
-			</tr>
-			<tr>
-				<td class="left-side"><span class="det">passsword:</span></td>
-				<td><%= password_field_tag 'u_password' %></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td>
-					<%= submit_tag 'add teacher' %>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+<div class="tabbable">
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="#add-teacher" data-toggle="tab">Add Teacher</a></li>
+		<li><a href="#scheduling-teachers" data-toggle="tab">Scheduling</a></li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane active" id="add-teacher">
+			<%= form_tag("/users/add_user", :id => "add_user_form") do %>
+			<div>
+				<table>
+					<tbody>
+						<tr>
+							<td class="left-side"><span class="det">name:</span></td>
+							<td><%= text_field_tag 'u_name' %></td>
+							<td class="left-side"><span class="det">username:</span></td>
+							<td><%= text_field_tag 'u_uname' %></td>
+						</tr>
+						<tr>
+							<td class="left-side"><span class="det">passsword:</span></td>
+							<td><%= password_field_tag 'u_password' %></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+								<%= submit_tag 'add teacher' %>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<% end %>
+		</div>
+		<div class="tab-pane" id="scheduling-teachers">
+			Scheduling
+		</div>
+	</div>
 </div>
-<% end %>
