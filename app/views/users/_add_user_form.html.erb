@@ -34,6 +34,10 @@
 		</div>
 		<div class="tab-pane" id="scheduling-teachers">
 			Scheduling
+			<% teachers = User.all %>
+			<% teachers.each do |t| %>
+				<%= t[:name] %>: <select><option>Marking Period 1</option><option disabled><hr /></option><option>Gym</option><option>Prep</option><option>Duty</option><option>Health</option></select>
+			<% end %>
 		</div>
 	</div>
 </div>
