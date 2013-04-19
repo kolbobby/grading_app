@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 			format.js { render :layout => false }
 		end
 	end
-	def add_teacher
+	def setup_teachers
 		respond_to do |format|
 			format.js { render :layout => false }
 		end

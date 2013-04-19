@@ -2,7 +2,7 @@ GradingApp::Application.routes.draw do
   resources :users do
     member do
       get "view_home"
-      get "add_teacher"
+      get "setup_teachers"
       get "view_students"
       get "view_roster"
       get "manage_students"
