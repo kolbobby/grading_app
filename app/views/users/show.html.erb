@@ -3,7 +3,11 @@
 	<div class="col pull-left">
 		<%= render 'teacher_side' %>
 	</div>
+	<div id="main-user-content" class="pull-right">
+		This is the home portion of the teacher profile page.
+	</div>
+<% else %>
+	<div id="main-user-content" class="pull-right" style="width:100%;">
+		This is the home portion of the teacher profile page.
+	</div>
 <% end %>
-<div id="main-user-content" class="pull-right">
-	This is the home portion of the teacher profile page.
-</div>
