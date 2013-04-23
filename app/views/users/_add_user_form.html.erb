@@ -39,7 +39,7 @@
 				<% teachers.each do |t| %>
 					<%= t[:name] %>:<br />
 					<% 4.times do |x| %>
-						<%= select_tag "marking_period_#{(x+1)}", "<option>Marking Period #{(x+1)}...</option><option></option><option>Gym</option><option>Prep</option><option>Duty</option><option>Health</option>".html_safe %>
+						<%= select_tag "marking_period_#{(x+1)}", "<option>Marking Period #{(x+1)}...</option><option disabled></option><option>Gym</option><option>Prep</option><option>Duty</option><option>Health</option>".html_safe %>
 					<% end %>
 					<br />
 				<% end %>
