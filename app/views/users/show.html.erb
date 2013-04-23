@@ -1,7 +1,9 @@
 <% provide(:title, @user.name) %>
-<div class="col pull-left">
-	<%= render 'teacher_side' %>
-</div>
+<% if current_user == User.find(params[:id]) %>
+	<div class="col pull-left">
+		<%= render 'teacher_side' %>
+	</div>
+<% end %>
 <div id="main-user-content" class="pull-right">
 	This is the home portion of the teacher profile page.
 </div>
