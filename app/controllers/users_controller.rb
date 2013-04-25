@@ -62,7 +62,7 @@ class UsersController < ApplicationController
 	def update_schedules
 		@teachers = User.all
 		str = ""
-		teachers.each do |t|
+		@teachers.each do |t|
 			4.times do |x|
 				str = "#{str}#{t[:name]}_marking_period_#{(x+1)}"
 			end
