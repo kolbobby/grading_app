@@ -60,7 +60,15 @@ class UsersController < ApplicationController
 	end
 
 	def update_schedules
-		
+		@teachers = User.all
+		str = ""
+		teachers.each do |t|
+			4.times do |x|
+				str = "#{str}#{t[:name]}_marking_period_#{(x+1)}"
+			end
+			str = "#{str}\n"
+		end
+		flash[:success] = "#{str}"
 	end
 
 	private

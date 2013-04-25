@@ -28,6 +28,7 @@ GradingApp::Application.routes.draw do
   post '/confirm_add', :to => 'activities#confirm_add_activities'
 
   match '/reload_students', :to => 'users#reload_students'
+  match '/users/update_schedules', :to => 'users#update_schedules'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
