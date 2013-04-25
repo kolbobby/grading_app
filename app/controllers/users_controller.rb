@@ -68,10 +68,7 @@ class UsersController < ApplicationController
 			end
 			str = "#{str}\n"
 		end
-		respond_to do |format|
-			format.html { render :layout => true }
-			flash[:success] = "#{str}"
-		end
+		flash[:success] = "#{str}"
 	end
 
 	private
