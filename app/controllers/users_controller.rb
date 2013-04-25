@@ -66,11 +66,11 @@ class UsersController < ApplicationController
 			schedule = Array.new
 			4.times do |x|
 				#str = "#{str}#{t[:name]}_marking_period_#{(x+1)}"
-				schedule.push(params["#{str}#{t[:name]}_marking_period_#{(x+1)}"])
+				schedule.push(params["#{t[:name]}_marking_period_#{(x+1)}"])
 			end
 			#str = "#{str}\n"
 			schedule.each do |s|
-				str = "#{str}#{s}\n"
+				str = "#{str}#{s}"
 			end
 		end
 		flash[:success] = "#{str}"
