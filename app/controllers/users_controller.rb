@@ -59,6 +59,10 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def update_schedules
+		
+	end
+
 	private
 		def signed_in_user
 			unless signed_in?
