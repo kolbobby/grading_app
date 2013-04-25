@@ -68,7 +68,7 @@ class UsersController < ApplicationController
 			end
 			str = "#{str}\n"
 		end
-		flash[:success] = "#{str}"
+		#flash[:success] = "#{str}"
 	end
 
 	private
