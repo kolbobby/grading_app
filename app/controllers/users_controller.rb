@@ -84,7 +84,7 @@ class UsersController < ApplicationController
 			io.close
 			4.times do |x|
 				cur = builder.xpath("MP#{(x+1)}")
-				str = "#{str}#{cur.inner_text}\n"
+				str = "#{str}#{cur.inner_text()}\n"
 			end
 		end
 
