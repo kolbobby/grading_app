@@ -3,9 +3,7 @@
 	<ul class="nav nav-tabs">
 		<li class="active"><a href="#add-teacher" data-toggle="tab">Add Teacher</a></li>
 		<li><a href="#scheduling-teachers" data-toggle="tab">Scheduling</a></li>
-		<% if passing %>
-			<li><a href="#teachers-schedules" data-toggle="tab">Schedules</a></li>
-		<% end %>
+		<li><a href="#teachers-schedules" data-toggle="tab">Schedules</a></li>
 	</ul>
 	<div class="tab-content">
 		<div class="tab-pane active" id="add-teacher">
@@ -49,17 +47,15 @@
 				<%= submit_tag 'save schedules', :class => 'btn btn-primary' %>
 			<% end %>
 		</div>
-		<% if passing %>
-			<div class="tab-pane" id="teachers-schedules">
-				Schedules<br />
-				<% teachers.each do |t| %>
-					<% io = File.open(Rails.root.join('app', 'views', 'users', 'schedules', "#{t[:name]}.xml")) %>
-					<% builder = Nokogiri::XML(io) %>
-					<% io.close %>
+		<div class="tab-pane" id="teachers-schedules">
+			Schedules<br />
+			<% teachers.each do |t| %>
+				<% io = File.open(Rails.root.join('app', 'views', 'users', 'schedules', "#{t[:name]}.xml")) %>
+				<% builder = Nokogiri::XML(io) %>
+				<% io.close %>
 
-					<%= "#{t[:name]}: '#{builder.xpath("root").inner_text}'<br />" %>
-				<% end %>
-			</div>
-		<% end %>
+				<%= "#{t[:name]}: '#{builder.xpath("root").inner_text}'<br />" %>
+			<% end %>
+		</div>
 	</div>
 </div>
