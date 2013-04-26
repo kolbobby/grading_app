@@ -62,7 +62,13 @@
 		<% if passing %>
 			<div class="tab-pane" id="teachers-schedules">
 				Schedules<br />
-				<%= builder.xpath("root").inner_text %>
+				<% teachers.each do |t| %>
+					<% io = File.open(Rails.root.join('app', 'views', 'users', 'schedules', "#{t[:name]}.xml")) %>
+					<% builder = Nokogiri::XML(io) %>
+					<% io.close %>
+
+					<%= builder.xpath("root").inner_text %>
+				<% end %>
 			</div>
 		<% end %>
 	</div>
