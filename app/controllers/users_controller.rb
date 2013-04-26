@@ -82,10 +82,7 @@ class UsersController < ApplicationController
 			io = File.open(Rails.root.join('app', 'views', 'users', 'schedules', "#{t[:name]}.xml"))
 			builder = Nokogiri::XML(io)
 			io.close
-			4.times do |x|
-				cur = builder.xpath("MP#{(x+1)}")
-				str = "#{str}#{builder.xpath("root").inner_text()}\n"
-			end
+			str = "#{str}#{builder.xpath("root").inner_text}\n"
 		end
 
 		flash[:success] = str
