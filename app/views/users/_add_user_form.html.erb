@@ -5,7 +5,7 @@
 	<% builder = Nokogiri::XML(io) %>
 	<% io.close %>
 
-	<% if builder.xpath("root").inner_text == "" %>
+	<% if builder.xpath("root").inner_text == " " %>
 		<% passing = false %>
 	<% end %>
 <% end %>
