@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 		end
 	end
 	def setup_teachers
+		require 'nokogiri'
 		respond_to do |format|
 			format.js { render :layout => false }
 		end
@@ -76,17 +77,7 @@ class UsersController < ApplicationController
 			io.puts builder.to_xml
 			io.close
 		end
-
-		str = ""
-		@teachers.each do |t|
-			io = File.open(Rails.root.join('app', 'views', 'users', 'schedules', "#{t[:name]}.xml"))
-			builder = Nokogiri::XML(io)
-			io.close
-			str = "#{str}#{builder.xpath("root").inner_text}\n"
-		end
-
-		flash[:success] = str
-		#flash[:success] = "Works!"
+		flash[:success] = "Updated teacher schedules!"
 	end
 
 	private
