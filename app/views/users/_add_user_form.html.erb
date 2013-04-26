@@ -1,14 +1,4 @@
 <% teachers = User.all %>
-<% passing = true %>
-<% teachers.each do |t| %>
-	<% io = File.open(Rails.root.join('app', 'views', 'users', 'schedules', "#{t[:name]}.xml")) %>
-	<% builder = Nokogiri::XML(io) %>
-	<% io.close %>
-
-	<% if builder.xpath("root").inner_text == " " %>
-		<% passing = false %>
-	<% end %>
-<% end %>
 <div class="tabbable tabs-left">
 	<ul class="nav nav-tabs">
 		<li class="active"><a href="#add-teacher" data-toggle="tab">Add Teacher</a></li>
@@ -67,7 +57,7 @@
 					<% builder = Nokogiri::XML(io) %>
 					<% io.close %>
 
-					<%= "#{t[:name]}: '#{builder.xpath("root").inner_text}'\n" %>
+					<%= "#{t[:name]}: '#{builder.xpath("root").inner_text}'<br />" %>
 				<% end %>
 			</div>
 		<% end %>
