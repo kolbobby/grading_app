@@ -67,7 +67,7 @@
 					<% builder = Nokogiri::XML(io) %>
 					<% io.close %>
 
-					<%= builder.xpath("root").inner_text %>
+					<%= "#{t[:name]}: #{builder.xpath("root").inner_text}" %>
 				<% end %>
 			</div>
 		<% end %>
