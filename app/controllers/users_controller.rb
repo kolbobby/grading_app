@@ -68,10 +68,10 @@ class UsersController < ApplicationController
 				schedule.push(params["#{t[:name]}_marking_period_#{(x+1)}"])
 			end
 			schedule.each do |s|
-				str = "#{str}#{s}"
+				str = "#{str}#{schedule.to_s}"
 			end
 		end
-		flash[:success] = "#{str}"
+		flash[:success] = str
 	end
 
 	private
