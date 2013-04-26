@@ -65,10 +65,8 @@ class UsersController < ApplicationController
 		@teachers.each do |t|
 			schedule = Array.new
 			4.times do |x|
-				#str = "#{str}#{t[:name]}_marking_period_#{(x+1)}"
 				schedule.push(params["#{t[:name]}_marking_period_#{(x+1)}"])
 			end
-			#str = "#{str}\n"
 			schedule.each do |s|
 				str = "#{str}#{s}"
 			end
