@@ -61,14 +61,34 @@ class UsersController < ApplicationController
 
 	def update_schedules
 		@teachers = User.all
+		@teachers.each do |t|
+			io = File.open(Rails.root.join('app', 'views', 'users', 'schedules', "#{t[:name]}.xml"))
+			builder = Nokogiri::XML(io)
+			io.close
+
+			setup = builder.xpath("//setup").last
+			4.times do |x|
+				data = params["#{t[:name]}_marking_period_#{(x+1)}"]
+				setup.add_next_sibling("<MP#{(x+1)}>#{data}</MP#{(x+1)}>")
+			end
+
+			io = File.open(Rails.root.join('app', 'views', 'users', 'schedules', "#{t[:name]}.xml"), "w")
+			io.puts builder.to_xml
+			io.close
+		end
+
 		str = ""
 		@teachers.each do |t|
-			schedule = Array.new
+			io = File.open(Rails.root.join('app', 'views', 'users', 'schedules', "#{t[:name]}.xml"))
+			builder = Nokogiri::XML(io)
+			io.close
+
 			4.times do |x|
-				schedule.push(params["#{t[:name]}_marking_period_#{(x+1)}"])
+				cur = builder.xpath("MP#{(x+1)}")
+				str = "#{str}#{cur.InnerText}\n"
 			end
-			
 		end
+
 		flash[:success] = str
 	end
 
