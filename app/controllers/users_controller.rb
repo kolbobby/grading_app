@@ -77,19 +77,19 @@ class UsersController < ApplicationController
 			io.close
 		end
 
-		#str = ""
-		#@teachers.each do |t|
-		#	io = File.open(Rails.root.join('app', 'views', 'users', 'schedules', "#{t[:name]}.xml"))
-		#	builder = Nokogiri::XML(io)
-		#	io.close
-		#	4.times do |x|
-		#		cur = builder.xpath("MP#{(x+1)}")
-		#		str = "#{str}#{cur.InnerText}\n"
-		#	end
-		#end
+		str = ""
+		@teachers.each do |t|
+			io = File.open(Rails.root.join('app', 'views', 'users', 'schedules', "#{t[:name]}.xml"))
+			builder = Nokogiri::XML(io)
+			io.close
+			4.times do |x|
+				cur = builder.xpath("MP#{(x+1)}")
+				str = "#{str}#{cur.inner_text}\n"
+			end
+		end
 
-		#flash[:success] = str
-		flash[:success] = "Works!"
+		flash[:success] = str
+		#flash[:success] = "Works!"
 	end
 
 	private
