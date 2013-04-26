@@ -70,7 +70,7 @@ class UsersController < ApplicationController
 			if t.update_attributes(:schedule => schedule.to_s)
 				str = "#{str}saved\n"
 			else
-				str = "#{str}failed\n"
+				str = "#{str}#{Rails.logger.info(t.errors.messages.inspect)}\n"
 			end
 		end
 		flash[:success] = str
