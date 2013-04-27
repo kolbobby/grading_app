@@ -55,10 +55,9 @@
 				<% io.close %>
 
 				<h3><%= "#{t[:name]}:" %></h3><br />
-				<%= "#{builder.xpath("root").inner_text}" %><br />
 				<ul>
 					<% 4.times do |x| %>
-						<% cur = builder.xpath("MP#{(x+1)}").inner_text %>
+						<% cur = builder.search("MP#{(x+1)}").inner_text %>
 						<li><%= "Marking Period #{(x+1)}: #{cur}" %></li>
 					<% end %>
 				</ul>
