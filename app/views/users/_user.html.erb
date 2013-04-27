@@ -6,6 +6,6 @@
 <% else %>
 	<% @users_schedules = teachers_xml %>
 	<% @users_schedules.each do |ts| %>
-		asdf
+		<%= ts[0..ts.index(":")] %>
 	<% end %>
 <% end %>
