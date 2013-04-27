@@ -43,7 +43,7 @@ class UsersController < ApplicationController
 			doc = Nokogiri::XML(open(Rails.root.join('app', 'views', 'users', 'schedules', "#{t[:name]}.xml")))
 			4.times do |x|
 				cur = doc.search("MP#{(x+1)}").inner_text
-				if cur == "gym"
+				if cur == "Gym"
 					str.push("#{t[:name]}: #{cur}")
 				end
 			end
