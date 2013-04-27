@@ -44,9 +44,7 @@ class UsersController < ApplicationController
 			str = Array.new
 			4.times do |x|
 				cur = doc.search("MP#{(x+1)}").inner_text
-				if cur == "gym"
-					str.push("#{t[:name]}: #{cur}")
-				end
+				str.push(cur)
 			end
 		end
 		respond_to do |format|
