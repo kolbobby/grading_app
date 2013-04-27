@@ -67,6 +67,10 @@ class UsersController < ApplicationController
 			builder = Nokogiri::XML(io)
 			io.close
 
+			4.times do |x|
+				builder.search("MP#{(x+1)}").remove
+			end
+
 			setup = builder.xpath("//setup").last
 			4.times do |x|
 				data = params["#{t[:name]}_marking_period_#{(x+1)}"]
