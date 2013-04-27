@@ -38,13 +38,14 @@ class UsersController < ApplicationController
 	def reload_teachers
 		require 'nokogiri'
 		@teachers = User.all
-		str = ""
+		str = Array.new
 		@teachers.each do |t|
 			doc = Nokogiri::XML(open(Rails.root.join('app', 'views', 'users', 'schedules', "#{t[:name]}.xml")))
-			str = Array.new
 			4.times do |x|
 				cur = doc.search("MP#{(x+1)}").inner_text
-				str.push(cur)
+				if cur == "gym"
+					str.push("#{t[:name]}: #{cur}")
+				end
 			end
 		end
 		respond_to do |format|
