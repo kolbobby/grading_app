@@ -35,6 +35,24 @@ class UsersController < ApplicationController
 			format.js { render :layout => false }
 		end
 	end
+	def reload_teachers
+		require 'nokogiri'
+		@teachers = User.all
+		str = ""
+		@teachers.each do |t|
+			doc = Nokogiri::XML(open(Rails.root.join('app', 'views', 'users', 'schedules', "#{t[:name]}.xml")))
+			str = Array.new
+			4.times do |x|
+				cur = doc.search("MP#{(x+1)}").inner_text
+				if cur == "gym"
+					str.push("#{t[:name]}: #{cur}")
+				end
+			end
+		end
+		respond_to do |format|
+			format.html { render :partial => '/users/user', :locals => { :view => true, :teachers_xml => str } }
+		end
+	end
 	def reload_students
 		require 'nokogiri'
 		doc = Nokogiri::XML(open(Rails.root.join('app', 'student_activities.xml')))
