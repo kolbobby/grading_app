@@ -24,7 +24,7 @@
 				<% end %>
 			<% end %>
 			<% if continue %>
-				<div class="draggable"><span><%= "#{s.name}" %></span></div>
+				<div class="draggable"><label><input type="checkbox" /><span><%= "#{s.name}" %></span></label></div>
 			<% end %>
 		<% end %>
 		<script type="text/javascript">
@@ -33,7 +33,7 @@
 					if(event.ctrlKey)
 						$(this).toggleClass('grouped');
 				});*/
-				$('.draggable').children('input').click(function() {
+				$('.draggable').children('label').children('input[type="checkbox"]').click(function() {
 					$(this).parent('.draggable').toggleClass('grouped');
 				});
 				$('.draggable').draggable({

@@ -14,7 +14,7 @@
 					if(event.ctrlKey)
 						$(this).toggleClass('grouped');
 				});*/
-				$('.draggable').children('input').click(function() {
+				$('.draggable').children('label').children('input[type="checkbox"]').click(function() {
 					$(this).parent('.draggable').toggleClass('grouped');
 				});
 				$('.draggable').draggable({
