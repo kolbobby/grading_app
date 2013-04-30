@@ -15,7 +15,8 @@
 						$(this).toggleClass('grouped');
 				});*/
 				$('.draggable').children('label').children('input[type="checkbox"]').click(function() {
-					$(this).parent('.draggable').toggleClass('grouped');
+					if($(this).is(':checked'))
+						$(this).parent('label').parent('.draggable').toggleClass('grouped');
 				});
 				$('.draggable').draggable({
 					start: function(event, ui) {
