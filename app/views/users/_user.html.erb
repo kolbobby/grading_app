@@ -6,6 +6,6 @@
 <% else %>
 	<% @users_schedules = teachers_xml %>
 	<% @users_schedules.each do |ts| %>
-		<%= ts[0..(ts.index(":")-1)] %>
+		<li id="<%= ts[0..(ts.index(":")-1)] %>" class="droppable"><span><label><%= ts[0..(ts.index(":")-1)] %></label></span></li>
 	<% end %>
 <% end %>
