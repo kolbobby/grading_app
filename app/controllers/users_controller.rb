@@ -42,10 +42,11 @@ class UsersController < ApplicationController
 		@teachers.each do |t|
 			doc = Nokogiri::XML(open(Rails.root.join('app', 'views', 'users', 'schedules', "#{t[:name]}.xml")))
 			4.times do |x|
-				cur = doc.search("MP#{(x+1)}").inner_text
-				if params[:marking] == (x+1) && cur == "Gym"
-					str.push("#{t[:name]}: #{cur}")
-				end
+				#cur = doc.search("MP#{params[:marking].to_s}").inner_text
+				#if params[:marking] == (x+1) && cur == "Gym"
+				#	str.push("#{t[:name]}: #{cur}")
+				#end
+				str.push(params[:marking])
 			end
 		end
 		respond_to do |format|

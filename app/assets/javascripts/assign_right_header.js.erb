@@ -25,6 +25,7 @@ $(document).ready(function() {
 
 	prim = "prim_1";
 	sec = "sec_1";
+	change_students();
 })
 
 function resetLvl(type) {
@@ -41,5 +42,3 @@ function change_students() {
 	$.post('/reload_teachers', { marking: mp }, function(r) { alert(r); });
 	$.post('/reload_students', { marking: mp, activity: act }, function(r) { $('#student-list').html(r); });
 }
-
-change_students();
