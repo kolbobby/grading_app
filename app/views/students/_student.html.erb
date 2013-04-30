@@ -24,18 +24,13 @@
 				<% end %>
 			<% end %>
 			<% if continue %>
-				<div class="draggable"><label><input type="checkbox" /><span><%= "#{s.name}" %></span></label></div>
+				<div class="draggable"><span><%= "#{s.name}" %></span></div>
 			<% end %>
 		<% end %>
 		<script type="text/javascript">
 			$(document).ready(function() {
-				/*$('.draggable').click(function(event) {
-					if(event.ctrlKey)
-						$(this).toggleClass('grouped');
-				});*/
-				$('.draggable').children('label').children('input[type="checkbox"]').click(function() {
-					if($(this).is(':checked'))
-						$(this).parent('label').parent('.draggable').toggleClass('grouped');
+				$('.draggable').click(function(event) {
+					$(this).toggleClass('grouped');
 				});
 				$('.draggable').draggable({
 					start: function(event, ui) {
