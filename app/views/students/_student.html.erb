@@ -29,9 +29,12 @@
 		<% end %>
 		<script type="text/javascript">
 			$(document).ready(function() {
-				$('.draggable').click(function(event) {
+				/*$('.draggable').click(function(event) {
 					if(event.ctrlKey)
 						$(this).toggleClass('grouped');
+				});*/
+				$('.draggable').children('input').click(function() {
+					$(this).parent('.draggable').toggleClass('grouped');
 				});
 				$('.draggable').draggable({
 					start: function(event, ui) {
