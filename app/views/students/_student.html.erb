@@ -17,8 +17,8 @@
 			<% continue = true %>
 			<% students_xml.search("//student").each do |sx| %>
 				<% if sx.search("name").inner_text == s.name %>
-					<% activity = Activity.find(:first, :conditions => { :name => sx.search("activity").inner_text }) %>
-					<% if activity[:marking_period].to_s() == mp && activity[:activity_number].to_s() == act %>
+					<% activity = Activity.find(:first, :conditions => { :name => sx.search("activity").inner_text, :marking_period => mp }) %>
+					<% if activity[:activity_number].to_s() == act %>
 						<% continue = false %>
 					<% end %>
 				<% end %>
