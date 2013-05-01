@@ -29,8 +29,8 @@ class ActivitiesController < ApplicationController
 			s_count = s_count + 1
 		end
 
-		activity = Activity.find(:first, :conditions => { :name => params[:activity], :marking_period => params[:marking], :act_num => params[:act_num] })
-		if x_count + s_count < activity[:capacity].to_i
+		cur_activity = Activity.find(:first, :conditions => { :name => params[:activity], :marking_period => params[:marking], :act_num => params[:act_num] })
+		if x_count + s_count < cur_activity[:capacity].to_i
 			setup = builder.xpath("//setup").last
 			students.each do |s|
 				student = Nokogiri::XML::Node.new "student", builder
@@ -48,9 +48,9 @@ class ActivitiesController < ApplicationController
 
 			render :text => "ADDED TO ACTIVITY!"
 		else
-			if activity[:capacity].to_i - (x_count + s_count) == 1
+			if cur_activity[:capacity].to_i - (x_count + s_count) == 1
 				render :text => "There is only 1 spot left in this activity!"
-			elsif activity[:capacity].to_i - (x_count + s_count) != 0
+			elsif cur_activity[:capacity].to_i - (x_count + s_count) != 0
 				render :text => "There are only #{35 - (x_count + s_count)} spots left in this activity!"
 			else
 				render :text => "There are no spots left in this activity!"
