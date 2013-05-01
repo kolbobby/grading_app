@@ -8,9 +8,17 @@
 				<td class="s_name"><%= link_to s.name, student_path(s) %></td>
 				<td class="s_period"><%= s.period %></td>
 				<td class="s_grade_level"><%= s.grade_level %></td>
-				<% if !@user.teacher? %> <td class="s_remove"><%= link_to 'x student', '#' %></td> <% end %>
+				<% if !@user.teacher? %> <td class="s_remove"><%= link_to 'x student', '#', :id => "#{s.name}", :class => "student_delete_link" %></td> <% end %>
 			</tr>
 		<% end %>
+		<script type="text/javascript>">
+			$(document).ready(function() {
+				$('.student_delete_link').click(function() {
+					var id = $(this).prop('id');
+					$.post('/delete_student', { student: id }, function(r) { alert(r); });
+				});
+			})
+		</script>
 	<% else %>
 		<% @students = Student.all %>
 		<% @students.each do |s| %>

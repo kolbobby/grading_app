@@ -15,11 +15,13 @@ GradingApp::Application.routes.draw do
   root :to => "static_pages#index"
 
   match '/help', :to => 'static_pages#help'
+
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy', :via => :delete
-  match '/students/add_bulk_users_to_db', :to => 'students#add_bulk_users_to_db'
-  match '/users/add_user', :to => 'users#add_user'
+
+  match '/delete_student', :to => 'students#delete'
   match '/students/add_student', :to => 'students#add_student'
+  match '/students/add_bulk_users_to_db', :to => 'students#add_bulk_users_to_db'
 
   post '/change_coach', :to => 'activities#change_coach'
   post '/get_activity', :to => 'activities#get_activity'
@@ -27,6 +29,7 @@ GradingApp::Application.routes.draw do
   post '/add_activities', :to => 'activities#add_activities'
   post '/confirm_add', :to => 'activities#confirm_add_activities'
 
+  match '/users/add_user', :to => 'users#add_user'
   match '/reload_teachers', :to => 'users#reload_teachers'
   match '/reload_students', :to => 'users#reload_students'
   match '/users/update_schedules', :to => 'users#update_schedules'
