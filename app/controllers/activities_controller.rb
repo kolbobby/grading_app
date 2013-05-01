@@ -30,7 +30,11 @@ class ActivitiesController < ApplicationController
 		end
 
 		cur_activity = Activity.find(:first, :conditions => { :name => params[:activity], :marking_period => params[:marking], :activity_number => params[:act_num] })
-		render :text => "x_count: #{x_count}, s_count: #{s_count}, cap: #{cur_activity.capacity}"
+		if !cur_activity.nil?
+			render :text => "x_count: #{x_count}, s_count: #{s_count}, cap: #{cur_activity.capacity}"
+		else
+			render :text => "DID NOT WORK!"
+		end
 		#if x_count + s_count < cur_activity[:capacity].to_i
 		#	setup = builder.xpath("//setup").last
 		#	students.each do |s|
@@ -83,7 +87,7 @@ class ActivitiesController < ApplicationController
 			end
 		end
 		activities.each do |a|
-			activity = Activity.new(:activity_number => a[1][2], :coach => coach, :marking_period => a[1][1], :name => a[1][0])
+			activity = Activity.new(:activity_number => a[1][2], :coach => coach, :marking_period => a[1][1], :name => a[1][0], :capacity => 35)
 			if activity.save
 				str = "#{str}#{a[1][1]}, #{a[1][2]}: added\n"
 			else
