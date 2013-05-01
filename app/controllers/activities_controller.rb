@@ -30,6 +30,8 @@ class ActivitiesController < ApplicationController
 		end
 
 		cur_activity = Activity.find(:first, :conditions => { :name => params[:activity], :marking_period => params[:marking], :activity_number => params[:act_num] })
+		render :text => "x_count: #{x_count}, s_count: #{s_count}, cap: #{cur_activity[:capacity].to_i}"
+		=begin
 		if x_count + s_count < cur_activity[:capacity].to_i
 			setup = builder.xpath("//setup").last
 			students.each do |s|
@@ -51,11 +53,12 @@ class ActivitiesController < ApplicationController
 			if cur_activity[:capacity].to_i - (x_count + s_count) == 1
 				render :text => "There is only 1 spot left in this activity!"
 			elsif cur_activity[:capacity].to_i - (x_count + s_count) != 0
-				render :text => "There are only #{35 - (x_count + s_count)} spots left in this activity!"
+				render :text => "There are only #{cur_activity[:capacity].to_i - (x_count + s_count)} spots left in this activity!"
 			else
 				render :text => "There are no spots left in this activity!"
 			end
 		end
+		=end
 	end
 
 	def add_activities
