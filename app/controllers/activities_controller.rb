@@ -22,8 +22,8 @@ class ActivitiesController < ApplicationController
 
 			student.add_child("<name>#{s}</name>")
 			student.add_child("<activity>#{params[:activity]}</activity>")
-			student.add_child("<marking period>#{params[:marking]}</marking period>")
-			student.add_child("<activity number>#{params[:act_num]}</activity number>")
+			student.add_child("<marking_period>#{params[:marking]}</marking_period>")
+			student.add_child("<activity_number>#{params[:act_num]}</activity_number>")
 			setup.add_next_sibling(student)
 		end
 
