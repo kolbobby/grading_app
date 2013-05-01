@@ -30,37 +30,32 @@ class ActivitiesController < ApplicationController
 		end
 
 		cur_activity = Activity.find(:first, :conditions => { :name => params[:activity], :marking_period => params[:marking], :activity_number => params[:act_num] })
-		if !cur_activity.nil?
-			render :text => "x_count: #{x_count}, s_count: #{s_count}, cap: #{cur_activity.capacity}"
+		if x_count + s_count < cur_activity[:capacity].to_i
+			setup = builder.xpath("//setup").last
+			students.each do |s|
+				student = Nokogiri::XML::Node.new "student", builder
+
+				student.add_child("<name>#{s}</name>")
+				student.add_child("<activity>#{params[:activity]}</activity>")
+				student.add_child("<marking_period>#{params[:marking]}</marking_period>")
+				student.add_child("<activity_number>#{params[:act_num]}</activity_number>")
+				setup.add_next_sibling(student)
+			end
+
+			io = File.open(Rails.root.join('app', 'student_activities.xml'), "w")
+			io.puts builder.to_xml
+			io.close
+
+			render :text => "ADDED TO ACTIVITY!"
 		else
-			render :text => "DID NOT WORK!"
+			if cur_activity[:capacity].to_i - (x_count + s_count) == 1
+				render :text => "There is only 1 spot left in this activity!"
+			elsif cur_activity[:capacity].to_i - (x_count + s_count) != 0
+				render :text => "There are only #{cur_activity[:capacity].to_i - (x_count + s_count)} spots left in this activity!"
+			else
+				render :text => "There are no spots left in this activity!"
+			end
 		end
-		#if x_count + s_count < cur_activity[:capacity].to_i
-		#	setup = builder.xpath("//setup").last
-		#	students.each do |s|
-		#		student = Nokogiri::XML::Node.new "student", builder
-
-		#		student.add_child("<name>#{s}</name>")
-		#		student.add_child("<activity>#{params[:activity]}</activity>")
-		#		student.add_child("<marking_period>#{params[:marking]}</marking_period>")
-		#		student.add_child("<activity_number>#{params[:act_num]}</activity_number>")
-		#		setup.add_next_sibling(student)
-		#	end
-
-		#	io = File.open(Rails.root.join('app', 'student_activities.xml'), "w")
-		#	io.puts builder.to_xml
-		#	io.close
-
-		#	render :text => "ADDED TO ACTIVITY!"
-		#else
-		#	if cur_activity[:capacity].to_i - (x_count + s_count) == 1
-		#		render :text => "There is only 1 spot left in this activity!"
-		#	elsif cur_activity[:capacity].to_i - (x_count + s_count) != 0
-		#		render :text => "There are only #{cur_activity[:capacity].to_i - (x_count + s_count)} spots left in this activity!"
-		#	else
-		#		render :text => "There are no spots left in this activity!"
-		#	end
-		#end
 	end
 
 	def add_activities
