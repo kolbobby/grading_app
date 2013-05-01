@@ -5,7 +5,7 @@
 	<li><%= link_to "view students", {:controller => "users", :action => 'view_students'}, :remote => true %></li>
 	<% if !@user.teacher? %>
 		<li><%= link_to "setup teachers", {:controller => "users", :action => 'setup_teachers'}, :remote => true %></li>
-		<li><%= link_to "manage students", {:controller => "users", :action => 'manage_students', :remote => true} %></li>
+		<li><%= link_to "manage students", {:controller => "users", :action => 'manage_students'}, :remote => true %></li>
 		<li><%= link_to "manage activities", {:controller => "users", :action => 'manage_activities'}, :remote => true %></li>
 	<% end %>
 </ul>

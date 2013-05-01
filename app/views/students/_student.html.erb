@@ -8,7 +8,7 @@
 				<td class="s_name"><%= link_to s.name, student_path(s) %></td>
 				<td class="s_period"><%= s.period %></td>
 				<td class="s_grade_level"><%= s.grade_level %></td>
-				<td class="s_remove"><%= link_to 'x student', '#' %></td>
+				<% if !@user.teacher? %> <td class="s_remove"><%= link_to 'x student', '#' %></td> <% end %>
 			</tr>
 		<% end %>
 	<% else %>

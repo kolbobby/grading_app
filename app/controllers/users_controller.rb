@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 		end
 	end
 	def view_students
+		@user = User.find(params[:id])
 		respond_to do |format|
 			format.js { render :layout => false }
 		end
