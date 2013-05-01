@@ -75,7 +75,7 @@ class UsersController < ApplicationController
 					xml.setup
 				}
 			end
-			io = File.open(Rails.root.join('app', 'views', 'users', 'schedules', "#{params[:name]}.xml"), "w+")
+			io = File.open(Rails.root.join('app', 'views', 'users', 'schedules', "#{params[:u_name]}.xml"), "w+")
 			io.puts builder.to_xml
 			io.close
 
