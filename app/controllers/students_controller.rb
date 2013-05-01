@@ -33,8 +33,7 @@ class StudentsController < ApplicationController
 	end
 
 	def delete
-		student = Student.find(:first, :conditions => { :name => params[:student] })
-		if student.destroy!
+		if Student.find(:first, :conditions => { :name => params[:student] }).destroy!
 			render :text => "Student deleted!"
 		else
 			render :text => "Student was not deleted!"
