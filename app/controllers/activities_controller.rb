@@ -6,7 +6,7 @@ class ActivitiesController < ApplicationController
 
 	def get_activity
 		activity = Activity.find(:first, :conditions => { :coach => params[:coach], :marking_period => params[:mp], :activity_number => params[:act] })
-		render :json => "{ 'activity': #{activity.name}, 'marking': #{params[:mp]}, 'act_num': #{params[:act]} }"
+		render :text => "{ 'activity': #{activity.name}, 'marking': #{params[:mp]}, 'act_num': #{params[:act]} }"
 	end
 
 	def add_to_activity
