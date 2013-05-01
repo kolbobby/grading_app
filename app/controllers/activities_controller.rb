@@ -16,44 +16,22 @@ class ActivitiesController < ApplicationController
 		builder = Nokogiri::XML(io)
 		io.close
 
-		x_count = 0
-		xml_students = builder.xpath("//student")
-		xml_students.each do |xs|
-			cur_act = xs.search("activity")
-			if cur_act.to_s == params[:activity].to_s
-				x_count = x_count + 1
-		end
-		s_count = 0
+		setup = builder.xpath("//setup").last
 		students.each do |s|
-			s_count = s_count + 1
+			student = Nokogiri::XML::Node.new "student", builder
+
+			student.add_child("<name>#{s}</name>")
+			student.add_child("<activity>#{params[:activity]}</activity>")
+			student.add_child("<marking_period>#{params[:marking]}</marking_period>")
+			student.add_child("<activity_number>#{params[:act_num]}</activity_number>")
+			setup.add_next_sibling(student)
 		end
 
-		if x_count + s_count < 35
-			setup = builder.xpath("//setup").last
-			students.each do |s|
-				student = Nokogiri::XML::Node.new "student", builder
+		io = File.open(Rails.root.join('app', 'student_activities.xml'), "w")
+		io.puts builder.to_xml
+		io.close
 
-				student.add_child("<name>#{s}</name>")
-				student.add_child("<activity>#{params[:activity]}</activity>")
-				student.add_child("<marking_period>#{params[:marking]}</marking_period>")
-				student.add_child("<activity_number>#{params[:act_num]}</activity_number>")
-				setup.add_next_sibling(student)
-			end
-
-			io = File.open(Rails.root.join('app', 'student_activities.xml'), "w")
-			io.puts builder.to_xml
-			io.close
-
-			render :text => "ADDED TO ACTIVITY!"
-		else
-			if 35 - (x_count + s_count) == 1
-				render :text => "There is only 1 spot left in this activity!"
-			elsif 35 - (x_count + s_count) != 0
-				render :text => "There are only #{35 - (x_count + s_count)} spots left in this activity!"
-			else
-				render :text => "There are no spots left in this activity!"
-			end
-		end
+		render :text => "ADDED TO ACTIVITY!"
 	end
 
 	def add_activities
