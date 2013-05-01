@@ -17,6 +17,7 @@
 					var id = $(this).prop('id');
 					if(confirm("Are you sure you want to delete " + id + "?"))
 						$.post('/delete_student', { student: id }, function(r) { alert(r); });
+					location.reload();
 				});
 			})
 		</script>
