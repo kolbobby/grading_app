@@ -59,7 +59,7 @@
 							var str = "";
 							var values = "";
 							var st = new Array();
-							$.post('/get_activity', { coach: $(this).prop('id'), act: sec.substring(sec.length - 1, sec.length), mp: prim.substring(prim.length - 1, prim.length) }, function(r) { str = "The following students will be added to <strong>"+ $.parseJSON(r).activity +"</strong>:\n"; values = $.parseJSON(r); });
+							$.post('/get_activity', { coach: $(this).prop('id'), act: sec.substring(sec.length - 1, sec.length), mp: prim.substring(prim.length - 1, prim.length) }, function(r) { str = "The following students will be added to <strong>"+ r.activity +"</strong>:\n"; values = r; });
 							draggable.children('#grouped-drags').children('span').each(function() {
 								st.push($(this).html());
 								str += $(this).html() + "\n";
