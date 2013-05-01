@@ -6,8 +6,7 @@ class ActivitiesController < ApplicationController
 
 	def get_activity
 		activity = Activity.find(:first, :conditions => { :coach => params[:coach], :marking_period => params[:mp], :activity_number => params[:act] })
-		values = [ activity.name, params[:mp], params[:act] ]
-		return values
+		render :text => activity.name
 	end
 
 	def add_to_activity
@@ -23,6 +22,8 @@ class ActivitiesController < ApplicationController
 
 			student.add_child("<name>#{s}</name>")
 			student.add_child("<activity>#{params[:activity]}</activity>")
+			student.add_child("<marking period>#{params[:marking]}</marking period>")
+			student.add_child("<activity number>#{params[:act_num]}</activity number>")
 			setup.add_next_sibling(student)
 		end
 
