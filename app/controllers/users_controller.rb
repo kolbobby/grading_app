@@ -70,6 +70,15 @@ class UsersController < ApplicationController
 		@new_user.teacher = true
 
 		if @new_user.save
+			builder = Nokogiri::XML::Builder.new do |xml|
+				xml.root {
+					xml.setup
+				}
+			end
+			io = File.open(Rails.root.join('app', 'views', 'users', 'schedules', "#{params[:name]}.xml"), "w+")
+			io.puts builder.to_xml
+			io.close
+
 			flash[:success] = "Added"
 		else
 			flash[:failure] = "Failed"
