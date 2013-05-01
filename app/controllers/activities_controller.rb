@@ -19,7 +19,7 @@ class ActivitiesController < ApplicationController
 		x_count = 0
 		xml_students = builder.xpath("//student")
 		xml_students.each do |xs|
-			cur_act = xs.search("activity")
+			cur_act = xs.search("activity").inner_text
 			if cur_act.to_s == params[:activity].to_s
 				x_count = x_count + 1
 			end
