@@ -75,9 +75,9 @@
 						var draggable = ui.draggable;
 						if(draggable.hasClass('grouped')) {
 							var str = "";
-							var act = "";
+							var values = "";
 							var st = new Array();
-							$.post('/get_activity', { coach: $(this).prop('id'), act: sec.substring(sec.length - 1, sec.length), mp: prim.substring(prim.length - 1, prim.length) }, function(r) { str = "The following students will be added to <strong>"+ r +"</strong>:\n";act = r; });
+							$.post('/get_activity', { coach: $(this).prop('id'), act: sec.substring(sec.length - 1, sec.length), mp: prim.substring(prim.length - 1, prim.length) }, function(r) { str = "The following students will be added to <strong>"+ r['activity'] +"</strong>:\n"; values = r; });
 							draggable.children('#grouped-drags').children('span').each(function() {
 								st.push($(this).html());
 								str += $(this).html() + "\n";
@@ -86,7 +86,7 @@
 
 							if(confirm(str)) {
 								//ADD STUDENTS TO ACTIVITY
-								$.post('add_to_activity', { students: st, activity: act }, function(r) { alert(r); });
+								$.post('add_to_activity', { students: st, values: values }, function(r) { alert(r); });
 								change_students();
 							}
 						}
