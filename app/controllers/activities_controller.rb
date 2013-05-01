@@ -34,16 +34,16 @@ class ActivitiesController < ApplicationController
 		#render :text => "ADDED TO ACTIVITY!"
 
 		x_count = 0
-		#xml_students = builder.xpath("//student")
-		#xml_students.each do |xs|
-		#	cur_act = xs.search("activity")
-		#	if cur_act.to_s == params[:activity].to_s
-		#		x_count = x_count + 1
-		#end
+		xml_students = builder.xpath("//student")
+		xml_students.each do |xs|
+			cur_act = xs.search("activity")
+			if cur_act.to_s == params[:activity].to_s
+				x_count = x_count + 1
+		end
 		s_count = 0
-		#students.each do |s|
-		#	s_count = s_count + 1
-		#end
+		students.each do |s|
+			s_count = s_count + 1
+		end
 
 		if x_count + s_count < 35
 			setup = builder.xpath("//setup").last
