@@ -6,12 +6,13 @@ class ActivitiesController < ApplicationController
 
 	def get_activity
 		activity = Activity.find(:first, :conditions => { :coach => params[:coach], :marking_period => params[:mp], :activity_number => params[:act] })
-		render :text => activity.name
+		render :json => { 'activity': activity.name, 'marking': params[:mp], 'act_num': params[:act] }
 	end
 
 	def add_to_activity
 		require 'nokogiri'
 		students = params[:students]
+		#values = params[:values]
 		io = File.open(Rails.root.join('app', 'student_activities.xml'))
 		builder = Nokogiri::XML(io)
 		io.close
