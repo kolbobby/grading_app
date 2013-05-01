@@ -30,7 +30,7 @@ class ActivitiesController < ApplicationController
 		end
 
 		cur_activity = Activity.find(:first, :conditions => { :name => params[:activity], :marking_period => params[:marking], :activity_number => params[:act_num] })
-		render :text => "x_count: #{x_count}, s_count: #{s_count}, cap: #{cur_activity[:capacity]}"
+		render :text => "x_count: #{x_count}, s_count: #{s_count}, cap: #{cur_activity.capacity}"
 		#if x_count + s_count < cur_activity[:capacity].to_i
 		#	setup = builder.xpath("//setup").last
 		#	students.each do |s|
