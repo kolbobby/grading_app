@@ -85,7 +85,7 @@
 							str += "\nIs this correct?";
 
 							if(confirm(str)) {
-								//ADD STUDENTS TO ACTIVITY!
+								//ADD STUDENTS TO ACTIVITY
 								$.post('add_to_activity', { students: st, activity: act, marking: prim.substring(prim.length - 1, prim.length), act_num: sec.substring(sec.length - 1, sec.length) }, function(r) { alert(r); });
 								change_students();
 							}

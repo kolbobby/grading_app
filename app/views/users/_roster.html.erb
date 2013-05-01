@@ -1,4 +1,6 @@
 <% students.each do |s| %>
-	Name: <%= s.search("name").inner_text %><br />
-	Activity: <%= s.search("activity").inner_text %><br /><br />
+	<div class="well">
+		<h4><%= s.search("name").inner_text %></h4>
+		<h5>Activity: <%= s.search("activity").inner_text %></h5>
+	</div>
 <% end %>
