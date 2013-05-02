@@ -64,6 +64,11 @@
 		</div>
 		<div class="tab-pane" id="activity_capacities">
 			<h3>Activity Capacities</h3>
+			<% activity_capacities = Activity.find(:all) %>
+			<% activity_capacities.each do |ac| %>
+				<%= ac.name %>: <input type="text" placeholder="<%= ac.capacity %>" /><br />
+			<% end %>
+			<button id="save_activity_capacities" class="btn btn-primary">Save Capacities</button>
 		</div>
 	</div>
 </div>
