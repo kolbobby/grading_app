@@ -59,10 +59,13 @@ class ActivitiesController < ApplicationController
 	end
 
 	def update_capacity
-		activity = params[:activity]
 		capacity = params[:capacity]
+		act = Activity.find(:first, :conditions => { :name => params[:activity], :marking_period => params[:marking], :activity_number => params[:act_num] })
+		act.capacity = capacity
 
-		act = Activity.find(:first, :conditions => {  })
+		if act.save
+			render :text => capacity
+		end
 	end
 
 	def add_activities
