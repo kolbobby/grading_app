@@ -1,55 +1,69 @@
-<div class="teacher-select">
-	<div class="inner">
-		<% users = User.all %>
-		<% count = 1 %>
-		<% users.each do |u| %>
-			<% if count == 1 %>
-				<div><label><input type="radio" name="coaches" value="<%= u.name %>" checked /><%= u.name %></label></div>
-			<% else %>
-				<div><label><input type="radio" name="coaches" value="<%= u.name %>" /><%= u.name %></label></div>
-			<% end %>
-			<% count = count + 1 %>
-		<% end %>
-	</div>
-</div>
-<br />
-<div>
-	<table id="manage-activities" class="table table-striped">
-		<thead>
-			<tr>
-				<th></th>
-				<th>Activity 1</th>
-				<th>Activity 2</th>
-				<th>Activity 3</th>
-			</tr>
-		</thead>
-		<tbody>
-			<% count = 0 %>
-			<% coach = User.find(:first) %>
-			<% activities = Activity.find(:all, :conditions => { :coach => coach.name }) %>
-			<% 4.times do |x| %>
-				<tr>
-					<td class="left-side">Marking Period <%= x + 1 %></td>
-					<% 3.times do |y| %>
-						<% if y != 2 %>
-							<% if activities.count == 12 %>
-								<td id="<%= (x+1).to_s() + "_" + (y+1).to_s() %>" class="data"><%= activities[count].name %></td>
-							<% else %>
-								<td id="<%= (x+1).to_s() + "_" + (y+1).to_s() %>" class="data"><em>none</em></td>
-							<% end %>
+<div class="tabbable">
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="#update_activities" data-toggle="tab">update activities</a></li>
+		<li><a href="#activity_capacities" data-toggle="tab">activity capacities</a></li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane active" id="update_activities">
+			<h3>Update Activities</h3>
+			<div class="teacher-select">
+				<div class="inner">
+					<% users = User.all %>
+					<% count = 1 %>
+					<% users.each do |u| %>
+						<% if count == 1 %>
+							<div><label><input type="radio" name="coaches" value="<%= u.name %>" checked /><%= u.name %></label></div>
 						<% else %>
-							<% if activities.count == 12 %>
-								<td id="<%= (x+1).to_s() + "_" + (y+1).to_s() %>" class="right-side data"><%= activities[count].name %></td>
-							<% else %>
-								<td id="<%= (x+1).to_s() + "_" + (y+1).to_s() %>" class="right-side data"><em>none</em></td>
-							<% end %>
+							<div><label><input type="radio" name="coaches" value="<%= u.name %>" /><%= u.name %></label></div>
 						<% end %>
 						<% count = count + 1 %>
 					<% end %>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
-	<button id="edit-all-activities" class="btn btn-primary">Edit All</button>
-	<button id="save-activities" class="btn btn-primary">Save</button>
+				</div>
+			</div>
+			<br />
+			<div>
+				<table id="manage-activities" class="table table-striped">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Activity 1</th>
+							<th>Activity 2</th>
+							<th>Activity 3</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% count = 0 %>
+						<% coach = User.find(:first) %>
+						<% activities = Activity.find(:all, :conditions => { :coach => coach.name }) %>
+						<% 4.times do |x| %>
+							<tr>
+								<td class="left-side">Marking Period <%= x + 1 %></td>
+								<% 3.times do |y| %>
+									<% if y != 2 %>
+										<% if activities.count == 12 %>
+											<td id="<%= (x+1).to_s() + "_" + (y+1).to_s() %>" class="data"><%= activities[count].name %></td>
+										<% else %>
+											<td id="<%= (x+1).to_s() + "_" + (y+1).to_s() %>" class="data"><em>none</em></td>
+										<% end %>
+									<% else %>
+										<% if activities.count == 12 %>
+											<td id="<%= (x+1).to_s() + "_" + (y+1).to_s() %>" class="right-side data"><%= activities[count].name %></td>
+										<% else %>
+											<td id="<%= (x+1).to_s() + "_" + (y+1).to_s() %>" class="right-side data"><em>none</em></td>
+										<% end %>
+									<% end %>
+									<% count = count + 1 %>
+								<% end %>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+				<button id="edit-all-activities" class="btn btn-primary">Edit All</button>
+				<button id="save-activities" class="btn btn-primary">Save</button>
+			</div>
+		</div>
+		<div class="tab-pane" id="activity_capacities">
+			<h3>Activity Capacities</h3>
+		</div>
+	</div>
 </div>
