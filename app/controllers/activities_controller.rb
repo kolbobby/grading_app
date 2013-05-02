@@ -58,6 +58,13 @@ class ActivitiesController < ApplicationController
 		end
 	end
 
+	def update_capacity
+		activity = params[:activity]
+		capacity = params[:capacity]
+
+		act = Activity.find(:first, :conditions => {  })
+	end
+
 	def add_activities
 		coach = params[:coach]
 		activities = params[:acts]
