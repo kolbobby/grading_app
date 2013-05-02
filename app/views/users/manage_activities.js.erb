@@ -47,8 +47,8 @@ $('#save-activity-capacities').click(function() {
 		else
 			cap = $(this).val();
 		var span = $(this).parent('label').children('span');
-		//$.post('/update_capacity', { activity: span.html(), capacity: cap }, function(r) { $(this).prop('placeholder', r); });
-		alert(span.prop('id').substring(0, span.prop('id').indexOf(',')));
+		//$.post('/update_capacity', { activity: span.html(), capacity: cap, marking: span.prop('id').substring(0, span.prop('id').indexOf(',')) }, function(r) { $(this).prop('placeholder', r); });
+		alert(span.prop('id').substring(span.prop('id').indexOf(',') + 2));
 	});
 });
 
