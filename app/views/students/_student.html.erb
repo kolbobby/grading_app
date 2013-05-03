@@ -35,7 +35,7 @@
 				<% end %>
 			<% end %>
 			<% if continue %>
-				<% if s.period == per %>
+				<% if s.period.to_s == per.to_s %>
 					<div class="draggable"><span><%= "#{s.name}" %></span></div>
 				<% end %>
 			<% end %>
