@@ -97,10 +97,11 @@ class UsersController < ApplicationController
 
 			setup = builder.xpath("//setup").first
 			per = Nokogiri::XML::Node.new "P#{period}", builder
-			per.add_child("<setup />")
 			4.times do |x|
 				data = params["#{t[:name]}_marking_period_#{(x+1)}"]
-				per.search("setup").add_next_sibling("<MP#{(x+1)}>#{data}</MP#{(x+1)}>")
+				mp = Nokogiri::XML::Node.new "MP#{(x+1)}", builder
+				mp.content = data
+				mp.parent = per
 			end
 			per.parent = builder.xpath("//root").last
 
