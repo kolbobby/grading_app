@@ -105,14 +105,11 @@ class UsersController < ApplicationController
 			end
 			per.parent = builder.xpath("//root").last
 
-			cur = builder.search("//P#{period}")
-			str = "#{str}#{cur.inner_text}"
-
 			io = File.open(Rails.root.join('app', 'views', 'users', 'schedules', "#{t[:name]}.xml"), "w")
 			io.puts builder.to_xml
 			io.close
 		end
-		flash[:success] = "Updated teacher schedules!\n #{str}"
+		flash[:success] = "Updated teacher schedules!"
 	end
 
 	private
