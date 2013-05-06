@@ -95,7 +95,7 @@ class UsersController < ApplicationController
 			period = params["#{t[:name]}_scheduling_period_select"]
 			builder.search("P#{period}").remove
 
-			setup = builder.xpath("//root//setup").first
+			setup = builder.xpath("//setup").first
 			per = Nokogiri::XML::Node.new "P#{period}", builder
 			per.add_child("<setup />")
 			4.times do |x|
