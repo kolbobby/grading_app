@@ -95,7 +95,6 @@ class UsersController < ApplicationController
 			period = params["#{t[:name]}_scheduling_period_select"]
 			builder.search("P#{period}").remove
 
-			setup = builder.xpath("//setup").first
 			per = Nokogiri::XML::Node.new "P#{period}", builder
 			4.times do |x|
 				data = params["#{t[:name]}_marking_period_#{(x+1)}"]
