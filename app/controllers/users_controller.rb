@@ -102,7 +102,7 @@ class UsersController < ApplicationController
 				data = params["#{t[:name]}_marking_period_#{(x+1)}"]
 				per.search("setup").add_next_sibling("<MP#{(x+1)}>#{data}</MP#{(x+1)}>")
 			end
-			setup.add_next_sibling(per)
+			per.parent = builder.xpath("//root").last
 
 			io = File.open(Rails.root.join('app', 'views', 'users', 'schedules', "#{t[:name]}.xml"), "w")
 			io.puts builder.to_xml
