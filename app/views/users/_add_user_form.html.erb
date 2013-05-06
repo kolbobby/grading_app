@@ -41,7 +41,7 @@
 					<%= t[:name] %>:<br />
 					<div class="well">
 						<label>Select Period:
-							<select id="<%= t[:name] %>_scheduling_period_select">
+							<select id="<%= t[:name] %>_scheduling_period_select" class="scheduling-period-select">
 								<option value="1" selected>1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>
@@ -71,10 +71,8 @@
 
 				<h3><%= "#{t[:name]}:" %></h3><br />
 				<ul>
-					<% 4.times do |x| %>
-						<% cur = builder.search("MP#{(x+1)}").inner_text %>
-						<li><%= "Marking Period #{(x+1)}: #{cur}" %></li>
-					<% end %>
+					<% cur = builder.search("P1/MP#{(x+1)}").inner_text %>
+					<li><%= "P1, Marking Period #{(x+1)}: #{cur}" %></li>
 				</ul>
 			<% end %>
 		</div>

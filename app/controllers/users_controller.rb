@@ -92,15 +92,16 @@ class UsersController < ApplicationController
 			builder = Nokogiri::XML(io)
 			io.close
 
-			4.times do |x|
-				builder.search("MP#{(x+1)}").remove
-			end
+			period = params["#{t[:name]}_scheduling_period_select"]
+			builder.search("P#{period}").remove
 
 			setup = builder.xpath("//setup").last
+			per = Nokogiri::XML::Node.new "P#{period}", builder
 			4.times do |x|
 				data = params["#{t[:name]}_marking_period_#{(x+1)}"]
-				setup.add_next_sibling("<MP#{(x+1)}>#{data}</MP#{(x+1)}>")
+				per.add_child("<MP#{(x+1)}>#{data}</MP#{(x+1)}>")
 			end
+			setup.add_next_sibling(per)
 
 			io = File.open(Rails.root.join('app', 'views', 'users', 'schedules', "#{t[:name]}.xml"), "w")
 			io.puts builder.to_xml
