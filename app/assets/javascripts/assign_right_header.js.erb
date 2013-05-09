@@ -43,6 +43,6 @@ function resetLvl(type) {
 function change_students() {
 	var mp = prim.substring(prim.length - 1);
 	var act = sec.substring(sec.length - 1);
-	$.post('/reload_teachers', { marking: mp, period: $('#period-select').val() }, function(r) { /*$('#student_assign_teacher_list').html("<li><h4>coaches</h4></li>" + r);*/alert(r); });
-	//$.post('/reload_students', { marking: mp, activity: act, period: $('#period-select').val() }, function(r) { $('#student-list').html(r); });
+	$.post('/reload_teachers', { marking: mp, period: $('#period-select').val() }, function(r) { $('#student_assign_teacher_list').html("<li><h4>coaches</h4></li>" + r); });
+	$.post('/reload_students', { marking: mp, activity: act, period: $('#period-select').val() }, function(r) { $('#student-list').html(r); });
 }
