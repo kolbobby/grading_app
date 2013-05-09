@@ -93,23 +93,23 @@ class UsersController < ApplicationController
 			builder = Nokogiri::XML(io)
 			io.close
 
-			period = params["#{t[:name]}_scheduling_period_select"]
-			builder.search("P#{period}").remove
+			#period = params["#{t[:name]}_scheduling_period_select"]
+			#builder.search("P#{period}").remove
 
-			per = Nokogiri::XML::Node.new "P#{period}", builder
-			4.times do |x|
-				data = params["#{t[:name]}_marking_period_#{(x+1)}"]
-				mp = Nokogiri::XML::Node.new "MP#{(x+1)}", builder
-				mp.content = data
-				mp.parent = per
-			end
-			per.parent = builder.xpath("//root").last
+			#per = Nokogiri::XML::Node.new "P#{period}", builder
+			#4.times do |x|
+			#	data = params["#{t[:name]}_marking_period_#{(x+1)}"]
+			#	mp = Nokogiri::XML::Node.new "MP#{(x+1)}", builder
+			#	mp.content = data
+			#	mp.parent = per
+			#end
+			#per.parent = builder.xpath("//root").last
 
-			io = File.open(Rails.root.join('app', 'views', 'users', 'schedules', "#{t[:name]}.xml"), "w")
-			io.puts builder.to_xml
-			io.close
+			#io = File.open(Rails.root.join('app', 'views', 'users', 'schedules', "#{t[:name]}.xml"), "w")
+			#io.puts builder.to_xml
+			#io.close
 		end
-		flash[:success] = "Updated teacher schedules!"
+		flash[:success] = "Updated teacher schedules! #{params}"
 	end
 
 	private
