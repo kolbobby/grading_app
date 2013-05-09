@@ -87,13 +87,12 @@ class UsersController < ApplicationController
 
 	def update_schedules
 		@teachers = User.all
-		str = ""
+		period = params["scheduling_period_select"]
 		@teachers.each do |t|
 			io = File.open(Rails.root.join('app', 'views', 'users', 'schedules', "#{t[:name]}.xml"))
 			builder = Nokogiri::XML(io)
 			io.close
 
-			period = params["#{t[:name]}_scheduling_period_select"]
 			builder.search("P#{period}").remove
 
 			per = Nokogiri::XML::Node.new "P#{period}", builder
