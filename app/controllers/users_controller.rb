@@ -113,7 +113,8 @@ class UsersController < ApplicationController
 	end
 
 	def reload_schedules
-		render :text => params[:period]
+		require 'nokogiri'
+		render :partial => 'reload_schedules', :locals => { :period => params[:period] }
 	end
 
 	private
