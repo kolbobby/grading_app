@@ -48,9 +48,10 @@ class UsersController < ApplicationController
 				str.push("#{t[:name]}: #{cur}")
 			end
 		end
-		respond_to do |format|
-			format.html { render :partial => '/users/user', :locals => { :view => true, :teachers_xml => str } }
-		end
+		#respond_to do |format|
+		#	format.html { render :partial => '/users/user', :locals => { :view => true, :teachers_xml => str } }
+		#end
+		render :text => str.to_s
 	end
 	def reload_students
 		require 'nokogiri'
