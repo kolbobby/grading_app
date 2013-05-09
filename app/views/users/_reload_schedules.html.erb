@@ -1,1 +1,13 @@
-<%= period %>
+<% teachers.each do |t| %>
+	<% io = File.open(Rails.root.join('app', 'views', 'users', 'schedules', "#{t[:name]}.xml")) %>
+	<% builder = Nokogiri::XML(io) %>
+	<% io.close %>
+
+	<h3><%= "#{t[:name]}:" %></h3><br />
+	<ul>
+		<% 4.times do |x| %>
+			<% cur = builder.search("P#{period}/MP#{(x+1)}").inner_text %>
+			<li><%= "Marking Period #{(x+1)}: #{cur}" %></li>
+		<% end %>
+	</ul>
+<% end %>
