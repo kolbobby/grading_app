@@ -112,6 +112,10 @@ class UsersController < ApplicationController
 		flash[:success] = "Updated teacher schedules!"
 	end
 
+	def reload_schedules
+		render :text => params[:period]
+	end
+
 	private
 		def signed_in_user
 			unless signed_in?
