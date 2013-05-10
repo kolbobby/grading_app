@@ -57,7 +57,7 @@ class UsersController < ApplicationController
 		doc = Nokogiri::XML(open(Rails.root.join('app', 'student_activities.xml')))
 		@students_xml = doc.xpath("//student")
 		respond_to do |format|
-			format.html { render :partial => '/students/student', :locals => { :over => true } }
+			format.html { render :partial => '/students/student', :locals => { :over => false, :view => false, :students_xml => @students_xml, :mp => params[:marking], :act => params[:activity], :per => params[:period] } }
 		end
 	end
 	def manage_activities
