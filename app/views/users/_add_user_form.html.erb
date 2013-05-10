@@ -38,7 +38,7 @@
 			Scheduling
 			<%= form_tag("/users/update_schedules", :id => "update_schedules_form") do %>
 				<label>Select Period:
-					<%= select_tag "scheduling_period_select", "<option value='1' selected>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5/6'>5/6</option><option value='6/7'>6/7</option><option value='7/8'>7/8</option><option value='8/9'>8/9</option><option value='10'>10</option><option value='11'>11</option>".html_safe %>
+					<%= select_tag "scheduling_period_select", "<option value='1' selected>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5-6'>5/6</option><option value='6-7'>6/7</option><option value='7-8'>7/8</option><option value='8-9'>8/9</option><option value='10'>10</option><option value='11'>11</option>".html_safe %>
 				</label>
 				<hr />
 				<% teachers.each do |t| %>
@@ -55,7 +55,7 @@
 		<div class="tab-pane" id="teachers-schedules">
 			Schedules<br />
 			<label>Select Period:
-				<%= select_tag "schedules_period_select", "<option value='1' selected>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5/6'>5/6</option><option value='6/7'>6/7</option><option value='7/8'>7/8</option><option value='8/9'>8/9</option><option value='10'>10</option><option value='11'>11</option>".html_safe %>
+				<%= select_tag "schedules_period_select", "<option value='1' selected>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5-6'>5/6</option><option value='6-7'>6/7</option><option value='7-8'>7/8</option><option value='8-9'>8/9</option><option value='10'>10</option><option value='11'>11</option>".html_safe %>
 			</label>
 			<div id="teacher_schedules">
 				<% teachers.each do |t| %>
