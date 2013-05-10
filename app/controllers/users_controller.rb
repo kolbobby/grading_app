@@ -59,7 +59,7 @@ class UsersController < ApplicationController
 		#respond_to do |format|
 		#	format.html { render :partial => '/students/student', :locals => { :over => false, :view => false, :students_xml => @students_xml, :mp => params[:marking], :act => params[:activity], :per => params[:period] } }
 		#end
-		render :text => @students_xml.to_s
+		render :text => params[:period]
 	end
 	def manage_activities
 		respond_to do |format|
