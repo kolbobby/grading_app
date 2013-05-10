@@ -7,7 +7,7 @@
 	<h3><%= "#{t[:name]}:" %></h3><br />
 	<ul>
 		<% 4.times do |x| %>
-			<% cur = builder.search("P#{period}/MP#{(x+1)}").inner_text %>
+			<% cur = builder.search("P#{period.to_s}/MP#{(x+1)}").inner_text %>
 			<li><%= "Marking Period #{(x+1)}: #{cur}" %></li>
 		<% end %>
 	</ul>
