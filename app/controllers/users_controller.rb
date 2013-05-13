@@ -118,7 +118,13 @@ class UsersController < ApplicationController
 	end
 
 	def load_roster
-		render :text => params[:activity]
+		@activity = params[:activity]
+		io = File.open(Rails.root.join('app', 'student_activities.xml'))
+		builder = Nokogiri::XML(io)
+		io.close
+
+		@student = builder.xpath('//student').first
+		render :text => @student.search('activity')
 	end
 
 	private
