@@ -35,6 +35,7 @@ GradingApp::Application.routes.draw do
   match '/reload_students', :to => 'users#reload_students'
   match '/users/update_schedules', :to => 'users#update_schedules'
   match '/reload_schedules', :to => 'users#reload_schedules'
+  match '/load_student_roster', :to => 'users#load_roster'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

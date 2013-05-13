@@ -117,6 +117,10 @@ class UsersController < ApplicationController
 		render :partial => 'reload_schedules', :locals => { :period => params[:period] }
 	end
 
+	def load_roster
+		render :text => params[:activity]
+	end
+
 	private
 		def signed_in_user
 			unless signed_in?

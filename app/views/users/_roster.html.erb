@@ -6,6 +6,15 @@
 		width:100%;
 	}
 </style>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.activity_drop').each(function() {
+			$(this).click(function() {
+				$.post('/load_student_roster', { activity: $(this).prop('id') }, function(r) { alert(r); });
+			});
+		});
+	})
+</script>
 <!--
 	Check activity
 	Print it to screen if not already on screen
