@@ -19,7 +19,7 @@
 		<!-- UTILIZE THIS FOR PRINTING THIS VALUE TO SCREEN ONCE -->
 		<% @activity_arr.push(s.search("activity").inner_text) %>
 		<div class="well">
-			<h4><%= s.search("activity").inner_text %></h4>
+			<h4><%= link_to s.search("activity").inner_text, '#', :id => "#{s.search("activity").inner_text}", :class => "activity_drop" %></h4>
 		</div>
 	<% end %>
 <% end %>
