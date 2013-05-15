@@ -10,7 +10,7 @@
 	$(document).ready(function() {
 		$('.activity_drop').each(function() {
 			$(this).click(function() {
-				$.post('/load_student_roster', { activity: $(this).prop('id') }, function(r) { alert(r); });
+				$.post('/load_student_roster', { activity: $(this).prop('id') }, function(r) { $(this).parent('.well').children('.roster_student_list').html(r); });
 			});
 		});
 	})
@@ -22,6 +22,7 @@
 		<% @activity_arr.push(s.search("activity").inner_text) %>
 		<div class="well">
 			<h4><%= link_to s.search("activity").inner_text, '#', :id => "#{s.search("activity").inner_text}", :class => "activity_drop" %></h4>
+			<div class="roster_student_list"></div>
 		</div>
 	<% end %>
 <% end %>
