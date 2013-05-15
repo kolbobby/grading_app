@@ -123,8 +123,15 @@ class UsersController < ApplicationController
 		builder = Nokogiri::XML(io)
 		io.close
 
-		@student = builder.xpath('//student').first
-		render :text => @student.search('activity')
+		@roster = Array.new
+		@students = builder.xpath('//student')
+		@students.each do |s|
+			if @activity == @student.search('activity').inner_text
+				@roster.push(s)
+			end
+		end
+
+		render :text => (@roster.count).to_s
 	end
 
 	private
