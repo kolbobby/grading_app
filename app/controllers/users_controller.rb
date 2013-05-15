@@ -126,7 +126,7 @@ class UsersController < ApplicationController
 		@roster = Array.new
 		@students = builder.xpath('//student')
 		@students.each do |s|
-			if @activity == @student.search('activity').inner_text
+			if @activity == s.search('activity').inner_text
 				@roster.push(s)
 			end
 		end
