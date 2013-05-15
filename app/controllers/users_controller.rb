@@ -118,10 +118,12 @@ class UsersController < ApplicationController
 	end
 
 	def load_roster
-		@activity = params[:activity]
+		require 'nokogiri'
 		io = File.open(Rails.root.join('app', 'student_activities.xml'))
 		builder = Nokogiri::XML(io)
 		io.close
+
+		@activity = params[:activity]
 
 		@roster = Array.new
 		@students = builder.xpath('//student')
@@ -131,7 +133,7 @@ class UsersController < ApplicationController
 			end
 		end
 
-		render :text => (@roster.count).to_s
+		render :partial => 'load_roster', :locals => { :roster => @roster }
 	end
 
 	private
