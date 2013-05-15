@@ -14,7 +14,7 @@
 				var ele = $(this).parent('h4').parent('.well').children('.roster_student_list');
 
 				if(cur != $(this).prop('id')) {
-					$(cur).parent('h4').parent('.well').children('.roster_student_list').html("");
+					$('#'+cur).parent('h4').parent('.well').children('.roster_student_list').html("");
 					cur = $(this).prop('id')
 				}
 				if(ele.html() == "")
