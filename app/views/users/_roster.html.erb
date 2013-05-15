@@ -10,7 +10,8 @@
 	$(document).ready(function() {
 		$('.activity_drop').each(function() {
 			$(this).click(function() {
-				$.post('/load_student_roster', { activity: $(this).prop('id') }, function(r) { $(this).parent('h4').html(r); });
+				var ele = $(this).parent('h4');
+				$.post('/load_student_roster', { activity: $(this).prop('id') }, function(r) { ele.html(r); });
 			});
 		});
 	})
