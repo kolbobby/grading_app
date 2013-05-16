@@ -21,7 +21,7 @@
 					<div class="tab-pane active" id="bulk">
 						<input type="file" id="file_select" size="50" />
 						<br />
-						<button id="add_s_bulk" class="btn btn-primary">add students</button>';
+						<button id="add_s_bulk" class="btn btn-primary">add students</button>
 						<table id="add_bulk_students" class="table table-striped">
 							<thead>
 								<tr>
@@ -34,7 +34,7 @@
 							</thead>
 							<%= render :partial => "bulk_form" %>
 						</table>
-						<button id="confirm">Confirm?</button>';
+						<button id="confirm" class="btn btn-primary">Confirm?</button>
 						<%= javascript_include_tag "bulk_add_jquery" %>
 					</div>
 					<div class="tab-pane" id="single">
