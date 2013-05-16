@@ -1,30 +1,4 @@
-var str = "<h3>manage students (<span id='s_a_outer'><%= escape_javascript(link_to('add', '#', :id => 's_add')) %><span id='s_add_plain'>add</span></span>";
-str +=	  " | ";
-str +=	  "<span id='s_as_outer'><%= escape_javascript(link_to('assign', '#', :id => 's_assign')) %><span id='s_assign_plain'>assign</span></span>)</h3>";
-str +=	  "<div id='manage-students-content'>";
-
-str +=	  "<div id='student_add'>";
-str +=	  "<h4>add student";
-str +=	  " (<span id='s_a_bulk_outer'>";
-str +=	  "<%= escape_javascript(link_to('bulk', '#', :id => 's_a_bulk')) %>";
-str +=	  "<span id='s_a_bulk_plain'>bulk</span>";
-str +=	  "</span>";
-str +=	  " | ";
-str +=	  "<span id='s_a_single_outer'>";
-str +=	  "<%= escape_javascript(link_to('single', '#', :id => 's_a_single')) %>";
-str +=	  "<span id='s_a_single_plain'>single</span>";
-str +=	  "</span>)";
-str +=	  "</h4>";
-str +=	  "</div>";
-
-str +=	  "<div id='student_assign'>";
-str +=	  "<h4>assign students</h4>";
-str +=	  "</div>";
-
-str +=	  "<div id='m_s_c_inner'></div>";
-
-str +=	  "</div>";
-$('#main-user-content').html(str);
+$('#main-user-content').html("<%= escape_javascript(render 'manage_students') %>");
 $('#s_add').hide();
 $('#s_assign_plain').hide();
 
