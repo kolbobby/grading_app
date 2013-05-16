@@ -38,8 +38,8 @@
 				<% if !@activity_arr.include?(s.search("activity").inner_text) %>
 					<% act = Activity.find(:first, :conditions => { :name => s.search("activity").inner_text, :marking_period => s.search("marking_period").inner_text, :activity_number => s.search("activity_number").inner_text }) %>
 					<%= current_user %><br />
-					<%= act[:coach] %>
-					<% if current_user?(act[:coach]) %>
+					<%= User.find(:first, :conditions => { :name => act[:coach] }) %>
+					<% if current_user?(User.find(:first, :conditions => { :name => act[:coach] })) %>
 						<% @activity_arr.push(s.search("activity").inner_text) %>
 						<div class="well">
 							<h4><%= link_to s.search("activity").inner_text, '#', :id => "#{s.search("activity").inner_text}", :class => "activity_drop" %></h4>
