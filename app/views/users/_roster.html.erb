@@ -9,14 +9,8 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('.activity_drop').each(function() {
-			var cur = "";
 			$(this).click(function() {
 				var ele = $(this).parent('h4').parent('.well').children('.roster_student_list');
-
-				if(cur != $(this).prop('id')) {
-					$('#'+cur).parent('h4').parent('.well').children('.roster_student_list').html("");
-					cur = $(this).prop('id')
-				}
 				if(ele.html() == "")
 					$.post('/load_student_roster', { activity: $(this).prop('id') }, function(r) { ele.html(r); });
 				else
