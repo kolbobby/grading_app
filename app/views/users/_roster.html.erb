@@ -15,18 +15,38 @@
 					$.post('/load_student_roster', { activity: $(this).prop('id') }, function(r) { ele.html(r); });
 				else
 					ele.html("");
+				return false;
 			});
 		});
 	})
 </script>
-<% @activity_arr = Array.new %>
-<% students.each do |s| %>
-	<% if !@activity_arr.include?(s.search("activity").inner_text) %>
-		<!-- UTILIZE THIS FOR PRINTING THIS VALUE TO SCREEN ONCE -->
-		<% @activity_arr.push(s.search("activity").inner_text) %>
-		<div class="well">
-			<h4><%= link_to s.search("activity").inner_text, '#', :id => "#{s.search("activity").inner_text}", :class => "activity_drop" %></h4>
-			<div class="roster_student_list"></div>
+<!--
+	Admin/Teacher permissions
+	Full roster/your roster
+	Only load existing activities with students
+	Utilize tabs
+-->
+<div class="tabbable tabs-left">
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="#your-roster" data-toggle="tab">Your Roster</a></li>
+		<li><a href="#full-roster" data-toggle="tab">Full Roster</a></li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane active" id="your-roster">
+			Your Activity Roster
 		</div>
-	<% end %>
-<% end %>
+		<div class="tab-pane" id="full-roster">
+			<% @activity_arr = Array.new %>
+			<% students.each do |s| %>
+				<% if !@activity_arr.include?(s.search("activity").inner_text) %>
+					<!-- UTILIZE THIS FOR PRINTING THIS VALUE TO SCREEN ONCE -->
+					<% @activity_arr.push(s.search("activity").inner_text) %>
+					<div class="well">
+						<h4><%= link_to s.search("activity").inner_text, '#', :id => "#{s.search("activity").inner_text}", :class => "activity_drop" %></h4>
+						<div class="roster_student_list"></div>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>
