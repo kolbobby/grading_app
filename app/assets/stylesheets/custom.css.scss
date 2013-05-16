@@ -41,69 +41,65 @@ h3, h4 {
 	.act-btn {
 		width:100%;
 	}
-	
+
 	#add_bulk_students {
 		width:100%;
 		text-align:center;
 		display:none;
 	}
+	#confirm {
+		display:none;
+	}
 
-	#manage-students-content {
-		#m_s_c_inner {
-			#confirm {
-				display:none;
+	#student_assign_teacher_list {
+		margin:0;
+		list-style:none;
+		padding:.2em 0 .2em .5em;
+		border-right:1px solid #CCC;
+		li {
+			margin:.2em 0 .2em 0;
+			h4 {
+				border-bottom:1px solid #CCC;
 			}
-			#student_assign_teacher_list {
-				margin:0;
-				list-style:none;
-				padding:.2em 0 .2em .5em;
-				border-right:1px solid #CCC;
-				li {
-					margin:.2em 0 .2em 0;
-					h4 {
-						border-bottom:1px solid #CCC;
-					}
-					span {
-						a {
-							text-decoration:none;
-						}
-					}
+			span {
+				a {
+					text-decoration:none;
 				}
 			}
-			#assign-right-side {
-				width:80%;
-				float:right;
-				margin-bottom:1%;
-				#assign-right-header, #student-list {
-					float:right;
-					width:100%;
-				}
-				#assign-right-header {
-					.prim {
-						border-bottom:1px solid #000;
-						margin-bottom:.2em;
-						padding-bottom:.2em;
-					}
-					span {
-						color:blue;
-						cursor:pointer;
-					}
-				}
-				.draggable {
-					border-right:1px solid blue;
-					border-left:1px solid blue;
-				}
-				.droppable .drag-here {
-					font-size:.7em;
-				}
-				.grouped {
-					border-right:1px solid lightgreen;
-					border-left:1px solid lightgreen;
-				}
-				.selected {
-					text-align:center;
-				}
+		}
+	}
+	#assign-right-side {
+		width:80%;
+		float:right;
+		margin-bottom:1%;
+		#assign-right-header, #student-list {
+			float:right;
+			width:100%;
+		}
+		#assign-right-header {
+			.prim {
+				border-bottom:1px solid #000;
+				margin-bottom:.2em;
+				padding-bottom:.2em;
 			}
+			span {
+				color:blue;
+				cursor:pointer;
+			}
+		}
+		.draggable {
+			border-right:1px solid blue;
+			border-left:1px solid blue;
+		}
+		.droppable .drag-here {
+			font-size:.7em;
+		}
+		.grouped {
+			border-right:1px solid lightgreen;
+			border-left:1px solid lightgreen;
+		}
+		.selected {
+			text-align:center;
 		}
 	}
 }
