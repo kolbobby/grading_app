@@ -17,7 +17,7 @@ function change_tab(new_tab) {
 function change_sub_tab(new_sub_tab) {
 	var content;
 	if(new_sub_tab == 'bulk') {
-		content = '<%= escape_javascript(render :partial => "manage_students/add_bulk") %>';
+		content = '<%= escape_javascript(render :partial => "/users/manage_students/add_bulk") %>';
 	} else if(new_sub_tab == 'single') {
 		content = '<%= escape_javascript(render :partial => "/students/add_student_form") %>';
 	}
@@ -35,7 +35,7 @@ $('#s_add').click(function() {
 });
 $('#s_assign').click(function() {
 	$('#s_a_bulk').click();
-	$('#m_s_c_inner').html("<%= escape_javascript(render :partial => 'manage_students/assign_students') %>");
+	$('#m_s_c_inner').html("<%= escape_javascript(render :partial => '/users/manage_students/assign_students') %>");
 	change_tab('assign');
 	$(this).hide();
 	$('#s_assign_plain').show();
