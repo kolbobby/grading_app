@@ -17,7 +17,10 @@ function change_tab(new_tab) {
 function change_sub_tab(new_sub_tab) {
 	var content;
 	if(new_sub_tab == 'bulk') {
-		content = '<%= escape_javascript(render :partial => "/users/manage_students/add_bulk") %>';
+		content = '<input type="file" id="file_select" size="50" /><br /><button id="add_s_bulk" class="btn btn-primary">add students</button>';
+		content += '<table id="add_bulk_students" class="table table-striped"><thead><tr><th class="id">Row</th><th class="name">Name</th><th class="period">Period</th><th class="grade_level">Grade</th><th class="sign_in_teacher">Sign In Teacher</th></tr></thead><%= escape_javascript(render :partial => "bulk_form") %></table>';
+		content += '<button id="confirm">Confirm?</button>';
+		content += '<%= escape_javascript(javascript_include_tag "bulk_add_jquery") %>';
 	} else if(new_sub_tab == 'single') {
 		content = '<%= escape_javascript(render :partial => "/students/add_student_form") %>';
 	}
@@ -35,7 +38,7 @@ $('#s_add').click(function() {
 });
 $('#s_assign').click(function() {
 	$('#s_a_bulk').click();
-	$('#m_s_c_inner').html("<%= escape_javascript(render :partial => '/users/manage_students/assign_students') %>");
+	$('#m_s_c_inner').html("<div class='col pull-left'><ul id='student_assign_teacher_list'><li><h4>coaches</h4></li><%= escape_javascript(render :partial => 'user', :locals => {:view => false}) %></ul></div><div id='assign-right-side'><div class='row'><div id='assign-right-header'><%= escape_javascript(render 'assign_right_header') %></div><div id='student-list'><%= escape_javascript(render :partial => '/students/student', :locals => {:over => false, :view => false, :students_xml => @students_xml, :mp => 1, :act => 1, :per => 1}) %></div></div></div><%= escape_javascript(javascript_include_tag 'assign_right_header') %>");
 	change_tab('assign');
 	$(this).hide();
 	$('#s_assign_plain').show();
