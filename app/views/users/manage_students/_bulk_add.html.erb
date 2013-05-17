@@ -1,0 +1,17 @@
+<input type="file" id="file_select" size="50" />
+<br />
+<button id="add_s_bulk" class="btn btn-primary">add students</button>
+<table id="add_bulk_students" class="table table-striped">
+	<thead>
+		<tr>
+			<th class="id">Row</th>
+			<th class="name">Name</th>
+			<th class="period">Period</th>
+			<th class="grade_level">Grade</th>
+			<th class="sign_in_teacher">Sign In Teacher</th>
+		</tr>
+	</thead>
+	<%= render :partial => "bulk_form" %>
+</table>
+<button id="confirm" class="btn btn-primary">Confirm?</button>
+<%= javascript_include_tag "bulk_add_jquery" %>

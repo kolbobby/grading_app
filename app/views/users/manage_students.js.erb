@@ -1,1 +1,67 @@
 $('#main-user-content').html("<%= escape_javascript(render 'manage_students') %>");
+$('#s_add').hide();
+$('#s_assign_plain').hide();
+
+function change_tab(new_tab) {
+	if(new_tab == 'add') {
+		$('#student_add').show();
+		$('#student_assign').hide();
+		$('#s_a_bulk').hide();
+		$('#s_a_single_plain').hide();
+		change_sub_tab('bulk');
+	} else if(new_tab == 'assign') {
+		$('#student_assign').show();
+		$('#student_add').hide();
+	}
+}
+function change_sub_tab(new_sub_tab) {
+	var content;
+	if(new_sub_tab == 'bulk') {
+		content = '<%= escape_javascript(render :partial => "manage_students/add_bulk") %>';
+	} else if(new_sub_tab == 'single') {
+		content = '<%= escape_javascript(render :partial => "/students/add_student_form") %>';
+	}
+	$('#m_s_c_inner').html(content);
+}
+
+$('#s_add').click(function() {
+	change_tab('add');
+	$(this).hide();
+	$('#s_add_plain').show();
+	$('#s_assign_plain').hide();
+	$('#s_assign').show();
+
+	return false;
+});
+$('#s_assign').click(function() {
+	$('#s_a_bulk').click();
+	$('#m_s_c_inner').html("<%= escape_javascript(render :partial => 'manage_students/assign_students') %>");
+	change_tab('assign');
+	$(this).hide();
+	$('#s_assign_plain').show();
+	$('#s_add_plain').hide();
+	$('#s_add').show();
+
+	return false;
+});
+
+$('#s_add').click();
+
+$('#s_a_bulk').click(function() {
+	change_sub_tab('bulk');
+	$(this).hide();
+	$('#s_a_bulk_plain').show();
+	$('#s_a_single_plain').hide();
+	$('#s_a_single').show();
+
+	return false;
+});
+$('#s_a_single').click(function() {
+	change_sub_tab('single');
+	$(this).hide();
+	$('#s_a_single_plain').show();
+	$('#s_a_bulk_plain').hide();
+	$('#s_a_bulk').show();
+
+	return false;
+});

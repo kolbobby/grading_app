@@ -1,63 +1,10 @@
-<div class="tabbable tabs-left">
-	<ul class="nav nav-tabs">
-		<li class="active"><a href="#add" data-toggle="tab">Add</a></li>
-		<li><a href="#assign" data-toggle="tab">Assign</a></li>
-	</ul>
-	<div class="tab-content">
-		<div class="tab-pane active" id="add">
-			<div class="tabbable tabs-below">
-				<div class="tab-content">
-					<div class="tab-pane active" id="bulk">
-						Add Students<br />
-						<input type="file" id="file_select" size="50" />
-						<br />
-						<button id="add_s_bulk" class="btn btn-primary">add students</button>
-						<table id="add_bulk_students" class="table table-striped">
-							<thead>
-								<tr>
-									<th class="id">Row</th>
-									<th class="name">Name</th>
-									<th class="period">Period</th>
-									<th class="grade_level">Grade</th>
-									<th class="sign_in_teacher">Sign In Teacher</th>
-								</tr>
-							</thead>
-							<%= render :partial => "bulk_form" %>
-						</table>
-						<button id="confirm" class="btn btn-primary">Confirm?</button>
-						<%= javascript_include_tag "bulk_add_jquery" %>
-					</div>
-					<div class="tab-pane" id="single">
-						Add Student<br />
-						<%= render :partial => '/students/add_student_form' %>
-					</div>
-				</div>
-				<br />
-				<ul class="nav nav-tabs">
-					<li class="active"><a href="#bulk" data-toggle="tab">Bulk</a></li>
-					<li><a href="#single" data-toggle="tab">Single</a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="tab-pane" id="assign">
-			Assign Students<br />
-			<div class='col pull-left'>
-				<ul id='student_assign_teacher_list'>
-					<li><h4>coaches</h4></li>
-					<%= render :partial => 'user', :locals => {:view => false} %>
-				</ul>
-			</div>
-			<div id='assign-right-side'>
-				<div class='row'>
-					<div id='assign-right-header'>
-						<%= render 'assign_right_header' %>
-					</div>
-					<div id='student-list'>
-						<%= render :partial => '/students/student', :locals => {:over => false, :view => false, :students_xml => @students_xml, :mp => 1, :act => 1, :per => 1} %>
-					</div>
-				</div>
-			</div>
-			<%= javascript_include_tag 'assign_right_header' %>
-		</div>
+<h3>manage students (<span id='s_a_outer'><%= link_to('add', '#', :id => 's_add') %><span id='s_add_plain'>add</span></span> | <span id='s_as_outer'><%= link_to('assign', '#', :id => 's_assign') %><span id='s_assign_plain'>assign</span></span>)</h3>
+<div id='manage-students-content'>
+	<div id='student_add'>
+		<h4>add student (<span id='s_a_bulk_outer'><%= link_to('bulk', '#', :id => 's_a_bulk') %><span id='s_a_bulk_plain'>bulk</span></span> | <span id='s_a_single_outer'><%= link_to('single', '#', :id => 's_a_single') %><span id='s_a_single_plain'>single</span></span>)</h4>
 	</div>
-</div>
+	<div id='student_assign'>
+		<h4>assign students</h4>
+	</div>
+	<div id='m_s_c_inner'></div>
+</div> 
