@@ -1,14 +1,3 @@
-<h3>manage students (<span id='s_a_outer'><%= link_to('add', '#', :id => 's_add') %><span id='s_add_plain'>add</span></span> | <span id='s_as_outer'><%= link_to('assign', '#', :id => 's_assign') %><span id='s_assign_plain'>assign</span></span>)</h3>
-<div id='manage-students-content'>
-	<div id='student_add'>
-		<h4>add student (<span id='s_a_bulk_outer'><%= link_to('bulk', '#', :id => 's_a_bulk') %><span id='s_a_bulk_plain'>bulk</span></span> | <span id='s_a_single_outer'><%= link_to('single', '#', :id => 's_a_single') %><span id='s_a_single_plain'>single</span></span>)</h4>
-	</div>
-	<div id='student_assign'>
-		<h4>assign students</h4>
-	</div>
-	<div id='m_s_c_inner'></div>
-</div>
-
 <div class="tabbable tabs-left">
 	<ul class="nav nav-tabs">
 		<li class="active"><a href="#add" data-toggle="tab">Add</a></li>
@@ -21,7 +10,7 @@
 					<div class="tab-pane active" id="bulk">
 						<input type="file" id="file_select" size="50" />
 						<br />
-						<button id="add_s_bulk" class="btn btn-primary">add students</button>
+						<button id="add_s_bulk" class="btn btn-primary">add students</button><br />
 						<table id="add_bulk_students" class="table table-striped">
 							<thead>
 								<tr>
