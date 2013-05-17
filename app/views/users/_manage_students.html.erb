@@ -8,9 +8,10 @@
 			<div class="tabbable tabs-below">
 				<div class="tab-content">
 					<div class="tab-pane active" id="bulk">
+						Add Students<br />
 						<input type="file" id="file_select" size="50" />
 						<br />
-						<button id="add_s_bulk" class="btn btn-primary">add students</button><br />
+						<button id="add_s_bulk" class="btn btn-primary">add students</button>
 						<table id="add_bulk_students" class="table table-striped">
 							<thead>
 								<tr>
@@ -27,9 +28,11 @@
 						<%= javascript_include_tag "bulk_add_jquery" %>
 					</div>
 					<div class="tab-pane" id="single">
+						Add Student<br />
 						<%= render :partial => '/students/add_student_form' %>
 					</div>
 				</div>
+				<br />
 				<ul class="nav nav-tabs">
 					<li class="active"><a href="#bulk" data-toggle="tab">Bulk</a></li>
 					<li><a href="#single" data-toggle="tab">Single</a></li>
@@ -37,6 +40,7 @@
 			</div>
 		</div>
 		<div class="tab-pane" id="assign">
+			Assign Students<br />
 			<div class='col pull-left'>
 				<ul id='student_assign_teacher_list'>
 					<li><h4>coaches</h4></li>
