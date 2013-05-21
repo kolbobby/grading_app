@@ -1,13 +1,20 @@
+<% @students = Student.all %>
 <% if over %>
-	<div>asdfqfqwefw</div>
+	<% @students.each do |s| %>
+		<tr id="<%= s.id %>">
+			<td class="s_name"><%= link_to s.name, student_path(s) %></td>
+			<td class="s_period"><%= s.period %></td>
+			<td class="s_grade_level"><%= s.grade_level %></td>
+		</tr>
+	<% end %>
 <% else %>
 	<% if view %>
-		<% @students = Student.all %>
 		<% @students.each do |s| %>
 			<tr id="<%= s.id %>">
 				<td class="s_name"><%= link_to s.name, student_path(s) %></td>
 				<td class="s_period"><%= s.period %></td>
 				<td class="s_grade_level"><%= s.grade_level %></td>
+				<td class="s_sign_in_teacher"><%= s.sign_in_teacher %></td>
 				<% if !@user.teacher? %> <td class="s_remove"><%= link_to 'x student', '#', :id => "#{s.name}", :class => "student_delete_link" %></td> <% end %>
 			</tr>
 		<% end %>
@@ -23,7 +30,6 @@
 			})
 		</script>
 	<% else %>
-		<% @students = Student.all %>
 		<% @students.each do |s| %>
 			<% continue = true %>
 			<% students_xml.search("//student").each do |sx| %>
