@@ -1,3 +1,11 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+		var show_per_page = 5;
+		var number_of_items = $('#attendance').children('table').children('tbody').children('tr').size();
+		var number_of_pages = Math.ceil(number_of_items/show_per_page);
+		alert(number_of_items);
+	})
+</script>
 <div class="tabbable tabs-left">
 	<ul class="nav nav-tabs">
 		<li class="active"><a href="#all-students" data-toggle="tab">All Students</a></li>
