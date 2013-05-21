@@ -1,60 +1,3 @@
-<script type="text/javascript">
-	$(document).ready(function() {
-		var show_per_page = 15;
-		var number_of_items = $('#attendance').children('table').children('tbody').children('tr').size();
-		var number_of_pages = Math.ceil(number_of_items/show_per_page);
-
-		$('#current_page').val(0);
-		$('#show_per_page').val(show_per_page);
-
-		var navigation_html = '<li><a class="previous_link" href="javascript:previous();">&laquo;</a></li>';
-		var current_link = 0;
-		while(number_of_pages > current_link){
-			navigation_html += '<li><a class="page_link" href="javascript:go_to_page(' + current_link +');" longdesc="' + current_link +'">'+ (current_link + 1) +'</a></li>';
-			current_link++;
-		}
-		navigation_html += '<li><a class="next_link" href="javascript:next();">&raquo;</a></li>';
-
-		$('.pagination ul').html(navigation_html);
-		$('.pagination .page_link:first').addClass('active');
-
-		$('#attendance').children('table').children('tbody').children('tr').css('display', 'none');
-		$('#attendance').children('table').children('tbody').children('tr').slice(0, show_per_page).css('display', 'block');
-	})
-	function previous(){
-		$(document).ready(function() {
-			new_page = parseInt($('#current_page').val()) - 1;
-			if($('.active').prev('.page_link').length==true){
-				go_to_page(new_page);
-			}
-		})
-	}
-	function next(){
-		$(document).ready(function() {
-			new_page = parseInt($('#current_page').val()) + 1;
-			if($('.active').next('.page_link').length==true){
-				go_to_page(new_page);
-			}
-		})
-	}
-	function go_to_page(page_num){
-		$(document).ready(function() {
-			var show_per_page = parseInt($('#show_per_page').val());
-
-			start_from = page_num * show_per_page;
-
-			end_on = start_from + show_per_page;
-
-			$('#attendance').children('table').children('tbody').children('tr').css('display', 'none').slice(start_from, end_on).css('display', 'block');
-
-			$('.page_link[longdesc=' + page_num +']').addClass('active').siblings('.active').removeClass('active');
-
-			$('#current_page').val(page_num);
-		})
-	}
-</script>
-<input type='hidden' id='current_page' />
-<input type='hidden' id='show_per_page' />
 <div class="tabbable tabs-left">
 	<ul class="nav nav-tabs">
 		<li class="active"><a href="#all-students" data-toggle="tab">All Students</a></li>
@@ -92,11 +35,6 @@
 					<%= render :partial => '/students/student', :locals => {:over => true} %>
 				</tbody>
 			</table>
-			<div class="pagination">
-				<ul>
-
-				</ul>
-			</div>
 		</div>
 	</div>
 </div>
