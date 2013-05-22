@@ -3,6 +3,7 @@
 	<li><%= link_to "profile home", {:controller => "users", :action => "view_home"}, :remote => true %></li>
 	<li><%= link_to "view roster", {:controller => "users", :action => 'view_roster'}, :remote => true %></li>
 	<li><%= link_to "view students", {:controller => "users", :action => 'view_students'}, :remote => true %></li>
+	<li><%= link_to "attendance", {:controller => "users", :action => 'view_attendance'}, :remote => true %></li>
 	<% if !@user.teacher? %>
 		<li><%= link_to "setup teachers", {:controller => "users", :action => 'setup_teachers'}, :remote => true %></li>
 		<li><%= link_to "manage students", {:controller => "users", :action => 'manage_students'}, :remote => true %></li>

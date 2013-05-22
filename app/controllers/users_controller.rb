@@ -16,7 +16,15 @@ class UsersController < ApplicationController
 	end
 	def view_students
 		require 'will_paginate/array'
+		@students = Student.all
+		@student_results = @students.paginate(:page => params[:page], :per_page => 15)
 		@user = User.find(params[:id])
+		respond_to do |format|
+			format.js { render :layout => false }
+		end
+	end
+	def view_attendance
+		require 'will_paginate/array'
 		@students = Student.all
 		@student_results = @students.paginate(:page => params[:page], :per_page => 15)
 		respond_to do |format|
