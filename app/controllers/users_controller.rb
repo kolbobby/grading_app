@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 	def view_students
 		@user = User.find(params[:id])
 		@students = Student.all
-		@student_results = @students.paginate(params[:current_page], params[:per_page])
+		@student_results = @students.paginate(:page => params[:page], :per_page => 15)
 		respond_to do |format|
 			format.js { render :layout => false }
 		end
@@ -40,7 +40,6 @@ class UsersController < ApplicationController
 	end
 	def reload_teachers
 		require 'nokogiri'
-		@students = Student.all
 		@teachers = User.all
 		str = Array.new
 		@teachers.each do |t|
@@ -57,6 +56,7 @@ class UsersController < ApplicationController
 	end
 	def reload_students
 		require 'nokogiri'
+		@students = Student.all
 		doc = Nokogiri::XML(open(Rails.root.join('app', 'student_activities.xml')))
 		@students_xml = doc.xpath("//student")
 		respond_to do |format|
