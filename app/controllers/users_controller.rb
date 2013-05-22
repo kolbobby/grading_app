@@ -16,6 +16,8 @@ class UsersController < ApplicationController
 	end
 	def view_students
 		@user = User.find(params[:id])
+		@students = Student.all
+		@student_results = @students.paginate(params[:current_page], params[:per_page])
 		respond_to do |format|
 			format.js { render :layout => false }
 		end

@@ -1,4 +1,3 @@
-<% @students = Student.all %>
 <% if over %>
 	<% @students.each do |s| %>
 		<% if current_user?(User.find(:first, :conditions => { :name => s.sign_in_teacher })) %>
@@ -9,8 +8,6 @@
 			</tr>
 		<% end %>
 	<% end %>
-	<% @students = @students.paginate(:page => params[:page], :per_page => 30) %>
-	<%= will_paginate @students %>
 <% else %>
 	<% if view %>
 		<% @students.each do |s| %>
