@@ -40,6 +40,7 @@ class UsersController < ApplicationController
 	end
 	def reload_teachers
 		require 'nokogiri'
+		@students = Student.all
 		@teachers = User.all
 		str = Array.new
 		@teachers.each do |t|
