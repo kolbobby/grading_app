@@ -33,6 +33,7 @@ class UsersController < ApplicationController
 	end
 	def manage_students
 		require 'nokogiri'
+		@students = Student.all
 		doc = Nokogiri::XML(open(Rails.root.join('app', 'student_activities.xml')))
 		@students_xml = doc.xpath("//student")
 		respond_to do |format|

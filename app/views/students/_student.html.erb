@@ -8,7 +8,7 @@
 			</tr>
 		<% end %>
 	<% end %>
-	<%= will_paginate @student_results, :class => 'pagination attendance' %>
+	<%= will_paginate @student_results %>
 <% else %>
 	<% if view %>
 		<% @students.each do |s| %>
