@@ -1,0 +1,17 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.pagination a').attr('data-remote', 'true');
+	})
+</script>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Student Name</th>
+			<th>Period</th>
+			<th>Grade</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%= render :partial => '/students/student', :locals => {:over => true} %>
+	</tbody>
+</table>
