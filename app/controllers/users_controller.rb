@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 		end
 	end
 	def view_students
+		require 'will_paginate/array'
 		@user = User.find(params[:id])
 		@students = Student.all
 		@student_results = @students.paginate(:page => params[:page], :per_page => 15)
