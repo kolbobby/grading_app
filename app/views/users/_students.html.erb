@@ -2,7 +2,8 @@
 	$(document).ready(function() {
 		$('.pagination a').attr('data-remote', 'true');
 		$('.pagination a').each(function() {
-			$(this).attr('href', $(this).href + '#attendance');
+			alert($(this).prop('href'));
+			$(this).attr('href', $(this).prop('href') + '#attendance');
 		});
 	})
 </script>
