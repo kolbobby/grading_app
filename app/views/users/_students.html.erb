@@ -2,7 +2,6 @@
 	$(document).ready(function() {
 		$('.pagination a').attr('data-remote', 'true');
 		$('.pagination a').each(function() {
-			alert($(this).prop('href'));
 			$(this).attr('href', $(this).prop('href') + '#attendance');
 		});
 	})
