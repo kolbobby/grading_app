@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 		require 'will_paginate/array'
 		@user = User.find(params[:id])
 		@students = Student.all
-		@student_results = @students.paginate(:page => params[:page], :per_page => 15)
+		@students = @students.paginate(:page => params[:page], :per_page => 15)
 		respond_to do |format|
 			format.js { render :layout => false }
 		end

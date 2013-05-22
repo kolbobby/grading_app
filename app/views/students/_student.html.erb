@@ -1,5 +1,5 @@
 <% if over %>
-	<% @students_results.each do |s| %>
+	<% @student_results.each do |s| %>
 		<% if current_user?(User.find(:first, :conditions => { :name => s.sign_in_teacher })) %>
 			<tr id="<%= s.id %>">
 				<td class="s_name"><%= link_to s.name, student_path(s) %></td>
