@@ -1,6 +1,6 @@
-<% @users = Student.all %>
+<% @students = Student.all %>
 <% if over %>
-	<% @users.each do |s| %>
+	<% @students.each do |s| %>
 		<% if current_user?(User.find(:first, :conditions => { :name => s.sign_in_teacher })) %>
 			<tr id="<%= s.id %>">
 				<td class="s_name"><%= link_to s.name, student_path(s) %></td>
@@ -9,10 +9,11 @@
 			</tr>
 		<% end %>
 	<% end %>
-	<%= will_paginate %>
+	<% @students = @students.paginate(:page => params[:page], :per_page => 30) %>
+	<%= will_paginate @students %>
 <% else %>
 	<% if view %>
-		<% @users.each do |s| %>
+		<% @students.each do |s| %>
 			<tr id="<%= s.id %>">
 				<td class="s_name"><%= link_to s.name, student_path(s) %></td>
 				<td class="s_period"><%= s.period %></td>
@@ -33,7 +34,7 @@
 			})
 		</script>
 	<% else %>
-		<% @users.each do |s| %>
+		<% @students.each do |s| %>
 			<% continue = true %>
 			<% students_xml.search("//student").each do |sx| %>
 				<% if sx.search("name").inner_text == s.name %>
