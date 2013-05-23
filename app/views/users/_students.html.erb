@@ -14,3 +14,4 @@
 		<%= render :partial => '/students/student', :locals => {:over => false, :view => true} %>
 	</tbody>
 </table>
+<%= will_paginate @student_results %>
