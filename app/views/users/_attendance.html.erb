@@ -4,16 +4,20 @@
 	})
 </script>
 <h3>Attendance</h3>
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<th>Student Name</th>
-			<th>Period</th>
-			<th>Grade</th>
-		</tr>
-	</thead>
-	<tbody>
-		<%= render :partial => '/students/student', :locals => {:over => true} %>
-	</tbody>
-</table>
+<% if @student_results.count %>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Student Name</th>
+				<th>Period</th>
+				<th>Grade</th>
+			</tr>
+		</thead>
+		<tbody>
+			<%= render :partial => '/students/student', :locals => {:over => true} %>
+		</tbody>
+	</table>
+<% else %>
+	<h4>You do not have any students on roster for attendance!</h4>
+<% end %>
 <%= will_paginate @student_results %>
