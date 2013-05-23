@@ -2,7 +2,7 @@
 	$(document).ready(function() {
 		$('.activity_drop').each(function() {
 			$(this).click(function() {
-				var ele = $(this).parent('h3').parent('.well').children('.roster_student_list');
+				var ele = $(this).parent('h4').parent('.well').children('.roster_student_list');
 				if(ele.html() == "")
 					$.post('/load_student_roster', { activity: $(this).prop('id') }, function(r) { ele.html(r); });
 				else
