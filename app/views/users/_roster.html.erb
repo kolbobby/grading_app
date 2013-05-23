@@ -28,7 +28,7 @@
 						<% @st.push(s.search("name").inner_text) %>
 						<% @activity_arr.push(s.search("activity").inner_text) %>
 						<div class="well">
-							<h4><%= link_to s.search("activity").inner_text, '#', :id => "#{s.search("activity").inner_text}", :class => "activity_drop" %></h4>
+							<h4><%= link_to s.search("activity").inner_text, '#', :id => "#{s.search("activity").inner_text}", :class => "activity_drop" %> <small>(period: <%= s.search("period").inner_text %>, marking period: <%= s.search("marking_period").inner_text %>)</small></h4>
 							<div class="roster_student_list"></div>
 						</div>
 					<% end %>
@@ -45,7 +45,7 @@
 					<% if !@activity_arr2.include?(s.search("activity").inner_text) %>
 						<% @activity_arr2.push(s.search("activity").inner_text) %>
 						<div class="well">
-							<h4><%= link_to s.search("activity").inner_text, '#', :id => "#{s.search("activity").inner_text}", :class => "activity_drop" %></h4>
+							<h4><%= link_to s.search("activity").inner_text, '#', :id => "#{s.search("activity").inner_text}", :class => "activity_drop" %> <small>(period: <%= s.search("period").inner_text %>, marking period: <%= s.search("marking_period").inner_text %>)</small></h4>
 							<div class="roster_student_list"></div>
 						</div>
 					<% end %>
