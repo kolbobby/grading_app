@@ -36,6 +36,7 @@ class ActivitiesController < ApplicationController
 				student = Nokogiri::XML::Node.new "student", builder
 
 				student.add_child("<name>#{s}</name>")
+				student.add_child("<coach>#{params[:coach]}</coach>")
 				student.add_child("<period>#{params[:period]}</period>")
 				student.add_child("<activity>#{params[:activity]}</activity>")
 				student.add_child("<marking_period>#{params[:marking]}</marking_period>")
