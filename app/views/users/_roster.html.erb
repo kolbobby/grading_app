@@ -19,11 +19,13 @@
 	</ul>
 	<div class="tab-content">
 		<div class="tab-pane active" id="your-roster">
+			<% @st = Array.new %>
 			<% @activity_arr = Array.new %>
 			<% students.each do |s| %>
 				<% if !@activity_arr.include?(s.search("activity").inner_text) %>
 					<% act = Activity.find(:first, :conditions => { :name => s.search("activity").inner_text, :marking_period => s.search("marking_period").inner_text, :activity_number => s.search("activity_number").inner_text }) %>
 					<% if current_user?(User.find(:first, :conditions => { :name => act[:coach] })) %>
+						<% @st.push(s.search("name").inner_text) %>
 						<% @activity_arr.push(s.search("activity").inner_text) %>
 						<div class="well">
 							<h4><%= link_to s.search("activity").inner_text, '#', :id => "#{s.search("activity").inner_text}", :class => "activity_drop" %></h4>
@@ -32,17 +34,24 @@
 					<% end %>
 				<% end %>
 			<% end %>
+			<% if @st.size <= 0 %>
+				<h4>You do not have any students on your roster!</h4>
+			<% end %>
 		</div>
 		<div class="tab-pane" id="full-roster">
-			<% @activity_arr2 = Array.new %>
-			<% students.each do |s| %>
-				<% if !@activity_arr2.include?(s.search("activity").inner_text) %>
-					<% @activity_arr2.push(s.search("activity").inner_text) %>
-					<div class="well">
-						<h4><%= link_to s.search("activity").inner_text, '#', :id => "#{s.search("activity").inner_text}", :class => "activity_drop" %></h4>
-						<div class="roster_student_list"></div>
-					</div>
+			<% if students.size > 0 %>
+				<% @activity_arr2 = Array.new %>
+				<% students.each do |s| %>
+					<% if !@activity_arr2.include?(s.search("activity").inner_text) %>
+						<% @activity_arr2.push(s.search("activity").inner_text) %>
+						<div class="well">
+							<h4><%= link_to s.search("activity").inner_text, '#', :id => "#{s.search("activity").inner_text}", :class => "activity_drop" %></h4>
+							<div class="roster_student_list"></div>
+						</div>
+					<% end %>
 				<% end %>
+			<% else %>
+				<h4>There are no students assigned to activities!</h4>
 			<% end %>
 		</div>
 	</div>
