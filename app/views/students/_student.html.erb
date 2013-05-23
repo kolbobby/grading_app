@@ -29,7 +29,7 @@
 			})
 		</script>
 	<% else %>
-		<% @student_results.each do |s| %>
+		<% @students.each do |s| %>
 			<% continue = true %>
 			<% students_xml.search("//student").each do |sx| %>
 				<% if sx.search("name").inner_text == s.name %>

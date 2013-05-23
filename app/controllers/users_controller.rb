@@ -47,9 +47,7 @@ class UsersController < ApplicationController
 	end
 	def manage_students
 		require 'nokogiri'
-		require 'will_paginate/array'
 		@students = Student.all
-		@student_results = @students.paginate(:page => params[:page], :per_page => 15)
 		doc = Nokogiri::XML(open(Rails.root.join('app', 'student_activities.xml')))
 		@students_xml = doc.xpath("//student")
 		respond_to do |format|
@@ -74,9 +72,7 @@ class UsersController < ApplicationController
 	end
 	def reload_students
 		require 'nokogiri'
-		require 'will_paginate/array'
 		@students = Student.all
-		@student_results = @students.paginate(:page => params[:page], :per_page => 15)
 		doc = Nokogiri::XML(open(Rails.root.join('app', 'student_activities.xml')))
 		@students_xml = doc.xpath("//student")
 		respond_to do |format|
