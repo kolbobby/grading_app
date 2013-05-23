@@ -1,12 +1,10 @@
 <% if over %>
-	<% @student_results.each do |s| %>
-		<% if current_user?(User.find(:first, :conditions => { :name => s.sign_in_teacher })) %>
-			<tr id="<%= s.id %>">
-				<td class="s_name"><%= link_to s.name, student_path(s) %></td>
-				<td class="s_period"><%= s.period %></td>
-				<td class="s_grade_level"><%= s.grade_level %></td>
-			</tr>
-		<% end %>
+	<% @att.each do |s| %>
+		<tr id="<%= s.id %>">
+			<td class="s_name"><%= link_to s.name, student_path(s) %></td>
+			<td class="s_period"><%= s.period %></td>
+			<td class="s_grade_level"><%= s.grade_level %></td>
+		</tr>
 	<% end %>
 <% else %>
 	<% if view %>

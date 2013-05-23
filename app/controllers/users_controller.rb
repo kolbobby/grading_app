@@ -27,6 +27,12 @@ class UsersController < ApplicationController
 		require 'will_paginate/array'
 		@students = Student.all
 		@student_results = @students.paginate(:page => params[:page], :per_page => 15)
+		@att = Array.new
+		@student_results.each do |s|
+			if current_user?(User.find(:first, :conditions => { :name => s.sign_in_teacher }))
+				@att.push(s)
+			end
+		end
 		respond_to do |format|
 			format.js { render :layout => false }
 		end
