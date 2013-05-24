@@ -14,7 +14,9 @@
 	}
 	$(document).ready(function() {
 		$('.print_roster').each(function() {
-			$(this).click(strtBlackout($(this).prop('id')));
+			$(this).click(function() {
+				strtBlackout($(this).prop('id'))
+			});
 			return false;
 		});
 		$('.blackout').click(endBlackout);
