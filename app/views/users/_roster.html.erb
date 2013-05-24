@@ -12,9 +12,11 @@
 			$(this).click(strtBlackout);
 		});
 		$('.blackout').click(endBlackout);
-		$.keyup(function(e) {
+		$(document).keyup(function(e) {
+			alert('asdf');
 			if(e.keyCode == 27) {
 				endBlackout();
+				alert('fdsa');
 			}
 		});
 		$('.activity_drop').each(function() {
