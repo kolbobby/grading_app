@@ -5,11 +5,10 @@
 	}
 	function strtBlackout(type) {
 		if(type == 'full')
-			type = true;
+			alert('true');
 		else
-			type = false;
+			alert('false');
 		//$.post('/load_print_view', { print_type: type }, function(r) { $(".msgbox").html(r); });
-		alert(type);
 		$(".msgbox").css("display", "block");
 		$(".blackout").css("display", "block");
 	}
