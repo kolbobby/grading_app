@@ -17,7 +17,8 @@ function change_tab(new_tab) {
 function change_sub_tab(new_sub_tab) {
 	var content;
 	if(new_sub_tab == 'bulk') {
-		content = '<input type="file" id="file_select" size="50" /><br /><button id="add_s_bulk" class="btn btn-primary">add students</button>';
+		content = 'Please make sure the .CSV file is in the correct order by column name (name, period, grade level, teacher for physical education)!';
+		content += '<input type="file" id="file_select" size="50" /><br /><button id="add_s_bulk" class="btn btn-primary">add students</button>';
 		content += '<table id="add_bulk_students" class="table table-striped"><thead><tr><th class="id">Row</th><th class="name">Name</th><th class="period">Period</th><th class="grade_level">Grade</th><th class="sign_in_teacher">Sign In Teacher</th></tr></thead><%= escape_javascript(render :partial => "bulk_form") %></table>';
 		content += '<button id="confirm">Confirm?</button>';
 		content += '<%= escape_javascript(javascript_include_tag "bulk_add_jquery") %>';
