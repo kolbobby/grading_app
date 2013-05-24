@@ -155,6 +155,12 @@ class UsersController < ApplicationController
 		render :partial => 'load_roster', :locals => { :roster => @roster }
 	end
 
+	def print_view
+		type = params[:type]
+
+		render :text => type
+	end
+
 	private
 		def signed_in_user
 			unless signed_in?

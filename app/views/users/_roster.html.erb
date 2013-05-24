@@ -4,11 +4,7 @@
 		$(".msgbox").css("display", "none");
 	}
 	function strtBlackout(type) {
-		if(type == 'full')
-			alert('true');
-		else
-			alert('false');
-		//$.post('/load_print_view', { print_type: type }, function(r) { $(".msgbox").html(r); });
+		$.post('/load_print_view', { print_type: type }, function(r) { $(".msgbox").html(r); });
 		$(".msgbox").css("display", "block");
 		$(".blackout").css("display", "block");
 	}
