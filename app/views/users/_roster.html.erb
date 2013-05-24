@@ -12,6 +12,11 @@
 			$(this).click(strtBlackout);
 		});
 		$('.blackout').click(endBlackout);
+		$.keyup(function(e) {
+			if(e.keyCode == 27) {
+				endBlackout();
+			}
+		});
 		$('.activity_drop').each(function() {
 			$(this).click(function() {
 				var ele = $(this).parent('h4').parent('.well').children('.roster_student_list');
