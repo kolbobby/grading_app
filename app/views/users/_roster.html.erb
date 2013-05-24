@@ -10,13 +10,12 @@
 	$(document).ready(function() {
 		$('.print_roster').each(function() {
 			$(this).click(strtBlackout);
+			return false;
 		});
 		$('.blackout').click(endBlackout);
 		$(document).keyup(function(e) {
-			alert('asdf');
 			if(e.keyCode == 27) {
 				endBlackout();
-				alert('fdsa');
 			}
 		});
 		$('.activity_drop').each(function() {
