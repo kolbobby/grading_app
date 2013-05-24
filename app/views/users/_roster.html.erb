@@ -21,7 +21,7 @@
 		<div class="tab-pane active" id="your-roster">
 			<% @activity_arr = Array.new %>
 			<% students.each do |s| %>
-				<% if !@activity_arr.include?(s.search("activity").inner_text) %>
+				<% if !@activity_arr.include?(s) %>
 					<% act = Activity.find(:first, :conditions => { :name => s.search("activity").inner_text, :marking_period => s.search("marking_period").inner_text, :activity_number => s.search("activity_number").inner_text }) %>
 					<% if current_user?(User.find(:first, :conditions => { :name => act[:coach] })) %>
 						<% @activity_arr.push(s) %>
