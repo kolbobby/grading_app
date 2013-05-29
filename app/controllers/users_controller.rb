@@ -156,9 +156,9 @@ class UsersController < ApplicationController
 	end
 
 	def print_view
-		type = params[:type]
+		@type = params[:print_type]
 
-		render :text => type
+		render :text => @type
 	end
 
 	private
