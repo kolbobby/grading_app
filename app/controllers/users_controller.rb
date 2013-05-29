@@ -156,7 +156,11 @@ class UsersController < ApplicationController
 	end
 
 	def print_view
+		require 'nokogiri'
 		@type = params[:print_type]
+		doc = Nokogiri::XML(open(Rails.root.join('app', 'student_activities.xml')))
+		@students = doc.xpath("//student")
+
 		render :partial => "#{@type}_print_template"
 	end
 
