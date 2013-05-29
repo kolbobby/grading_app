@@ -11,9 +11,9 @@
 	$(document).ready(function() {
 		$('.print_roster').each(function() {
 			$(this).click(function() {
-				strtBlackout($(this).prop('id'))
+				strtBlackout($(this).prop('id'));
+				return false;
 			});
-			return false;
 		});
 		$('.blackout').click(endBlackout);
 		$(document).keyup(function(e) {
