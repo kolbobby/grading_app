@@ -1,7 +1,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('.roster_student_list').each(function() {
-			var par = $(this).parent('div').children('h4');
+			var par = $(this).parent('div').children('h4').children('span');
 			$.post('/load_student_roster', { activity: par.text() }, function(r) { $(this).html(r); });
 		});
 	})
@@ -13,7 +13,7 @@
 		<% if !@activity_arr2.include?(s.search("activity").inner_text) %>
 			<% @activity_arr2.push(s.search("activity").inner_text) %>
 			<div class="well">
-				<h4><%= s.search("activity").inner_text %> <small>(coach: <%= s.search("coach").inner_text %>, period: <%= s.search("period").inner_text %>, marking period: <%= s.search("marking_period").inner_text %>)</small></h4>
+				<h4><span><%= s.search("activity").inner_text %></span> <small>(coach: <%= s.search("coach").inner_text %>, period: <%= s.search("period").inner_text %>, marking period: <%= s.search("marking_period").inner_text %>)</small></h4>
 				<div class="roster_student_list"></div>
 			</div>
 		<% end %>

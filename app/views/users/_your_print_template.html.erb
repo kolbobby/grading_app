@@ -1,7 +1,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('.roster_student_list').each(function() {
-			var par = $(this).parent('div').children('h4');
+			var par = $(this).parent('div').children('h4').children('span');
 			$.post('/load_student_roster', { activity: par.text() }, function(r) { $(this).html(r); });
 		});
 	})
@@ -21,7 +21,7 @@
 	<%= current_user[:name] %><hr />
 	<% @s_a_arr.each do |a| %>
 		<div class="well">
-			<h4><%= a.search("activity").inner_text %> <small>(period: <%= a.search("period").inner_text %>, marking period: <%= a.search("marking_period").inner_text %>)</small></h4>
+			<h4><span><%= a.search("activity").inner_text %></span> <small>(period: <%= a.search("period").inner_text %>, marking period: <%= a.search("marking_period").inner_text %>)</small></h4>
 			<div class="roster_student_list"></div>
 		</div>
 	<% end %>
