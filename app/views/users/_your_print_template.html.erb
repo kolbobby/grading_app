@@ -1,6 +1,6 @@
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('.roster_student_list').each(function() {
+		$('#box .roster_student_list').each(function() {
 			var par = $(this).parent('div').children('h4').children('span');
 			$.post('/load_student_roster', { activity: par.text() }, function(r) { $(this).html(r); });
 		});
@@ -17,7 +17,7 @@
 		<% end %>
 	<% end %>
 <% end %>
-<div>
+<div id="box">
 	<%= current_user[:name] %><hr />
 	<% @s_a_arr.each do |a| %>
 		<div class="well">
