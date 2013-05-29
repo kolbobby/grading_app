@@ -157,8 +157,7 @@ class UsersController < ApplicationController
 
 	def print_view
 		@type = params[:print_type]
-
-		render :text => @type
+		render :partial => "#{@type}_print_template"
 	end
 
 	private
