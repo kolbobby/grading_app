@@ -18,7 +18,6 @@
 	<% end %>
 <% end %>
 <div id="box">
-	<%= current_user[:name] %><hr />
 	<% @s_a_arr.each do |a| %>
 		<div class="well">
 			<h4><span><%= a.search("activity").inner_text %></span> <small>(period: <%= a.search("period").inner_text %>, marking period: <%= a.search("marking_period").inner_text %>)</small></h4>

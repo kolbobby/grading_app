@@ -4,6 +4,7 @@
 		$(".msgbox").css("display", "none");
 	}
 	function strtBlackout(type) {
+		$.post('/get_roster_title', { print_type: type }, function(r) { $(".msgbox title").html(r + "<hr />"); });
 		$.post('/load_print_view', { print_type: type }, function(r) { $(".msgbox .inner").html(r); });
 		$(".msgbox").css("display", "block");
 		$(".blackout").css("display", "block");
@@ -34,7 +35,7 @@
 	})
 </script>
 <div class="blackout"></div>
-<div class="msgbox"><div class="inner"></div></div>
+<div class="msgbox"><div class='title'></div><div class="inner"></div></div>
 <div class="tabbable tabs-left">
 	<ul class="nav nav-tabs">
 		<li class="active"><a href="#your-roster" data-toggle="tab">Your Roster</a></li>

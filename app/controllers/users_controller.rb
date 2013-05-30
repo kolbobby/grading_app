@@ -163,6 +163,14 @@ class UsersController < ApplicationController
 
 		render :partial => "#{@type}_print_template"
 	end
+	def roster_title
+		if params[:print_type] == 'full'
+			@text = 'Full Roster'
+		else
+			@text = current_user[:name]
+		end
+		render :text => @text
+	end
 
 	private
 		def signed_in_user
