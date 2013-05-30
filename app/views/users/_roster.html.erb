@@ -4,7 +4,7 @@
 		$(".msgbox").css("display", "none");
 	}
 	function strtBlackout(type) {
-		$.post('/get_roster_title', { print_type: type }, function(r) { $(".msgbox title").html(r + "<hr />"); });
+		$.post('/get_roster_title', { print_type: type }, function(r) { $(".msgbox .title").html(r + "<hr />"); });
 		$.post('/load_print_view', { print_type: type }, function(r) { $(".msgbox .inner").html(r); });
 		$(".msgbox").css("display", "block");
 		$(".blackout").css("display", "block");
