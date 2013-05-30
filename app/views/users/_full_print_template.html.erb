@@ -2,7 +2,7 @@
 	$(document).ready(function() {
 		$('#box .roster_student_list').each(function() {
 			var par = $(this).parent('div').children('h4').children('span');
-			$.post('/load_student_roster', { activity: par.text() }, function(r) { $(this).html(r); });
+			$.post('/load_student_roster', { activity: par.text() }, function(r) { alert($(this).prop('class')); });
 		});
 	})
 </script>
