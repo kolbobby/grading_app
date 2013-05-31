@@ -23,20 +23,6 @@ class UsersController < ApplicationController
 			format.js { render :layout => false }
 		end
 	end
-	def view_attendance
-		require 'will_paginate/array'
-		@att = Array.new
-		@students = Student.all
-		@students.each do |s|
-			if current_user?(User.find(:first, :conditions => { :name => s.sign_in_teacher }))
-				@att.push(s)
-			end
-		end
-		@student_results = @att.paginate(:page => params[:page], :per_page => 15)
-		respond_to do |format|
-			format.js { render :layout => false }
-		end
-	end
 	def view_roster
 		require 'nokogiri'
 		doc = Nokogiri::XML(open(Rails.root.join('app', 'student_activities.xml')))
