@@ -1,14 +1,3 @@
-<style type="text/css" media="print">
-	.blackout, .navbar, .col, .tabbable, .footer {
-		display:none;
-	}
-	.hero-unit, .container, #main-user-content, .msgbox, .msgbox .inner {
-		display: block;
-		width: auto;
-		height: auto;
-		overflow: visible;
-	}
-</style>
 <script type="text/javascript">
 	function endBlackout() {
 		$(".blackout").css("display", "none");
@@ -21,6 +10,20 @@
 		$(".blackout").css("display", "block");
 	}
 	$(document).ready(function() {
+		$('.final_print_roster').click(function() {
+			var data = $('.msgbox').html();
+			var mywindow = window.open('', 'printing', 'height=400,width=600');
+			mywindow.document.write('<html><head><title>my div</title>');
+			mywindow.document.write('<style type="text/css">.blackout { display:none; } .msgbox { top:0;left:0;height:auto; } .msgbox .inner { overflow:visible; }</style>');
+			mywindow.document.write('</head><body >');
+			mywindow.document.write(data);
+			mywindow.document.write('</body></html>');
+
+			mywindow.print();
+			mywindow.close();
+
+			return true;
+		});
 		$('.print_roster').each(function() {
 			$(this).click(function() {
 				strtBlackout($(this).prop('id'));
@@ -46,7 +49,7 @@
 	})
 </script>
 <div class="blackout"></div>
-<div class="msgbox"><div class='title'></div><div class="inner"></div></div>
+<div class="msgbox"><div class='title'></div><div class="inner"></div><div id="final_print_roster"><%= link_to "print", '#', :class => 'final_print_roster' %></div></div>
 <div class="tabbable tabs-left">
 	<ul class="nav nav-tabs">
 		<li class="active"><a href="#your-roster" data-toggle="tab">Your Roster</a></li>
