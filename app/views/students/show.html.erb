@@ -1,16 +1,16 @@
 <% provide(:title, @student.name) %>
-<div class="col pull-left tabular">
-	<table>
+<div class="col pull-left">
+	<table class="table table-striped">
 		<thead>
 			<tr>
-				<td></td>
-				<td><h3><%= @student.name %></h3></td>
+				<th></th>
+				<th><h3><%= @student.name %></h3></th>
 			</tr>
 		</thead>
 		<%= render 'student_side' %>
 	</table>
 </div>
-<div id="main-user-content" class="tabular">
+<div id="main-user-content">
 	<div class="row">
 		This is the home portion of the student profile page.
 	</div>
