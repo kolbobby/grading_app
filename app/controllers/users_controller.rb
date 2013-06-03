@@ -160,7 +160,7 @@ class UsersController < ApplicationController
 
 	def search_student
 		if params[:term]
-			@students = Student.find(:all,:conditions => ['given_name LIKE ?', "#{params[:term]}%"])
+			@students = Student.find(:all,:conditions => ['name LIKE ?', "#{params[:term]}%"])
 		else
 			@students = Student.all
 		end
