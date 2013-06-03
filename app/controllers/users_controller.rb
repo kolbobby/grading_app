@@ -160,6 +160,13 @@ class UsersController < ApplicationController
 		render :text => @text
 	end
 
+	def search_student
+		@name = params[:name]
+		@student = Student.find(:first, :conditions => { :name => @name })
+
+		redirect_to student_path(@student)
+	end
+
 	private
 		def signed_in_user
 			unless signed_in?

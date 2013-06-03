@@ -39,6 +39,7 @@ GradingApp::Application.routes.draw do
   match '/load_student_roster', :to => 'users#load_roster'
   match '/load_print_view', :to => 'users#print_view'
   match '/get_roster_title', :to => 'users#roster_title'
+  match '/search_student', :to => 'users#search_student'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
