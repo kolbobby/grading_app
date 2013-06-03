@@ -18,5 +18,6 @@
 //= require jquery.ui.resizable
 //= require jquery.ui.selectable
 //= require jquery.ui.sortable
+//= require jquery.ui.autocomplete
 //= require autocomplete-rails
 //= require_tree .
