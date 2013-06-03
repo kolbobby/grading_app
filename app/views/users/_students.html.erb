@@ -3,7 +3,7 @@
 		$('.pagination a').attr('data-remote', 'true');
 		$('#search_student').keyup(function(e) {
 			if(e.keyCode == 13)
-				alert($(this).val());
+				window.location.replace("<%= escape_javascript(student_path(Student.find(:first, :conditions => { :name => "+$(this).val()+" }))) %>");
 		});
 	})
 </script>
