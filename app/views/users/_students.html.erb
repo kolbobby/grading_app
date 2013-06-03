@@ -1,29 +1,9 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('.pagination a').attr('data-remote', 'true');
-
-		$('#search_student').autocomplete({
-			minLength: 2,
-			source: '<%= escape_javascript(search_student_path(:json)) %>',
-			focus: function(event, ui) {
-				$('#search_student').val(ui.item.person.given_name);
-				return false;
-			},
-			select: function(event, ui) {
-				$('#search_student').val(ui.item.person.given_name);
-				$('#link_origin_id').val(ui.item.person.id);
-				return false;
-			}
-		})
-		.data("autocomplete")._renderItem = function(ul, item) {
-			return $("<li></li>")
-			.data("item.autocomplete", item)
-			.append("<a>" + item.person.given_name + "</a>")
-			.appendTo(ul);
-		};
 	})
 </script>
-<h3>View Students &bull; <input id="search_student" type="text" placeholder="search through students" /><input id="link_origin_id" name="link[origin_id]" type="hidden"/></h3>
+<h3>View Students &bull;</h3>
 <% if @student_results.length > 0 %>
 	<table class='table table-striped'>
 		<thead>
