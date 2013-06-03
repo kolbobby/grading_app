@@ -3,7 +3,7 @@
 		$('.pagination a').attr('data-remote', 'true');
 		$('#search_student').keyup(function(e) {
 			if(e.keyCode == 13)
-				$.post('/search_student', { name: $(this).val() });
+				$.post('/search_student', { name: $(this).val() }, function(r) { alert(r); });
 		});
 	})
 </script>

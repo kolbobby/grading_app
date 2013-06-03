@@ -164,7 +164,7 @@ class UsersController < ApplicationController
 		@name = params[:name]
 		@student = Student.find(:first, :conditions => { :name => @name })
 
-		redirect_to(root_path)
+		render :text => student_path(@student).to_s
 	end
 
 	private
