@@ -4,8 +4,8 @@
 	})
 </script>
 <h3>View Students &bull;
-	<%= form_for @product do |f| %>
-		<%= f.autocomplete_field :student_name, autocomplete_student_name_users_path %>
+	<%= form_tag 'users/autocomplete_student_name' %>
+		<%= autocomplete_field_tag 'search_student', '', autocomplete_student_name_users_path, :size => 75 %>
 	<% end %>
 </h3>
 <% if @student_results.length > 0 %>
