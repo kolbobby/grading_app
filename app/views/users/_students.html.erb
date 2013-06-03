@@ -1,9 +1,13 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('.pagination a').attr('data-remote', 'true');
+		$('#search_student').keyup(function(e) {
+			if(e.keyCode == 13)
+				alert($(this).val());
+		});
 	})
 </script>
-<h3>View Students &bull; <input type="text" data-autocomplete="/users/autocomplete_student_name" placeholder="search student" /></h3>
+<h3>View Students &bull; <input id="search_student" type="text" data-autocomplete="/users/autocomplete_student_name" placeholder="search student" /></h3>
 <% if @student_results.length > 0 %>
 	<table class='table table-striped'>
 		<thead>
