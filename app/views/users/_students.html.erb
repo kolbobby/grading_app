@@ -3,11 +3,7 @@
 		$('.pagination a').attr('data-remote', 'true');
 	})
 </script>
-<h3>View Students &bull;
-	<%= form_tag 'users/autocomplete_student_name' %>
-		<%= autocomplete_field_tag 'search_student', '', autocomplete_student_name_users_path, :size => 75 %>
-	<% end %>
-</h3>
+<h3>View Students &bull; <input type="text" data-autocomplete="products/autocomplete_brand_name" placeholder="search student" /></h3>
 <% if @student_results.length > 0 %>
 	<table class='table table-striped'>
 		<thead>
