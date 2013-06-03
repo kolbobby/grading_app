@@ -158,6 +158,19 @@ class UsersController < ApplicationController
 		render :text => @text
 	end
 
+	def search_student
+		if params[:term]
+			@students = Student.find(:all,:conditions => ['given_name LIKE ?', "#{params[:term]}%"])
+		else
+			@students = Student.all
+		end
+
+		respond_to do |format|  
+			format.html
+			format.json { render :json => @students.to_json }
+		end
+	end
+
 	private
 		def signed_in_user
 			unless signed_in?
