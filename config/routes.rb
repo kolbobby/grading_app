@@ -1,6 +1,5 @@
 GradingApp::Application.routes.draw do
   resources :users do
-    get :autocomplete_student_name, :on => :collection
     member do
       get "view_home"
       get "setup_teachers"
@@ -8,6 +7,7 @@ GradingApp::Application.routes.draw do
       get "view_roster"
       get "manage_students"
       get "manage_activities"
+      get :autocomplete_student_name, :on => :collection
     end
   end
   resources :students
