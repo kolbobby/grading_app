@@ -1,13 +1,3 @@
-<style type="text/css">
-	.ui_autocomplete {
-		width:10%;
-		margin:0;
-		padding:0;
-	}
-	.ui_autocomplete li {
-		list-style-type:none;
-	}
-</style>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('.pagination a').attr('data-remote', 'true');
@@ -35,3 +25,9 @@
 	<br /><h4>There are no students within the database!</h4>
 <% end %>
 <%= will_paginate @student_results %>
+<style type="text/css">
+	.ui-autocomplete {
+		width:10%;
+		list-style-type:none;
+	}
+</style>
