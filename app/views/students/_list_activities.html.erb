@@ -1,12 +1,25 @@
 <script type="text/javascript">
 	$(document).ready(function() {
-		$.post('/load_student_activities', { name: $('table thead tr th h4').text(), marking: "1" }, function(r) { $('.list_activities').html(r); });
+		$.post('/load_student_activities', { name: $('table thead tr th h4').text(), marking: "1" }, function(r) { $('.list_activities table tbody tr').html(r); });
 		$('#select_marking_period').change(function() {
-			$.post('/load_student_activities', { name: $('table thead tr th h4').text(), marking: $(this).val() }, function(r) { $('.list_activities').html(r); });
+			$.post('/load_student_activities', { name: $('table thead tr th h4').text(), marking: $(this).val() }, function(r) { $('.list_activities table tbody tr').html(r); });
 		});
 	})
 </script>
-<div class="list_activities"></div>
+<div class="list_activities">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Activity 1</th>
+				<th>Activity 2</th>
+				<th>Activity 3</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr></tr>
+		</tbody>
+	</table>
+</div>
 <style type="text/css">
 	select {
 		margin-top:5px;
