@@ -1,8 +1,8 @@
 <script type="text/javascript">
 	$(document).ready(function() {
-		$.post('/load_student_activities', { name: $('table thead tr th h4').text(), marking: "1" }, function(r) { alert(r); });
+		$.post('/load_student_activities', { name: $('table thead tr th h4').text(), marking: "1" }, function(r) { $('.list_activities').html(r); });
 		$('#select_marking_period').change(function() {
-			$.post('/load_student_activities', { name: $('table thead tr th h4').text(), marking: $(this).val() }, function(r) { alert(r); });
+			$.post('/load_student_activities', { name: $('table thead tr th h4').text(), marking: $(this).val() }, function(r) { $('.list_activities').html(r); });
 		});
 	})
 </script>

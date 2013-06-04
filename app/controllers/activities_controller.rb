@@ -35,7 +35,7 @@ class ActivitiesController < ApplicationController
 
 		str = ""
 		cur_acts.each do |ca|
-			str = "<div id='act_#{ca.search("activity_number").inner_text}'>#{ca.search("activity").inner_text}</div>#{str}"
+			str = "#{str}<div id='act_#{ca.search("activity_number").inner_text}'>#{ca.search("activity").inner_text}</div>"
 		end
 
 		render :text => str
