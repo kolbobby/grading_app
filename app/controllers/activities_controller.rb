@@ -10,9 +10,33 @@ class ActivitiesController < ApplicationController
 	end
 
 	def load_student_activities
+		require 'nokogiri'
 		@name = params[:name]
+		@marking = params[:marking]
+		io = File.open(Rails.root.join('app', 'student_activities.xml'))
+		builder = Nokogiri::XML(io)
+		io.close
 
-		render :text => @name
+		student = Array.new
+		xml_students = builder.xpath("//student")
+		xml_students.each do |xs|
+			if xs.search("name").inner_text.to_s == @name.to_s
+				student.push(xs)
+			end
+		end
+		cur_acts = Array.new
+		student.each do |s|
+			if s.search("marking_period").inner_text.to_s == @marking.to_s
+				cur_acts.push(s)
+			end
+		end
+
+		str = ""
+		cur_acts.each do |ca|
+			str = "#{str}<div id='act_#{ca.search("activity_number").inner_text}'>#{ca.search("activity").inner_text}</div>"
+		end
+
+		render :text => str
 	end
 
 	def add_to_activity
