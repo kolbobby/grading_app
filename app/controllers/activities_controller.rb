@@ -9,6 +9,12 @@ class ActivitiesController < ApplicationController
 		render :text => activity.name
 	end
 
+	def load_student_activities
+		@name = params[:name]
+
+		render :text => @name
+	end
+
 	def add_to_activity
 		require 'nokogiri'
 		students = params[:students]

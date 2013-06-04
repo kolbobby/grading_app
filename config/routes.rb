@@ -30,6 +30,7 @@ GradingApp::Application.routes.draw do
   post '/update_capacity', :to => 'activities#update_capacity'
   post '/confirm_add', :to => 'activities#confirm_add_activities'
   post '/users/add_to_activity', :to => 'activities#add_to_activity'
+  match '/load_student_activities', :to => 'activities#load_student_activities'
 
   match '/users/add_user', :to => 'users#add_user'
   match '/reload_teachers', :to => 'users#reload_teachers'

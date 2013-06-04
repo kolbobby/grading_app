@@ -1,1 +1,7 @@
-Just a test!
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#select_marking_period').change(function() {
+			$.post('/load_student_activities', { name: $('table thead tr th h4').text() }, function(r) { alert(r); });
+		});
+	})
+</script>
