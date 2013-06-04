@@ -167,6 +167,12 @@ class UsersController < ApplicationController
 		render :text => student_path(@student).to_s
 	end
 
+	def reset_application
+		respond_to do |format|
+			format.js { render :layout => false }
+		end
+	end
+
 	private
 		def signed_in_user
 			unless signed_in?
