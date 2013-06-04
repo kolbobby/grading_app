@@ -8,6 +8,7 @@ GradingApp::Application.routes.draw do
       get "view_roster"
       get "manage_students"
       get "manage_activities"
+      get "reset_application"
     end
   end
   resources :students
