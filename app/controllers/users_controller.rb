@@ -173,7 +173,7 @@ class UsersController < ApplicationController
 		end
 	end
 	def confirm_password
-		render :text => current_user[:password]
+		render :text => params[:pass]
 	end
 
 	private
