@@ -175,7 +175,11 @@ class UsersController < ApplicationController
 	def confirm_password
 		@user = User.find_by_name(current_user[:name]).try(:authenticate, params[:pass])
 
-		render :text => @user[:name]
+		if current_user?(@user)
+			render :text => "RESET APPLICATION!"
+		else
+			render :text => "NO ACCESS!"
+		end
 	end
 
 	private
