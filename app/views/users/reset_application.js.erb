@@ -5,8 +5,4 @@ $.ajaxSetup({async:false});
 $.post('/confirm_password', { pass: pass }, function(r) { confirm = r; });
 $.ajaxSetup({async:true});
 
-if(confirm) {
-	alert("RESET!");
-} else {
-	alert("NO ACCESS!");
-}
+alert(confirm);
