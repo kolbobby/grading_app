@@ -7,7 +7,7 @@ $.ajaxSetup({async:true});
 
 if(confirmP == "pass") {
 	if(confirm("Are you sure you would like to reset the application? (final chance)")) {
-		alert("TEST CLEAR!");
+		$.post('/confirm_reset_application', function(r) { alert(r); });
 	}
 } else {
 	alert(confirmP);

@@ -181,6 +181,11 @@ class UsersController < ApplicationController
 			render :text => "NO ACCESS!"
 		end
 	end
+	def confirm_reset_application
+		if User.destroy_all(:teacher => true)
+			render :text => "Cleared teachers!"
+		end
+	end
 
 	private
 		def signed_in_user

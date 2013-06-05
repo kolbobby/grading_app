@@ -43,6 +43,7 @@ GradingApp::Application.routes.draw do
   match '/get_roster_title', :to => 'users#roster_title'
   match '/search_student', :to => 'users#search_student'
   match '/confirm_password', :to => 'users#confirm_password'
+  match '/confirm_reset_application', :to => 'users#confirm_reset_application'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
