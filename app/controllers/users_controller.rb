@@ -182,8 +182,8 @@ class UsersController < ApplicationController
 		end
 	end
 	def confirm_reset_application
-		if User.destroy_all(:teacher => true)
-			render :text => "Cleared teachers!"
+		if User.destroy_all(:teacher => true) && Student.destroy_all && Activity.destroy_all
+			render :text => "RESET COMPLETE!"
 		end
 	end
 
