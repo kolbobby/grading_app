@@ -1,5 +1,5 @@
 var pass = prompt("Please enter your password to confirm this action.");
-var confirm;
+var confirm = "";
 
 $.ajaxSetup({async:false});
 $.post('/confirm_password', { pass: pass }, function(r) { confirm = r; });
