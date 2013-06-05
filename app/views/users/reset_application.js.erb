@@ -1,12 +1,14 @@
 var pass = prompt("Please enter your password to confirm this action.");
-var confirm;
+var confirmP;
 
 $.ajaxSetup({async:false});
-$.post('/confirm_password', { pass: pass }, function(r) { confirm = r; });
+$.post('/confirm_password', { pass: pass }, function(r) { confirmP = r; });
 $.ajaxSetup({async:true});
 
-if(confirm == "RESET APPLICATION!") {
+if(confirmP == "pass") {
 	if(confirm("Are you sure you would like to reset the application? (final chance)")) {
 		alert("TEST CLEAR!");
 	}
+} else {
+	alert(confirmP);
 }

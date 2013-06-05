@@ -176,7 +176,7 @@ class UsersController < ApplicationController
 		@user = User.find_by_name(current_user[:name]).try(:authenticate, params[:pass])
 
 		if current_user?(@user)
-			render :text => "RESET APPLICATION!"
+			render :text => "pass"
 		else
 			render :text => "NO ACCESS!"
 		end
