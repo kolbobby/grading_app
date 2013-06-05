@@ -5,4 +5,8 @@ $.ajaxSetup({async:false});
 $.post('/confirm_password', { pass: pass }, function(r) { confirm = r; });
 $.ajaxSetup({async:true});
 
-alert(confirm);
+if(confirm == "RESET APPLICATION!") {
+	if(confirm("Are you sure you would like to reset the application? (final chance)")) {
+		alert("TEST CLEAR!");
+	}
+}
