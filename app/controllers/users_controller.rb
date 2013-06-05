@@ -172,6 +172,9 @@ class UsersController < ApplicationController
 			format.js { render :layout => false }
 		end
 	end
+	def confirm_password
+		render :text => current_user[:password]
+	end
 
 	private
 		def signed_in_user
