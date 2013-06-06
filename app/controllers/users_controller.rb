@@ -188,12 +188,11 @@ class UsersController < ApplicationController
 			}
 		end
 		io = File.open(Rails.root.join('app', 'student_activities.xml'), "w+")
+		io.puts builder.to_xml
+		io.close
 
-		if io.puts builder.to_xml && Student.destroy_all && Activity.destroy_all
-			io.close
+		if Student.destroy_all && Activity.destroy_all
 			render :text => "RESET COMPLETE!"
-		else
-			io.close
 		end
 	end
 
