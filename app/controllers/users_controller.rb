@@ -182,8 +182,18 @@ class UsersController < ApplicationController
 		end
 	end
 	def confirm_reset_application
-		if User.destroy_all(:teacher => true) && Student.destroy_all && Activity.destroy_all
+		builder = Nokogiri::XML::Builder.new do |xml|
+			xml.root {
+				xml.setup
+			}
+		end
+		io = File.open(Rails.root.join('app', 'student_activities.xml'), "w+")
+
+		if io.puts builder.to_xml && Student.destroy_all && Activity.destroy_all
+			io.close
 			render :text => "RESET COMPLETE!"
+		else
+			io.close
 		end
 	end
 
