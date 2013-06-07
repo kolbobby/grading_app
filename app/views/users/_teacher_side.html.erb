@@ -1,12 +1,14 @@
 <ul class="nav nav-tabs nav-stacked">
 	<li class="nav-header"><%= @user.name %></li>
 	<li><%= link_to "profile home", {:controller => "users", :action => "view_home"}, :remote => true %></li>
-	<li><%= link_to "view roster", {:controller => "users", :action => 'view_roster'}, :remote => true %></li>
-	<li><%= link_to "view students", {:controller => "users", :action => 'view_students'}, :remote => true %></li>
 	<% if !@user.teacher? %>
 		<li><%= link_to "setup teachers", {:controller => "users", :action => 'setup_teachers'}, :remote => true %></li>
-		<li><%= link_to "manage students", {:controller => "users", :action => 'manage_students'}, :remote => true %></li>
 		<li><%= link_to "manage activities", {:controller => "users", :action => 'manage_activities'}, :remote => true %></li>
+		<li><%= link_to "manage students", {:controller => "users", :action => 'manage_students'}, :remote => true %></li>
+	<% end %>
+	<li><%= link_to "view students", {:controller => "users", :action => 'view_students'}, :remote => true %></li>
+	<li><%= link_to "view roster", {:controller => "users", :action => 'view_roster'}, :remote => true %></li>
+	<% if !@user.teacher? %>
 		<li><%= link_to "reset application", {:controller => "users", :action => 'reset_application'}, :remote => true %></li>
 	<% end %>
 </ul>
