@@ -5,8 +5,7 @@
 			$.post('/load_student_roster', { activity: par.text() }, function(r) { par.parent('li').children('.roster_student_list').html(r); });
 		});
 		$('.period-ul').each(function() {
-			if($(this).text() == "period: 1")
-				alert($(this).text());
+			alert($(this).html());
 		});
 	})
 </script>
