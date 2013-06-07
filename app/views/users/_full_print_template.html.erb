@@ -4,7 +4,7 @@
 			var par = $(this).parent('li').children('span');
 			$.post('/load_student_roster', { activity: par.text() }, function(r) { par.parent('li').children('.roster_student_list').html(r); });
 		});
-		$('#marking-period-ul').each(function() {
+		$('#period-ul').each(function() {
 			alert($(this).text());
 		});
 	})
