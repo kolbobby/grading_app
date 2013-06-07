@@ -1,8 +1,8 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#box .roster_student_list').each(function() {
-			var par = $(this).parent('div').children('h4').children('span');
-			$.post('/load_student_roster', { activity: par.text() }, function(r) { par.parent('h4').parent('div').children('.roster_student_list').html(r); });
+			var par = $(this).parent('div').children('p').children('span');
+			$.post('/load_student_roster', { activity: par.text() }, function(r) { par.parent('p').parent('div').children('.roster_student_list').html(r); });
 		});
 	})
 </script>
@@ -12,7 +12,8 @@
 		<% if !@activity_arr2.include?(s.search("activity").inner_text) %>
 			<% @activity_arr2.push(s.search("activity").inner_text) %>
 			<div class="well">
-				<h4><span><%= s.search("activity").inner_text %></span> <small>(coach: <%= s.search("coach").inner_text %>, period: <%= s.search("period").inner_text %>, marking period: <%= s.search("marking_period").inner_text %>)</small></h4>
+				<h4><%= link_to "Marking Period: #{s.search('marking_period').inner_text}", '#', :id => "#{s.search("activity").inner_text}", :class => "activity_drop" %> <small>(period: <%= s.search("period").inner_text %>, coach: <%= s.search("coach").inner_text %>)</small></h4>
+				<p><span><%= s.search("activity").inner_text %></span></p>
 				<div class="roster_student_list"></div>
 			</div>
 		<% end %>
