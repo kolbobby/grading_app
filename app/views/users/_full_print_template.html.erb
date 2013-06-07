@@ -4,7 +4,7 @@
 			var par = $(this).parent('li').children('span');
 			$.post('/load_student_roster', { activity: par.text() }, function(r) { par.parent('li').children('.roster_student_list').html(r); });
 		});
-		$('#period-ul').each(function() {
+		$('.period-ul').each(function() {
 			alert($(this).text());
 		});
 	})
@@ -14,10 +14,10 @@
 	<% periods = ['1', '2', '3', '4', '5-6', '6-7', '7-8', '8-9', '10', '11'] %>
 	<% 4.times do |x| %>
 		<div class="well">
-			<ul id="marking-period-ul">
+			<ul class="marking-period-ul">
 				<li><h3>Marking Period: <%= (x+1) %></h4>
 					<% periods.each do |p| %>
-						<ul id="period-ul">
+						<ul class="period-ul">
 							<li>period: <%= p %>
 								<% @students.each do |s| %>
 									<% if p == s.search("period").inner_text %>
