@@ -12,7 +12,7 @@
 		<% if !@activity_arr2.include?(s.search("activity").inner_text) %>
 			<% @activity_arr2.push(s.search("activity").inner_text) %>
 			<div class="well">
-				<h4><%= link_to "Marking Period: #{s.search('marking_period').inner_text}", '#', :id => "#{s.search("activity").inner_text}", :class => "activity_drop" %> <small>(period: <%= s.search("period").inner_text %>, coach: <%= s.search("coach").inner_text %>)</small></h4>
+				<h4>Marking Period: <%= s.search('marking_period').inner_text %> <small>(period: <%= s.search("period").inner_text %>, coach: <%= s.search("coach").inner_text %>)</small></h4>
 				<p><span><%= s.search("activity").inner_text %></span></p>
 				<div class="roster_student_list"></div>
 			</div>
