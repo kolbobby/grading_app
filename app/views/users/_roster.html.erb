@@ -88,7 +88,8 @@
 					<% if !@activity_arr2.include?(s.search("activity").inner_text) %>
 						<% @activity_arr2.push(s.search("activity").inner_text) %>
 						<div class="well">
-							<h4><%= link_to s.search("activity").inner_text, '#', :id => "#{s.search("activity").inner_text}", :class => "activity_drop" %> <small>(coach: <%= s.search("coach").inner_text %>, period: <%= s.search("period").inner_text %>, marking period: <%= s.search("marking_period").inner_text %>)</small></h4>
+							<h4><%= link_to "Marking Period: #{s.search('marking_period').inner_text}", '#', :id => "#{s.search("activity").inner_text}", :class => "activity_drop" %> <small>(period: <%= s.search("period").inner_text %>, coach: <%= s.search("coach").inner_text %>)</small></h4>
+							<p><%= s.search("activity").inner_text %></p>
 							<div class="roster_student_list"></div>
 						</div>
 					<% end %>
