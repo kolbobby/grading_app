@@ -5,7 +5,10 @@
 			$.post('/load_student_roster', { activity: par.text() }, function(r) { par.parent('li').children('.roster_student_list').html(r); });
 		});
 		$('.period-ul').each(function() {
-			alert($.trim($(this).html()).replace(/\s/g, ""));
+			var pText = $.trim($(this).html()).replace(/\s/g, "");
+			if(pText.indexOf('</li>') <= 14) {
+				alert(pText);
+			}
 		});
 	})
 </script>
