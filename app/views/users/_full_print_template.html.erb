@@ -7,7 +7,7 @@
 		$('.period-ul').each(function() {
 			var pText = $.trim($(this).html()).replace(/\s/g, "");
 			if(pText.indexOf('</li>') <= 14) {
-				alert(pText);
+				$(this).hide();
 			}
 		});
 	})
