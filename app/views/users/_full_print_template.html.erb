@@ -4,6 +4,9 @@
 			var par = $(this).parent('li').children('span');
 			$.post('/load_student_roster', { activity: par.text() }, function(r) { par.parent('li').children('.roster_student_list').html(r); });
 		});
+		$('.period-ul').each(function() {
+			alert($.trim($(this).html()));
+		});
 	})
 </script>
 <% @activity_arr2 = Array.new %>
