@@ -12,7 +12,8 @@
 		});
 		$('.marking-period-ul').each(function() {
 			var pText = $.trim($(this).html()).replace(/\s/g, "");
-			alert(pText.length);
+			if(pText.length <= 923)
+				$(this).css({ 'display': 'none' });
 		});
 	})
 </script>
