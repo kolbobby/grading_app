@@ -13,7 +13,7 @@
 		$('.marking-period-ul').each(function() {
 			var pText = $.trim($(this).html()).replace(/\s/g, "");
 			if(pText.length <= 923)
-				$(this).css({ 'display': 'none' });
+				$(this).parent('.well').css({ 'display': 'none' });
 		});
 	})
 </script>
