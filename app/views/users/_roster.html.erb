@@ -19,7 +19,7 @@
 			var data = $('.msgbox').html();
 			var mywindow = window.open('', 'printing', 'height=400,width=600');
 			mywindow.document.write('<html><head><title>roster</title>');
-			mywindow.document.write('<style type="text/css">.blackout { display:none; } .msgbox { top:0;left:0;height:auto; } .msgbox .inner { overflow:visible; } .final_print_roster { display:none; }</style>');
+			mywindow.document.write('<style type="text/css">li { list-style-type:none; } .blackout { display:none; } .msgbox { top:0;left:0;height:auto; } .msgbox .inner { overflow:visible; } .final_print_roster { display:none; }</style>');
 			mywindow.document.write('</head><body >');
 			mywindow.document.write(data);
 			mywindow.document.write('</body></html>');
