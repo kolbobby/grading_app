@@ -27,7 +27,7 @@
 						<ul class="period-ul">
 							<li>period: <span id="period"><%= p %></span>
 								<% @students.each do |s| %>
-									<% if (x+1) == s.search("marking_period").inner_text && p == s.search("period").inner_text %>
+									<% if ((x+1).to_s == s.search("marking_period").inner_text) && (p == s.search("period").inner_text) %>
 										<% if !@activity_arr2.include?(s.search("activity").inner_text) %>
 											<% @activity_arr2.push(s.search("activity").inner_text) %>
 											<ul>
