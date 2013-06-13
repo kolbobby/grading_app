@@ -131,11 +131,12 @@ class UsersController < ApplicationController
 		io.close
 
 		@activity = params[:activity]
+		@period = params[:period]
 
 		@roster = Array.new
 		@students = builder.xpath('//student')
 		@students.each do |s|
-			if @activity == s.search('activity').inner_text
+			if @activity == s.search('activity').inner_text && @period == s.search('period').inner_text
 				@roster.push(s)
 			end
 		end
