@@ -1,18 +1,20 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#box .roster_student_list').each(function() {
-			var par = $(this).parent('div').children('h4').children('span');
-			$.post('/load_student_roster', { activity: par.text() }, function(r) { par.parent('h4').parent('div').children('.roster_student_list').html(r); });
+			var par = $(this).parent('div').children('h4').children('#activity');
+			$.post('/load_student_roster', { activity: par.text(), period: $(this).parent('div').children('h4').children('small').children('#period').text() }, function(r) { par.parent('h4').parent('div').children('.roster_student_list').html(r); });
 		});
 	})
 </script>
 <% @s_a_arr = Array.new %>
 <% @activity_arr = Array.new %>
+<% @period_arr = Array.new %>
 <% @students.each do |s| %>
-	<% if !@activity_arr.include?(s.search("activity").inner_text) %>
+	<% if !@activity_arr.include?(s.search("activity").inner_text) || !@period_arr.include?(s.search("period").inner_text) %>
 		<% act = Activity.find(:first, :conditions => { :name => s.search("activity").inner_text, :marking_period => s.search("marking_period").inner_text, :activity_number => s.search("activity_number").inner_text }) %>
 		<% if current_user?(User.find(:first, :conditions => { :name => act[:coach] })) %>
 			<% @activity_arr.push(s.search("activity").inner_text) %>
+			<% @period_arr.push(s.search("period").inner_text) %>
 			<% @s_a_arr.push(s) %>
 		<% end %>
 	<% end %>
@@ -20,7 +22,7 @@
 <div id="box">
 	<% @s_a_arr.each do |a| %>
 		<div class="well">
-			<h4><span><%= a.search("activity").inner_text %></span> <small>(period: <%= a.search("period").inner_text %>, marking period: <%= a.search("marking_period").inner_text %>)</small></h4>
+			<h4><span id="activity"><%= a.search("activity").inner_text %></span> <small>(period: <span id="period"><%= a.search("period").inner_text %></span>, marking period: <%= a.search("marking_period").inner_text %>)</small></h4>
 			<div class="roster_student_list"></div>
 		</div>
 	<% end %>
