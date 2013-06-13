@@ -2,7 +2,7 @@
 	$(document).ready(function() {
 		$('#box .roster_student_list').each(function() {
 			var par = $(this).parent('li').children('span');
-			$.post('/load_student_roster', { activity: par.text() }, function(r) { par.parent('li').children('.roster_student_list').html(r); });
+			$.post('/load_student_roster', { activity: par.text(), period: $(this).parent('li').parent('ul').parent('li').children('#period').text() }, function(r) { par.parent('li').children('.roster_student_list').html(r); });
 		});
 		$('.period-ul').each(function() {
 			var pText = $.trim($(this).html()).replace(/\s/g, "");
@@ -25,9 +25,9 @@
 				<li><h3>Marking Period: <%= (x+1) %></h3>
 					<% periods.each do |p| %>
 						<ul class="period-ul">
-							<li>period: <%= p %>
+							<li>period: <span id="period"><%= p %></span>
 								<% @students.each do |s| %>
-									<% if p == s.search("period").inner_text %>
+									<% if (x+1) == s.search("marking_period").inner_text && p == s.search("period").inner_text %>
 										<% if !@activity_arr2.include?(s.search("activity").inner_text) %>
 											<% @activity_arr2.push(s.search("activity").inner_text) %>
 											<ul>
