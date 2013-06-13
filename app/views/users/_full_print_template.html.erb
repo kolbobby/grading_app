@@ -18,6 +18,7 @@
 	})
 </script>
 <% @activity_arr2 = Array.new %>
+<% @period_arr2 = Array.new %>
 <div id="box">
 	<% periods = ['1', '2', '3', '4', '5-6', '6-7', '7-8', '8-9', '10', '11'] %>
 	<% 4.times do |x| %>
@@ -29,8 +30,9 @@
 							<li>period: <span id="period"><%= p %></span>
 								<% @students.each do |s| %>
 									<% if ((x+1).to_s == s.search("marking_period").inner_text) && (p == s.search("period").inner_text) %>
-										<% if !@activity_arr2.include?(s.search("activity").inner_text) %>
+										<% if !@activity_arr2.include?(s.search("activity").inner_text) || !@period_arr2.include?(s.search("period").inner_text) %>
 											<% @activity_arr2.push(s.search("activity").inner_text) %>
+											<% @period_arr2.push(s.search("period").inner_text) %>
 											<ul>
 												<li><%= s.search("coach").inner_text %> (<span><%= s.search("activity").inner_text %></span>)
 													<ul class="roster_student_list"></ul>
