@@ -192,6 +192,17 @@ class UsersController < ApplicationController
 		io.puts builder.to_xml
 		io.close
 
+		(User.all).each do |t|
+			builder = Nokogiri::XML::Builder.new do |xml|
+				xml.root {
+					xml.setup
+				}
+			end
+			io = File.open(Rails.root.join('app', 'views', 'users', 'schedules', "#{t[:name]}.xml"), "w+")
+			io.puts builder.to_xml
+			io.close
+		end
+
 		if Student.destroy_all && Activity.destroy_all
 			render :text => "RESET COMPLETE!"
 		end
