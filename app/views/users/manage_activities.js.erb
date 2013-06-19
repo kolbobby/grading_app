@@ -40,6 +40,7 @@ $('#save-activities').click(function() {
 });
 
 $('#save-activity-capacities').click(function() {
+	var arr = [];
 	$('.capacity').each(function() {
 		var cap;
 		if($(this).val() == "")
@@ -47,7 +48,14 @@ $('#save-activity-capacities').click(function() {
 		else
 			cap = $(this).val();
 		var span = $(this).parent('label').children('span');
-		$.post('/update_capacity', { activity: span.html(), capacity: cap, marking: span.prop('id').substring(0, span.prop('id').indexOf(',')), act_num: span.prop('id').substring(span.prop('id').indexOf(',') + 2) }, function(r) { $(this).prop('placeholder', r); });
+		var marking = span.prop('id').substring(0, span.prop('id').indexOf(','));
+		var act = span.prop('id').substring(span.prop('id').indexOf(',') + 2);
+		//$.post('/update_capacity', { activity: span.text(), capacity: cap, marking: marking, act_num: act }, function(r) { $(this).prop('placeholder', r); });
+		var arr2 = { 'activity': span.text(), 'capacity': cap, 'marking': marking, 'act_num': act };
+		arr.push(arr2);
+	});
+	$.each(arr, function(key, value) {
+		alert(key + ": " + value);
 	});
 });
 
@@ -59,20 +67,11 @@ function loadActivities(activities) {
 		str += "<td class='left-side'>Marking Period "+ (i+1) +"</td>";
 		for(var j = 0;j < 3;j++) {
 			var textA = "";
-			if(j != 2) {
-				if(activities.length < 12) {
-					str += "<td id='"+(i+1)+"_"+(j+1)+"' class='data'><em>none</em></td>";
-				} else {
-					$.post('/get_activity', { coach: cur_coach, act: j+1, mp: i+1 }, function(r) { textA = r; });
-					str += "<td id='"+(i+1)+"_"+(j+1)+"' class='data'>"+ textA +"</td>";
-				}
+			if(activities.length < 12) {
+				str += "<td id='"+(i+1)+"_"+(j+1)+"' class='data'><em>none</em></td>";
 			} else {
-				if(activities.length < 12) {
-					str += "<td id='"+(i+1)+"_"+(j+1)+"' class='right-side data'><em>none</em></td>";
-				} else {
-					$.post('/get_activity', { coach: cur_coach, act: j+1, mp: i+1 }, function(r) { textA = r; });
-					str += "<td id='"+(i+1)+"_"+(j+1)+"' class='right-side data'>"+ textA +"</td>";
-				}
+				$.post('/get_activity', { coach: cur_coach, act: j+1, mp: i+1 }, function(r) { textA = r; });
+				str += "<td id='"+(i+1)+"_"+(j+1)+"' class='data'>"+ textA +"</td>";
 			}
 		}
 		str += "</tr>";
