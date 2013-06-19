@@ -54,8 +54,10 @@ $('#save-activity-capacities').click(function() {
 		var arr2 = { 'activity': span.text(), 'capacity': cap, 'marking': marking, 'act_num': act };
 		arr.push(arr2);
 	});
-	$.each(arr, function(key, value) {
-		alert(key + ": " + value);
+	$.each(arr, function(index, value) {
+		$.each(arr[index], function(key, value) {
+			alert(key + ": " + value);
+		});
 	});
 });
 
