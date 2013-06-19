@@ -101,6 +101,7 @@ class ActivitiesController < ApplicationController
 
 			act.save
 		end
+		render :nothing => true
 	end
 
 	def add_activities
