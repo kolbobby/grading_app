@@ -53,9 +53,7 @@ $('#save-activity-capacities').click(function() {
 		var arr2 = [span.text(), cap, marking, act];
 		arr.push(arr2);
 	});
-	//$.ajaxSetup({async:false});
-	//$.post('/update_capacities', { activities: arr }, function(r) { alert(r); });
-	//$.ajaxSetup({async:true});
+	$.post('/update_capacities', { activities: arr }, function(r) { alert(r); });
 });
 
 function loadActivities(activities) {
