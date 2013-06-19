@@ -28,7 +28,7 @@ GradingApp::Application.routes.draw do
   post '/change_coach', :to => 'activities#change_coach'
   post '/get_activity', :to => 'activities#get_activity'
   post '/add_activities', :to => 'activities#add_activities'
-  post '/update_capacity', :to => 'activities#update_capacity'
+  post '/update_capacities', :to => 'activities#update_capacities'
   post '/confirm_add', :to => 'activities#confirm_add_activities'
   post '/users/add_to_activity', :to => 'activities#add_to_activity'
   post '/load_student_activities', :to => 'activities#load_student_activities'

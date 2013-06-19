@@ -92,14 +92,20 @@ class ActivitiesController < ApplicationController
 		end
 	end
 
-	def update_capacity
-		capacity = params[:capacity]
-		act = Activity.find(:first, :conditions => { :name => params[:activity], :marking_period => params[:marking], :activity_number => params[:act_num] })
-		act[:capacity] = capacity
-
-		if act.save
-			render :text => capacity
+	def update_capacities
+		str = ""
+		activites = params[:activites]
+		activites.each do |a|
+			str = "#{str}Activity: #{a[0]}, Capacity: #{a[1]}, Marking Period: #{a[2]}, Activity Number: #{a[3]}\n"
 		end
+		#capacity = params[:capacity]
+		#act = Activity.find(:first, :conditions => { :name => params[:activity], :marking_period => params[:marking], :activity_number => params[:act_num] })
+		#act[:capacity] = capacity
+
+		#if act.save
+		#	render :text => capacity
+		#end
+		render :text => str
 	end
 
 	def add_activities

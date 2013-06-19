@@ -50,15 +50,12 @@ $('#save-activity-capacities').click(function() {
 		var span = $(this).parent('label').children('span');
 		var marking = span.prop('id').substring(0, span.prop('id').indexOf(','));
 		var act = span.prop('id').substring(span.prop('id').indexOf(',') + 2);
-		//$.post('/update_capacity', { activity: span.text(), capacity: cap, marking: marking, act_num: act }, function(r) { $(this).prop('placeholder', r); });
-		var arr2 = { 'activity': span.text(), 'capacity': cap, 'marking': marking, 'act_num': act };
+		var arr2 = [span.text(), cap, marking, act];
 		arr.push(arr2);
 	});
-	$.each(arr, function(index, value) {
-		$.each(arr[index], function(key, value) {
-			alert(key + ": " + value);
-		});
-	});
+	//$.ajaxSetup({async:false});
+	//$.post('/update_capacities', { activities: arr }, function(r) { alert(r); });
+	//$.ajaxSetup({async:true});
 });
 
 function loadActivities(activities) {
