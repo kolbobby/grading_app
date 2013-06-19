@@ -94,7 +94,7 @@ class ActivitiesController < ApplicationController
 
 	def update_capacities
 		str = ""
-		activites = params[:activites]
+		activites = params[:activities]
 		activites.each do |a|
 			str = "#{str}Activity: #{a[0]}, Capacity: #{a[1]}, Marking Period: #{a[2]}, Activity Number: #{a[3]}\n"
 		end
