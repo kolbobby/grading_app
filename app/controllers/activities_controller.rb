@@ -6,7 +6,7 @@ class ActivitiesController < ApplicationController
 
 	def get_activity
 		activity = Activity.find(:first, :conditions => { :coach => params[:coach], :marking_period => params[:mp], :activity_number => params[:act] })
-		render :text => activity.name
+		render :text => activity[:name]
 	end
 
 	def load_student_activities
