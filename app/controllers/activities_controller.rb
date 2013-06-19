@@ -99,11 +99,8 @@ class ActivitiesController < ApplicationController
 			act = Activity.find(:first, :conditions => { :name => a[1][0], :marking_period => a[1][2], :activity_number => a[1][3] })
 			act[:capacity] = a[1][1]
 
-			if act.save
-				str = "#{str}Activity: #{a[1][0]}, Capacity: #{a[1][1]}, Marking Period: #{a[1][2]}, Activity Number: #{a[1][3]}\n"
-			end
+			act.save
 		end
-		render :text => str
 	end
 
 	def add_activities
