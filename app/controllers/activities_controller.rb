@@ -96,15 +96,13 @@ class ActivitiesController < ApplicationController
 		str = ""
 		activites = params[:activities]
 		activites.each do |a|
-			str = "#{str}Activity: #{a[1][0]}, Capacity: #{a[1][1]}, Marking Period: #{a[1][2]}, Activity Number: #{a[1][3]}\n"
-		end
-		#capacity = params[:capacity]
-		#act = Activity.find(:first, :conditions => { :name => params[:activity], :marking_period => params[:marking], :activity_number => params[:act_num] })
-		#act[:capacity] = capacity
+			act = Activity.find(:first, :conditions => { :name => a[1][0], :marking_period => a[1][2], :activity_number => a[1][3] })
+			act[:capacity] = a[1][1]
 
-		#if act.save
-		#	render :text => capacity
-		#end
+			if act.save
+				str = "#{str}Activity: #{a[1][0]}, Capacity: #{a[1][1]}, Marking Period: #{a[1][2]}, Activity Number: #{a[1][3]}\n"
+			end
+		end
 		render :text => str
 	end
 
